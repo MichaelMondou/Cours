@@ -1,0 +1,77 @@
+package Hex;
+
+import java.awt.Color;
+import java.awt.Polygon;
+
+public class Cellule extends Polygon{
+
+	private int l, c;
+	private Color couleur;
+
+	private final double arc = (Math.PI * 2) / 6;
+
+	Cellule(int l, int c, Color couleur) {
+		this.l = l;
+		this.c = c;
+		this.couleur = couleur;
+		
+		p = new Polygon();
+		for (int i = 0; i <= 6; i++) {
+			p.addPoint((int) Math.round(this.x * Math.cos(arc * i)),
+					(int) Math.round(this.y * Math.sin(arc * i)));
+		}
+	}
+	
+	
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	public int getL() {
+		return l;
+	}
+
+	public void setL(int l) {
+		this.l = l;
+	}
+
+	public int getC() {
+		return c;
+	}
+
+	public void setC(int c) {
+		this.c = c;
+	}
+
+	public Color getCouleur() {
+		return couleur;
+	}
+
+	public void setCouleur(Color couleur) {
+		this.couleur = couleur;
+	}
+
+	public Polygon getP() {
+		return p;
+	}
+
+	public void setP(Polygon p) {
+		this.p = p;
+	}
+	
+	
+	
+	
+}

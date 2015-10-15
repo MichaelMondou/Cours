@@ -1,0 +1,27 @@
+package Hex;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Polygon;
+
+import javax.swing.JPanel;
+
+
+public class Forme extends JPanel {
+	public void paintComponent(Graphics g) {
+		Polygon p = new Polygon();
+		
+		/*Coordonées graphiques*/
+		double arc = (Math.PI * 2) / 6;
+		int x = 375;
+		int y = 275;
+		for (int i = 0; i <= 6; i++) {
+			p.addPoint((int) Math.round(x + 50 * Math.cos(arc * i)),
+					(int) Math.round(y + 50 * Math.sin(arc * i)));
+		}
+		
+		/*Couleur*/
+		g.setColor(Color.ORANGE);
+		g.fillPolygon(p);
+	}
+}

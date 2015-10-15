@@ -1,0 +1,23 @@
+package Hex;
+
+import java.awt.Color;
+import java.awt.Polygon;
+
+public class Cellule {
+
+	private int x, y;
+	private int l, c;
+	private Color couleur;
+	private Polygon p;
+
+	Cellule(int x, int y, int l, int c, Color couleur) {
+		this.x = x;
+		this.y = y;
+		this.l = l;
+		this.c = c;
+		this.couleur = couleur;
+		
+		p = new Polygon();
+		
+	}
+}

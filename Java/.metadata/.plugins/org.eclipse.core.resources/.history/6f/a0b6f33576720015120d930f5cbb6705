@@ -1,0 +1,29 @@
+package Hex;
+
+import java.awt.Color;
+import java.awt.Polygon;
+
+public class Cellule {
+
+	private int x, y;
+	private int l, c;
+	private Color couleur;
+	private Polygon p;
+	
+	private final double arc = (Math.PI * 2) / 6;
+
+	Cellule(int x, int y, int l, int c, Color couleur) {
+		this.x = x;
+		this.y = y;
+		this.l = l;
+		this.c = c;
+		this.couleur = couleur;
+		
+		p = new Polygon();
+		for (int i = 0; i <= 6; i++) {
+			p.addPoint((int) Math.round(x + 50 * Math.cos(arc * i)),
+					(int) Math.round(y + 50 * Math.sin(arc * i)));
+		}
+		
+	}
+}

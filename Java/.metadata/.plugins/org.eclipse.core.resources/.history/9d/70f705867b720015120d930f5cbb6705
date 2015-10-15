@@ -1,0 +1,20 @@
+package Hex;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Polygon;
+import java.util.ArrayList;
+
+import javax.swing.JPanel;
+
+
+public class Vue extends JPanel {
+	public void paintComponent(Graphics g) {
+
+
+		Cellule[3] tab = new Cellule[];
+		Cellule c = new Cellule(50, 50, 0, 0,Color.GRAY);
+		c.creerPolygone();
+		g.fillPolygon(c);
+	}
+}
