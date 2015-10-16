@@ -1,0 +1,28 @@
+package mvc;
+
+import java.util.ArrayList;
+
+public class Model extends Observable{
+	
+	private ArrayList<Controller> model_controllers = new ArrayList<Controller>();
+	private ArrayList<View> views = new ArrayList<View>();
+	
+	private float temperature;
+	
+	public void initialisation(){
+		temperature = 20.0;
+	}
+	
+	public float getTemperature(){
+		return temperature;
+	}
+	
+	public void setTemperature(float temperature){
+		this.temperature = temperature;
+	}
+	
+	public void nextData(){
+		
+	}
+
+}

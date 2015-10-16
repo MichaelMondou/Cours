@@ -1,0 +1,13 @@
+package mvc;
+
+public class Main {
+
+    public static void main(String[] arg) {
+	Model model = new Model();
+	Temperature_Celsius_Button tcb = new Temperature_Celsius_Button();
+	//Controller controller =  new Controller(model, tcb);
+
+	
+  }
+	
+}

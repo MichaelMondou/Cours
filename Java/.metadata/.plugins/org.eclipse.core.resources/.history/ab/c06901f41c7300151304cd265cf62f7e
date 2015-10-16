@@ -1,0 +1,12 @@
+package mvc;
+
+public abstract class View extends JFrame implements Observer {
+	
+	private Controller controller;
+	
+	private Model model;
+
+	public void update(Observable observable) {
+		
+	}
+}

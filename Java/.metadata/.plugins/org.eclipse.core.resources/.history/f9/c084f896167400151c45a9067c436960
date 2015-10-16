@@ -1,0 +1,26 @@
+package Hex;
+
+import java.awt.Color;
+import java.util.ArrayList;
+
+public class Model extends Observable{
+	
+	private ArrayList<Controller> model_controllers = new ArrayList<Controller>();
+	private ArrayList<View> views = new ArrayList<View>();
+
+	public void nextData() {
+
+	}
+	
+	Cellule[] tab = new Cellule[3];
+	Cellule c = new Cellule(50, 50, 0, 0, Color.GRAY);
+	Cellule c2 = new Cellule(50, 50, 0, 0, Color.GRAY);
+	Cellule c3 = new Cellule(50, 50, 0, 0, Color.GRAY);
+	c.creerPolygone();
+	c2.creerPolygone();
+	c3.creerPolygone();
+	tab[0] = c;
+	tab[1] = c2;
+	tab[2] = c3;
+
+}

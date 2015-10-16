@@ -1,0 +1,11 @@
+package mvc;
+
+import java.awt.Event;
+
+public class Controller {
+
+	public void action(View view, Event event){
+		
+	}
+	
+}

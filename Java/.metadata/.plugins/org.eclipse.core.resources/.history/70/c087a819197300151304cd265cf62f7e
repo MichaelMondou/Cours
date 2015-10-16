@@ -1,0 +1,25 @@
+import java.util.ArrayList;
+
+import Observer;
+
+public class Observable {
+	
+	private ArrayList<Observer> observers = new ArrayList<Observer>();
+
+	public void addObserver(Observer observer) {
+
+	}
+
+	public void removeObserver(Observer observer) {
+
+	}
+
+	public void notifyObservers() {
+
+	}
+
+	public void setChanged() {
+
+	}
+
+}

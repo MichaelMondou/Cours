@@ -1,0 +1,5 @@
+package mvc;
+
+public class Temperature_Button_Farenheit extends View_Button{
+
+}

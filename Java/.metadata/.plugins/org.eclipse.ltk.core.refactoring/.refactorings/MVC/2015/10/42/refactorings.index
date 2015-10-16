@@ -1,0 +1,22 @@
+1444898276716	Rename source folder 'src'
+1444898589461	Copy compilation unit
+1444898597264	Delete element
+1444898631033	Copy compilation units
+1444898642862	Delete element
+1444898645306	Delete element
+1444898662533	Copy compilation unit
+1444898666008	Delete element
+1444898734761	Move compilation unit
+1444898740541	Move compilation unit
+1444898882991	Delete element
+1444898995660	Rename source folder 'mvc'
+1444899947646	Delete element
+1444900543748	Rename type 'Temperature_Button_Farenheit'
+1444901180577	Delete element
+1444901712879	Delete element
+1444902148040	Encapsulate field 'temperature_celsius'
+1444902176970	Encapsulate field 'temperature_farenheit'
+1444902763579	Encapsulate field 'buttons'
+1444903568950	Encapsulate field 'panel'
+1444903578073	Encapsulate field 'titre'
+1444916188924	Encapsulate field 'champ'

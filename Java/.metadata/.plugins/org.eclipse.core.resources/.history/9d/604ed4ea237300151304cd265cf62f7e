@@ -1,0 +1,40 @@
+package mvc;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+public abstract class View_Button extends View{
+
+	/**
+	 * Bouton augmentant la température
+	 */
+	private JButton up;
+	/**
+	 * Bouton baissant la température
+	 */
+    private JButton down;
+    /**
+     * Conteneur de tous les boutons
+     */
+    private JPanel buttons;
+    
+	public JButton getUp() {
+		return up;
+	}
+	public void setUp(JButton up) {
+		this.up = up;
+	}
+	public JButton getDown() {
+		return down;
+	}
+	public void setDown(JButton down) {
+		this.down = down;
+	}
+	public JPanel getButtons() {
+		return buttons;
+	}
+	public void setButtons(JPanel buttons) {
+		this.buttons = buttons;
+	}
+	
+}

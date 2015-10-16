@@ -1,0 +1,14 @@
+package mvc;
+
+public class Main {
+
+    public static void main(String[] arg) {
+	Model model = new Model();
+	View view = new View(model);
+	Controller controller =  new Controller(model, view);
+
+	vue.trace.addActionListener(controleur);
+	vue.efface.addActionListener(controleur);
+  }
+	
+}

@@ -1,0 +1,40 @@
+package mvc;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public abstract class View extends JFrame implements Observer {
+
+	private Controller controller;
+	private Model model;
+	
+    /**
+     * Conteneur de tous les éléments
+     */
+    private JPanel panel;
+    /**
+     * Texte indiquant l'unité de la valeur
+     */
+    private JLabel titre;
+
+	public void update(Observable observable) {
+
+	}
+
+	public Controller getController() {
+		return controller;
+	}
+
+	public void setController(Controller controller) {
+		this.controller = controller;
+	}
+
+	public Model getModel() {
+		return model;
+	}
+
+	public void setModel(Model model) {
+		this.model = model;
+	}
+}

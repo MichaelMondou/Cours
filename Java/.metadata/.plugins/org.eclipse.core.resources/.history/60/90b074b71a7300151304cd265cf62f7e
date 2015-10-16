@@ -1,0 +1,11 @@
+package mvc;
+
+public class Model {
+	
+	private int data;
+	
+	public int getData(){
+		return data;
+	}
+
+}
