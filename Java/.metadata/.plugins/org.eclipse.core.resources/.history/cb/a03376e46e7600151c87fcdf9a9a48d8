@@ -35,8 +35,6 @@ public class View extends JFrame implements Observer {
 	public void paint(Graphics g){
 		super.paint(g);
 		
-		
-		
 	}
 	
 

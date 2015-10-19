@@ -18,11 +18,11 @@ public class Model extends Observable{
 		plateau = new Plateau();
 	}
 	
-	public Plateau getPlateau() {
+	public Cellule[] getPlateau() {
 		return plateau;
 	}
 
-	public void setPlateau(Plateau plateau) {
+	public void setPlateau(Cellule[] plateau) {
 		this.plateau = plateau;
 	}
 	

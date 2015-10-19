@@ -24,19 +24,23 @@ public class View extends JFrame implements Observer {
 
 		this.model = model;
 		setPanel(new JPanel());
+		
+		repaint();
 
 		setVisible(true);
 	}
 
 	public void update(Observable observable) {
-		
+
 	}
-	
-	public void paint(Graphics g){
-		super.paint(g);
-		
-		
-		
+
+	public void paintComponent(Graphics g) {
+		super.paintComponents(g);
+		for (int i = 0; i < model.getPlateau().length; i++)
+			g.fillPolygon(model.getPlateau()[i]);
+		System.out.println("Ok");
+
+		setVisible(true);
 	}
 	
 

@@ -23,22 +23,28 @@ public class View extends JFrame implements Observer {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		this.model = model;
-		setPanel(new JPanel());
 
 		setVisible(true);
 	}
 
 	public void update(Observable observable) {
-		
+
 	}
-	
-	public void paint(Graphics g){
-		super.paint(g);
-		
-		
-		
+
+	/*public void test() {
+		System.out.println("Ok");
+		repaint();
 	}
-	
+
+	public void paintComponent(Graphics g) {
+		super.paintComponents(g);
+		for (int i = 0; i < model.getPlateau().length; i++)
+			g.fillPolygon(model.getPlateau()[i]);
+		System.out.println("Ok");
+
+		setVisible(true);
+	}
+	*/
 
 	public Controller getController() {
 		return controller;

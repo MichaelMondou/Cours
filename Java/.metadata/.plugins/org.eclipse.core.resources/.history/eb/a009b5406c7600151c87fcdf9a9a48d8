@@ -1,0 +1,12 @@
+package Hex;
+
+public class Plateau {
+	
+	static final int longueur = 7;
+	static final int largeur = 7;
+	
+	public Plateau(){
+		
+	}
+
+}

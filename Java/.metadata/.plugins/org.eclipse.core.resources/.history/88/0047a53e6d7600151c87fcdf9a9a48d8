@@ -33,10 +33,6 @@ public class Cellule extends Polygon{
 	 * Angle de la cellule
 	 */
 	private static final double arc = (Math.PI * 2) / 6;
-	
-	Cellule(){
-		
-	}
 
 	Cellule(int x, int y, int l, int c, Color couleur) {
 		this.x = x;
