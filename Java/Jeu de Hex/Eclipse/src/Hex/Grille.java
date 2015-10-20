@@ -19,7 +19,7 @@ public class Grille {
 			for (int j = 0; j < hauteur; j++) {
 				abscisse = 60 + i * 50;
 				ordonée = 250 + j * 55;
-				cellules_temp.add(new Cellule(abscisse + 100, ordonée, i, j, Color.BLUE));
+				cellules_temp.add(new Cellule(abscisse + 100, ordonée, i, j, Color.PINK));
 			}
 			cellules.add(cellules_temp);
 		}

@@ -38,6 +38,7 @@ public class View extends JFrame implements Observer {
 		for (int i = 0; i < model.getPlateau().cellules.size(); i++) {
 			for (int j = 0; j < model.getPlateau().cellules.get(i).size(); j++) {
 				model.getPlateau().cellules.get(i).get(j).creerPolygone();
+				g.setColor(model.getPlateau().cellules.get(i).get(j).getCouleur());
 				g.fillPolygon(model.getPlateau().cellules.get(i).get(j));
 			}
 		}
