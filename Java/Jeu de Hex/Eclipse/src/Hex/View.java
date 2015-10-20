@@ -1,5 +1,6 @@
 package Hex;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JFrame;
@@ -29,16 +30,19 @@ public class View extends JFrame implements Observer {
 	}
 
 	public void update(Observable observable) {
-		
+
 	}
-	
-	public void paint(Graphics g){
+
+	public void paint(Graphics g) {
 		super.paint(g);
-		
-		
+		for (int i = 0; i < model.getPlateau().cellules.size(); i++) {
+			for (int j = 0; j < model.getPlateau().cellules.get(i).size(); j++) {
+				model.getPlateau().cellules.get(i).get(j).creerPolygone();
+				g.fillPolygon(model.getPlateau().cellules.get(i).get(j));
+			}
+		}
 		
 	}
-	
 
 	public Controller getController() {
 		return controller;

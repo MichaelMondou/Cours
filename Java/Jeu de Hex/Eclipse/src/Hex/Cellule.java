@@ -34,9 +34,7 @@ public class Cellule extends Polygon{
 	 */
 	private static final double arc = (Math.PI * 2) / 6;
 	
-	Cellule(){
-		
-	}
+	
 
 	Cellule(int x, int y, int l, int c, Color couleur) {
 		this.x = x;
@@ -69,6 +67,7 @@ public class Cellule extends Polygon{
 	public void setY(int y) {
 		this.y = y;
 	}
+	
 
 	public int getL() {
 		return l;
