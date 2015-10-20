@@ -22,6 +22,7 @@ public class View extends JFrame implements Observer {
 		setSize(1280, 720);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setResizable(false);
 
 		this.model = model;
 		setPanel(new JPanel());
@@ -42,7 +43,7 @@ public class View extends JFrame implements Observer {
 				g.fillPolygon(model.getPlateau().cellules.get(i).get(j));
 			}
 		}
-		
+
 	}
 
 	public Controller getController() {

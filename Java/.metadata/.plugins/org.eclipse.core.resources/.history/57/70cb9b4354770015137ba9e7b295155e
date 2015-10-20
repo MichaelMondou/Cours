@@ -1,5 +1,6 @@
 package Hex;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JFrame;
@@ -15,15 +16,16 @@ public class View extends JFrame implements Observer {
 	 * Conteneur de tous les éléments
 	 */
 	private JPanel panel;
-	private Graphics g;
 
-	public View(){
+	public View(Model model) {
 		setTitle("Hex");
 		setSize(1280, 720);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		this.model = model;
 		setPanel(new JPanel());
-		
+
 		setVisible(true);
 	}
 
@@ -31,11 +33,16 @@ public class View extends JFrame implements Observer {
 
 	}
 
-	public void paintComponent() {
-		for (int i = 0; i < model.getPlateau().length; i++)
-			g.fillPolygon(model.getPlateau()[i]);
+	public void paint(Graphics g) {
+		super.paint(g);
+		for (int i = 0; i < model.getPlateau().cellules.size(); i++) {
+			for (int j = 0; j < model.getPlateau().cellules.get(i).size(); j++) {
+				model.getPlateau().cellules.get(i).get(j).creerPolygone();
+				g.setColor(model.getPlateau().cellules.get(i).get(j).getCouleur());
+				g.fillPolygon(model.getPlateau().cellules.get(i).get(j));
+			}
+		}
 		
-		setVisible(true);
 	}
 
 	public Controller getController() {
@@ -60,14 +67,6 @@ public class View extends JFrame implements Observer {
 
 	public void setPanel(JPanel panel) {
 		this.panel = panel;
-	}
-	
-	public Graphics getG() {
-		return g;
-	}
-
-	public void setG(Graphics g) {
-		this.g = g;
 	}
 
 }

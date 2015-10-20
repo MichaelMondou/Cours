@@ -17,25 +17,24 @@ public class Grille {
 		for (int i = 0; i < longueur; i++) {
 			ArrayList<Cellule> cellules_temp = new ArrayList();
 			for (int j = 0; j < hauteur; j++) {
-				abscisse = 60 + i * 50;
-				ordonée = 250 + j * 55;
-				cellules_temp.add(new Cellule(abscisse + 100, ordonée, i, j, Color.PINK));
+				abscisse = 500 + i * 49;
+				ordonée = 300 + j * 55;
+				cellules_temp.add(new Cellule(abscisse, ordonée, i, j, Color.GRAY));
 			}
 			cellules.add(cellules_temp);
 		}
 		miseEnPlace();
-
 	}
+	
+	
 	/**
-	 * Permet de mettre le plateau en 
-	 * décalé
+	 * Permet de mettre le plateau en décalé
 	 */
-
 	public void miseEnPlace() {
 		for (int i = 0; i < Grille.longueur; i++) {
 			for (int j = 0; j < Grille.hauteur; j++) {
 				int ordonée = this.cellules.get(i).get(j).getY();
-				ordonée -= 25 * i;
+				ordonée -= 27 * i;
 				this.cellules.get(i).get(j).setY(ordonée);
 			}
 		}
