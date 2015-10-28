@@ -1,0 +1,36 @@
+package mvc;
+
+import javax.swing.JSlider;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+public abstract class View_Scroll extends View{
+	
+	private JSlider slider;
+	
+	public View_Scroll(){
+		slider = new JSlider();
+	    
+		slider.setMaximum(100);
+		slider.setMinimum(0);
+		slider.setValue(30);
+		slider.setPaintTicks(true);
+		slider.setPaintLabels(true);
+		slider.setMinorTickSpacing(10);
+		slider.setMajorTickSpacing(20);
+		slider.addChangeListener(new ChangeListener(){
+	      public void stateChanged(ChangeEvent event){
+	        getLabel().setText("Valeur actuelle : " + ((JSlider)event.getSource()).getValue());
+	      }
+	    });     
+		slider.setVisible(true);
+	}
+
+	public JSlider getSlider() {
+		return slider;
+	}
+
+	public void setSlider(JSlider slider) {
+		this.slider = slider;
+	}
+}

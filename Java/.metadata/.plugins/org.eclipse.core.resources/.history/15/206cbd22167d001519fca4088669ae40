@@ -1,0 +1,21 @@
+package mvc;
+
+import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public abstract class ViewButton extends View{
+	
+	private JTextField display = new JTextField();
+
+	ViewButton(String label, Model model, Controller controller, Window window) {
+		super(label, model, controller, window);
+		getJif().add(display, BorderLayout.CENTER);
+	}
+	
+
+
+}

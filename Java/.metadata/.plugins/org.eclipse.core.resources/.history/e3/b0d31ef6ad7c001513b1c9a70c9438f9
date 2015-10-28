@@ -1,0 +1,26 @@
+package mvc;
+
+import javax.swing.JSlider;
+
+public abstract class View_Scroll extends View{
+	
+	private JSlider slider;
+	
+	public View_Scroll(){
+		slider.setMaximum(100);
+		slider.setMinimum(0);
+		slider.setValue(30);
+		slider.setPaintTicks(true);
+		slider.setPaintLabels(true);
+		slider.setMinorTickSpacing(10);
+		slider.setMajorTickSpacing(20);
+	}
+
+	public JSlider getSlider() {
+		return slider;
+	}
+
+	public void setSlider(JSlider slider) {
+		this.slider = slider;
+	}
+}

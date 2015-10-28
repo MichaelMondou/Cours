@@ -1,0 +1,65 @@
+package mvc;
+
+import java.awt.BorderLayout;
+import java.awt.Point;
+import java.util.ArrayList;
+
+import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public abstract class View extends JFrame implements Observer {
+
+	private Controller controller;
+	private Model model;
+
+	private JInternalFrame jif;
+
+	private ArrayList<JInternalFrame> frameList;
+
+	public View() {
+		jif = new JInternalFrame();
+		jif.setClosable(true);
+		jif.setResizable(true);
+		jif.setMaximizable(true);
+		jif.setIconifiable(true);
+	}
+
+	public void update(Observable observable) {
+
+	}
+
+	public Controller getController() {
+		return controller;
+	}
+
+	public void setController(Controller controller) {
+		this.controller = controller;
+	}
+
+	public Model getModel() {
+		return model;
+	}
+
+	public void setModel(Model model) {
+		this.model = model;
+	}
+
+	public ArrayList<JInternalFrame> getFrameList() {
+		return frameList;
+	}
+
+	public void setFrameList(ArrayList<JInternalFrame> frameList) {
+		this.frameList = frameList;
+	}
+
+	public JInternalFrame getJif() {
+		return jif;
+	}
+
+	public void setJif(JInternalFrame jif) {
+		this.jif = jif;
+	}
+}

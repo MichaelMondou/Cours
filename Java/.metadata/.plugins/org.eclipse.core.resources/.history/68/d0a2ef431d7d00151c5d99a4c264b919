@@ -1,0 +1,66 @@
+package mvc;
+
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Observable;
+
+import javax.swing.JSlider;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+public class ViewScroll_celsius extends ViewButton{
+	
+	private JSlider slider;
+	
+	public ViewScroll_celsius(Model modele, Controller controleur, Window window) {
+
+		super("Temperature Celsius", modele, controleur, window);
+
+		getJif().setLocation(320,0);
+		
+		slider = new JSlider(1, -50, 50, 0);
+		slider.setPaintTicks(true);
+		slider.setPaintLabels(true);
+		slider.setMajorTickSpacing(10);  
+		slider.setVisible(true);
+		slider.setFont(getFont());
+		getJif().add(slider, BorderLayout.CENTER);
+		
+		addSliderListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				float temperature_celsius = getDisplay();
+				controller.fixCelsius(temperature_celsius);
+			}
+		});
+		
+		addUpListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.upCelsius();
+
+			}
+		});
+		addDownListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.downCelsius();
+			}
+		});
+		
+	}
+	
+
+	
+	public float getDisplaySlider() {
+		int result = 0;
+		try {
+			result = slider.getValue();
+		} catch (NumberFormatException e) {
+		}
+		return result;
+	}
+
+	public void update(Observable o, Object arg) {
+		
+	}
+
+}

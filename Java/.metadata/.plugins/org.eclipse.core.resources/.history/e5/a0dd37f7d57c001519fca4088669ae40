@@ -1,0 +1,21 @@
+package mvc;
+
+import java.awt.Event;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+public class Controller implements ActionListener{
+	
+	private ArrayList<View> controller_views = new ArrayList<View>();
+	
+	private Model model;
+	
+	public Controller(Model model, View view){
+		
+	}
+
+	public void action(View view, Event event){
+		
+	}
+	
+}

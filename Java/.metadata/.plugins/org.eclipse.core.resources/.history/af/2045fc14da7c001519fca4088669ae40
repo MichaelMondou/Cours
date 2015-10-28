@@ -1,0 +1,63 @@
+package mvc;
+
+import java.util.ArrayList;
+
+public class Model extends Observable {
+
+	private ArrayList<Controller> model_controllers = new ArrayList<Controller>();
+	private ArrayList<View> views = new ArrayList<View>();
+
+	private float temperature_celsius;
+	private float temperature_farenheit;
+
+	public void initialisation() {
+		temperature_celsius = 20;
+		temperature_farenheit = (temperature_celsius * 9 / 5) + 32;
+	}
+
+	public void nextData() {
+
+	}
+
+	public float getTemperature_celsius() {
+		return temperature_celsius;
+	}
+
+	public float getTemperature_farenheit() {
+		return temperature_farenheit;
+	}
+	
+	public void setTemperature_celsius(float temperature_celsius) {
+		this.temperature_celsius = temperature_celsius;
+	}
+	
+	public void upTemperature_celsius(float temperature_celsius){
+		this.temperature_celsius = this.temperature_celsius + temperature_celsius;
+	}
+	
+	public void downTemperature_celsius(float temperature_celsius){
+		this.temperature_celsius = this.temperature_celsius - temperature_celsius;
+	}
+	
+	public void upTemperature_farenheit(float temperature_farenheit){
+		this.temperature_farenheit = this.temperature_farenheit + temperature_farenheit;
+	}
+	
+	public void downTemperature_farenheit(float temperature_farenheit){
+		this.temperature_farenheit = this.temperature_farenheit - temperature_farenheit;
+	}
+
+	public void setTemperature_farenheit(float temperature_farenheit) {
+		this.temperature_farenheit = temperature_farenheit;
+	}
+
+	/*public void setTemperatures() {
+		if (up) {
+			temperature_celsius += 1;
+		} else {
+			temperature_celsius -= 1;
+		}
+		temperature_farenheit = (temperature_celsius * 9 / 5) + 32;
+	}*/
+
+}

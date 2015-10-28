@@ -1,0 +1,44 @@
+package mvc;
+
+import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public abstract class ViewButton extends View{
+	
+	private JTextField display = new JTextField();
+
+	ViewButton(String label, Model model, Controller controller, Window window) {
+		super(label, model, controller, window);
+		getJif().add(display, BorderLayout.CENTER);
+	}
+	
+	public void setDisplay(String s) {
+		display.setText(s);
+	}
+
+	public float getDisplay() {
+		float result = 0;
+		try {
+			result = Float.valueOf(display.getText());
+		} catch (NumberFormatException e) {
+		}
+		return result;
+	}
+
+	public void addDisplayListener(ActionListener a) {
+		display.addActionListener(a);
+	}
+	
+	public void addUpListener(ActionListener a) {
+		upJButton.addActionListener(a);
+	}
+
+	public void addDownListener(ActionListener a) {
+		downJButton.addActionListener(a);
+	}
+
+}

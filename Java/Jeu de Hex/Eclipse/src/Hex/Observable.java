@@ -1,6 +1,7 @@
 package Hex;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Observable {
 	
@@ -19,7 +20,7 @@ public class Observable {
 	}
 
 	public void setChanged() {
-
+		
 	}
 
 }

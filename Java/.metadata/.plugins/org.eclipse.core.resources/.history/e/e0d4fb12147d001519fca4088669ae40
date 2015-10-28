@@ -1,0 +1,17 @@
+package mvc;
+
+import javax.swing.UIManager;
+
+public class Main {
+	public static void main(String args[]) {
+		
+		
+		
+		Window window = new Window();
+		
+		Model model = new Model();
+		Controller celsius_controller = new Controller(model);
+		ViewButton_celsius pvc = new ViewButton_celsius(model, celsius_controller, window);
+		celsius_controller.addView(pvc);
+	}
+}

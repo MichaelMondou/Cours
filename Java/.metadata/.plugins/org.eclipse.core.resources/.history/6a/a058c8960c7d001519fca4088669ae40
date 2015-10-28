@@ -1,0 +1,11 @@
+package mvc;
+
+public class Main {
+	public static void main(String args[]) {
+		Model model = new Model();
+		Controller tempcontrolC = new Controller(model);
+		Controller tempcontrolF = new Controller(model);
+		TemperatureVueCelsius pvc = new TemperatureVueCelsius(model, tempcontrolC, 100, 200);
+		tempcontrolC.addView(pvc);
+	}
+}

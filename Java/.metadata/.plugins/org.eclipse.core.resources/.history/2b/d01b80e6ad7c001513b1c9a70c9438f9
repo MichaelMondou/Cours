@@ -1,0 +1,20 @@
+package mvc;
+
+import javax.swing.JSlider;
+
+public abstract class View_Scroll extends View{
+	
+	private JSlider slider;
+	
+	public View_Scroll(){
+		slider = new JSlider(JSlider.VERTICAL, -50, 50, 0);
+	}
+
+	public JSlider getSlider() {
+		return slider;
+	}
+
+	public void setSlider(JSlider slider) {
+		this.slider = slider;
+	}
+}

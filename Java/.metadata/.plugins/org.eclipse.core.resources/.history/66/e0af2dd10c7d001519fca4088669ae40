@@ -1,0 +1,10 @@
+package mvc;
+
+public class Main {
+	public static void main(String args[]) {
+		Model model = new Model();
+		Controller celsius_controller = new Controller(model);
+		ViewButton_celsius pvc = new ViewButton_celsius(model, celsius_controller, 100, 200);
+		celsius_controller.addView(pvc);
+	}
+}

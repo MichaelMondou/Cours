@@ -1,8 +1,0 @@
-package mvc;
-
-public class View implements Observer {
-
-	public void update(Observable observable) {
-		
-	}
-}

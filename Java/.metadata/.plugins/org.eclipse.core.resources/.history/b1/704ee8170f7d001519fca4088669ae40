@@ -1,0 +1,11 @@
+package mvc;
+
+public class ModifieTemperaturePlus1 implements ModifieTemperature {
+	public double augmenteDegres(float temp) {
+		return temp + 1;
+	}
+
+	public double diminueDegres(float temp) {
+		return temp - 1;
+	}
+}

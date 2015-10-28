@@ -1,0 +1,37 @@
+package mvc;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Observable;
+
+public class TemperatureVueCelsius extends TemperatureVue {
+	public TemperatureVueCelsius(Model modele, Controller controleur, int posX, int posY) {
+		
+		super("Temperature Celsuis", modele, controleur, posX, posY);
+		setDisplay("" + model.getC());
+		
+		addUpListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				controller.augmenteDegresC();
+
+			}
+		});
+		addDownListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.diminueDegresC();
+			}
+		});
+		addDisplayListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				double tempC = getDisplay();
+				controller.fixeDegresC(tempC);
+			}
+		});
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		setDisplay("" + model().getC());
+	}
+}

@@ -1,0 +1,52 @@
+package mvc;
+
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public abstract class View_Button extends View{
+	
+	private JLabel label;
+	
+	private JTextField text;
+	
+	private JButton more;
+	private JButton less;
+	
+	public View_Button(){
+		getJif().setSize(325, 180);
+		
+		label = new JLabel();
+		label.setFont(getFont());
+		label.setBounds(210,  -20,  200,  100);
+		
+		text = new JTextField();
+		text.setFont(getFont());
+		text.setBounds(210,  100,  200,  100);
+		
+		more = new JButton("+");
+		less = new JButton("-");
+		
+	}
+
+	public JLabel getLabel() {
+		return label;
+	}
+
+	public JTextField getText() {
+		return text;
+	}
+
+	public JButton getMore() {
+		return more;
+	}
+
+	public JButton getLess() {
+		return less;
+	}
+	
+}

@@ -1,0 +1,54 @@
+package mvc;
+
+public class Controller {
+    private Model model;
+    private View view = null;
+
+    public Controller(Model m) {
+            model = m;
+    }
+
+    public void augmenteDegresC(){
+            model.setCelsius(modtemp.augmenteDegres(model.getCelsius()));
+            control();
+    }
+
+    public void diminueDegresC(){
+            model.setCelsius(modtemp.diminueDegres(model.getCelsius()));
+            control();
+    }
+
+    public void fixeDegresC(float tempC){
+            model.setCelsius(tempC);
+            control();
+    }
+
+    public void augmenteDegresF(){
+            model.setFarenheit(modtemp.augmenteDegres(model.getFarenheit()));
+            control();
+    }
+
+    public void diminueDegresF(){
+            model.setFarenheit(modtemp.diminueDegres(model.getFarenheit()));
+            control();
+    }
+
+    public void fixeDegresF(float tempF){
+            model.setFarenheit(tempF);
+            control();
+    }
+
+    public void control() {
+            if (view != null) {
+                    if (model.getCelsius() > 40.0) {
+                            view.enableWarningColor();
+                    } else {
+                            view.disableWarningColor();
+                    }
+            }
+    }
+
+    public void addView(View view) {
+            this.view = view;
+    }
+}

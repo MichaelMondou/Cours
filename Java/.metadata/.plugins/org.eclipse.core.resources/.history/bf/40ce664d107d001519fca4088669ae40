@@ -1,0 +1,6 @@
+package mvc;
+
+public interface ModifieTemperature {
+    public float augmenteDegres(float temp);
+    public float diminueDegres(float temp);
+}

@@ -1,0 +1,29 @@
+package mvc;
+
+import java.awt.BorderLayout;
+
+import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
+public class Window extends JFrame{
+	
+	JFrame window = new JFrame();
+	window.setTitle("Conversions de températures");
+	window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	window.setSize(1280, 720);
+	window.setLocationRelativeTo(null);
+	
+	final JDesktopPane desktop = new JDesktopPane();
+	window.add(desktop, BorderLayout.CENTER);
+	
+	JMenuBar menu = new JMenuBar();
+	JMenu fichier = new JMenu("Fichier");
+	JMenuItem nouveau = new JMenuItem("Nouveau");
+	fichier.add(nouveau);
+	window.add(menu, BorderLayout.NORTH);
+	menu.add(fichier);
+
+}

@@ -1,0 +1,9 @@
+package mvc;
+
+public abstract class View_Scroll extends View{
+	
+	public View_Scroll(){
+		
+	}
+
+}

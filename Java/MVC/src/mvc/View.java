@@ -1,6 +1,14 @@
 package mvc;
 
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.Observer;
+
+import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -8,18 +16,23 @@ public abstract class View extends JFrame implements Observer {
 
 	private Controller controller;
 	private Model model;
-	
-    /**
-     * Conteneur de tous les éléments
-     */
-    private JPanel panel;
-    /**
-     * Texte indiquant l'unité de la valeur
-     */
-    private JLabel titre;
 
-	public void update(Observable observable) {
+	private JInternalFrame jif;
+	private Font font;
+	private JLabel label;
 
+	public View() {
+		jif = new JInternalFrame();
+		jif.setClosable(true);
+		jif.setResizable(true);
+		jif.setMaximizable(true);
+		jif.setIconifiable(true);
+
+		font = new Font("Serif", Font.PLAIN, 18);
+
+		label = new JLabel();
+		label.setFont(getFont());
+		label.setBounds(85, 10, 170, 20);
 	}
 
 	public Controller getController() {
@@ -38,19 +51,19 @@ public abstract class View extends JFrame implements Observer {
 		this.model = model;
 	}
 
-	public JPanel getPanel() {
-		return panel;
+	public JInternalFrame getJif() {
+		return jif;
 	}
 
-	public void setPanel(JPanel panel) {
-		this.panel = panel;
+	public void setJif(JInternalFrame jif) {
+		this.jif = jif;
 	}
 
-	public JLabel getTitre() {
-		return titre;
+	public JLabel getLabel() {
+		return label;
 	}
 
-	public void setTitre(JLabel titre) {
-		this.titre = titre;
+	public void setLabel(JLabel label) {
+		this.label = label;
 	}
 }

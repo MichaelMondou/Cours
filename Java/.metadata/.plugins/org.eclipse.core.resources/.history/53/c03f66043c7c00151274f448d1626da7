@@ -1,0 +1,50 @@
+package mvc;
+
+import java.util.ArrayList;
+
+import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public abstract class View extends JFrame implements Observer {
+
+	private Controller controller;
+	private Model model;
+	
+	private JFrame window;
+
+	private ArrayList<JInternalFrame> frameList;
+
+	public View() {
+		
+	}
+
+	public void update(Observable observable) {
+
+	}
+
+	public Controller getController() {
+		return controller;
+	}
+
+	public void setController(Controller controller) {
+		this.controller = controller;
+	}
+
+	public Model getModel() {
+		return model;
+	}
+
+	public void setModel(Model model) {
+		this.model = model;
+	}
+
+	public ArrayList<JInternalFrame> getFrameList() {
+		return frameList;
+	}
+
+	public void setFrameList(ArrayList<JInternalFrame> frameList) {
+		this.frameList = frameList;
+	}
+}

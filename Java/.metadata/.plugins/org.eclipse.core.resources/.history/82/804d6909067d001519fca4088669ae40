@@ -1,0 +1,6 @@
+package test;
+
+
+public class Observer {
+	public void update(Observable observable);
+}

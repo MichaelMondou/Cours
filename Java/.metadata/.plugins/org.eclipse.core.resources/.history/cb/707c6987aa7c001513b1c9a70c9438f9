@@ -1,0 +1,17 @@
+package mvc;
+
+public class Temperature_Celsius_Scroll extends View_Scroll{
+	
+	public Temperature_Celsius_Scroll(Model model, Window window){
+		
+		setModel(model);
+		
+		getJif().setTitle("Température glissante Celsius");
+		getJif().setLocation(325, 0);
+		getJif().setSize(305, 350);
+		window.getDesktop().add(getJif());
+		getJif().setVisible(true);
+		
+		getLabel().setText("Température glissante Celsius");
+	}
+}

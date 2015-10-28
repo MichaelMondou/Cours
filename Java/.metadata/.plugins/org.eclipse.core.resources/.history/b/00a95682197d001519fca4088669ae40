@@ -1,0 +1,30 @@
+package mvc;
+
+import javax.swing.UIManager;
+
+public class Main {
+	public static void main(String args[]) {
+		
+		try {
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+		} catch (Exception e) {
+		}
+		
+		Window window = new Window();
+		
+		Model model = new Model();
+		
+		Controller celsius_button_controller = new Controller(model);
+		ViewButton_celsius vbc = new ViewButton_celsius(model, celsius_button_controller, window);
+		celsius_button_controller.addView(vbc);
+		
+
+		Controller farenheit_controller = new Controller(model);
+		ViewButton_farenheit vbf = new ViewButton_farenheit(model, farenheit_controller, window);
+		farenheit_controller.addView(vbf);
+		
+		Controller farenheit_controller = new Controller(model);
+		ViewButton_farenheit vbf = new ViewButton_farenheit(model, farenheit_controller, window);
+		farenheit_controller.addView(vbf);
+	}
+}

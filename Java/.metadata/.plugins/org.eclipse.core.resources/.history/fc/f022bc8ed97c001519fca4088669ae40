@@ -1,0 +1,44 @@
+package mvc;
+
+import java.awt.Event;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+public class Controller implements ActionListener{
+	
+	private ArrayList<View> controller_views = new ArrayList<View>();
+	
+	private Model model;
+	
+	public Controller(Model model){
+		this.model = model;
+	}
+	
+	public void upCelsius(){
+		model.upTemperature_celsius(1);
+	}
+	
+	public void downCelsius(){
+		model.downTemperature_celsius(1);
+	}
+	
+	public void fixCelsius(){
+		model.setTemperature_celsius(1);
+	}
+	
+	public void addView(View view){
+		controller_views.add(view);
+	}
+	
+    public void actionPerformed(ActionEvent e) {
+    	
+    }
+
+	public void action(View view, Event event){
+		
+	}
+	
+	
+	
+}

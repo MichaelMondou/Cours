@@ -1,8 +1,0 @@
-package mvc;
-
-public abstract class View_Button extends View{
-
-	private JButton up;
-    private JButton down;
-	
-}
