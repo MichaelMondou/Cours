@@ -1,5 +1,0 @@
-package mvc;
-
-public class ViewScroll_celsius extends ViewScroll{
-
-}

@@ -1,0 +1,28 @@
+package mvc;
+
+import javax.swing.UIManager;
+
+public class Main {
+
+	public static void main(String args[]) {
+
+		try {
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+		} catch (Exception e) {
+		}
+		
+		Window window = new Window();
+		
+		Model model = new Model();
+		Controller controller = new Controller(model);
+		
+		ViewButtonCelsius vbc = new ViewButtonCelsius(model, controller, "Température Celsius");
+		
+		model.addObserver(vbc);
+		
+		window.getDesktop().add(vbc);
+		
+		
+	}
+
+}

@@ -1,0 +1,39 @@
+package mvc;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Observable;
+
+public class ViewButtonFarenheit extends ViewButton{
+	
+	View currentObject = this;
+
+	ViewButtonFarenheit(Window window, Model model, Controller controller, String title) {
+		super(window, model, controller, title);
+		getJif().setLocation(0,0);
+		
+		setDisplay("" + model.getFarenheit());
+		
+		getUpJButton().addActionListener( new ActionListener()
+		{
+		    public void actionPerformed(ActionEvent e)
+		    {
+		    	controller.Action(currentObject, Event.UPCELSIUS);
+		    }
+		});
+		
+		getDownJButton().addActionListener( new ActionListener()
+		{
+		    public void actionPerformed(ActionEvent e)
+		    {
+		    	controller.Action(currentObject, Event.DOWNCELSIUS);
+		    }
+		});
+		
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		setDisplay("" + getModel().getCelsius());
+	}
+}

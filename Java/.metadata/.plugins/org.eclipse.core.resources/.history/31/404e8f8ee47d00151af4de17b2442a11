@@ -1,0 +1,49 @@
+package mvc;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Observable;
+
+/**
+ * Classe permettant la création d'une sous-fenêtre avec contrôle par boutons de la température
+ * en Farenheit.
+ *
+ */
+public class ViewButtonFarenheit extends ViewButton {
+
+	/**
+	 * Indique la vue actuelle pour le contrôleur.
+	 */
+	View currentObject = this;
+
+	ViewButtonFarenheit(Window window, Model model, Controller controller, String title) {
+		super(window, model, controller, title);
+		getJif().setLocation(0, 175);
+
+		setDisplay("" + model.getFarenheit());
+
+		getUpJButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.Action(currentObject, Event.UPFARENHEIT);
+			}
+		});
+
+		getDownJButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.Action(currentObject, Event.DOWNFARENHEIT);
+			}
+		});
+
+		addDisplayListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				float temperature_farenheit = getDisplayData();
+				model.setFarenheit(temperature_farenheit);
+			}
+		});
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		setDisplay("" + getModel().getFarenheit());
+	}
+}

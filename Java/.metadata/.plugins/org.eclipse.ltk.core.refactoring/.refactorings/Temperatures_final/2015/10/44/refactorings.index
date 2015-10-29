@@ -1,0 +1,4 @@
+1446078573644	Encapsulate field 'model'
+1446078580372	Encapsulate field 'controller'
+1446081772357	Rename method 'getDisplay'
+1446082229004	Rename field 'sliderTemp'

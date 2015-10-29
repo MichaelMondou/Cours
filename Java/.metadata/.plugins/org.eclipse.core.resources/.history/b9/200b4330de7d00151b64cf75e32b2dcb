@@ -1,0 +1,31 @@
+package mvc;
+
+import java.util.Observable;
+
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+public class ViewScrollCelsius extends ViewScroll {
+
+	ViewScrollCelsius(Window window, Model model, Controller controller, String title) {
+		super(window, model, controller, title);
+		data = model.getCelsius();
+
+		View currentObject = this;
+
+		slider.setValue((int) data);
+
+
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		if (getModel().getCelsius() != data) {
+			data = getModel().getCelsius();
+			slider.setValue((int) data);
+		} else {
+			data = slider.getValue();
+		}
+	}
+
+}

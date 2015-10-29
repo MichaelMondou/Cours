@@ -1,0 +1,14 @@
+package mvc;
+
+import java.util.Observer;
+
+public abstract class View implements Observer {
+	
+	private Model model;
+	private Controller controller;
+	
+	View(){
+		
+	}
+
+}

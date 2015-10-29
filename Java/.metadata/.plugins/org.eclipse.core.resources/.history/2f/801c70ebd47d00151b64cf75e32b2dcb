@@ -1,0 +1,11 @@
+package mvc;
+
+public abstract class ViewButton extends View {
+
+	ViewButton(Model model, Controller controller, String title) {
+		super(model, controller, title);
+	}
+
+	
+	
+}

@@ -1,0 +1,52 @@
+package mvc;
+
+import java.util.Observer;
+
+import javax.swing.JInternalFrame;
+
+public abstract class View implements Observer {
+
+	private Model model;
+	private Controller controller;
+
+	private JInternalFrame jif;
+
+	private String title;
+	
+	float data;
+
+	View(Model model, Controller controller, String title) {
+		this.setModel(model);
+		model.addObserver(this);
+		this.setController(controller);
+		jif = new JInternalFrame(title);
+		jif.setSize(320, 175);
+		jif.setVisible(true);
+		this.title = title;
+	}
+
+	public Model getModel() {
+		return model;
+	}
+
+	public void setModel(Model model) {
+		this.model = model;
+	}
+
+	public Controller getController() {
+		return controller;
+	}
+
+	public void setController(Controller controller) {
+		this.controller = controller;
+	}
+	
+	public JInternalFrame getJif() {
+		return jif;
+	}
+
+	public void setJif(JInternalFrame jif) {
+		this.jif = jif;
+	}
+
+}

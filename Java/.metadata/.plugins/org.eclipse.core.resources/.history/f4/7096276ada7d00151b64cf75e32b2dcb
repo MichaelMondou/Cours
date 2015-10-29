@@ -1,0 +1,60 @@
+package mvc;
+
+import java.awt.BorderLayout;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public abstract class ViewButton extends View {
+
+	private JLabel label;
+
+	private JTextField display;
+
+	private JPanel panelbuttons;
+	private JButton upJButton;
+	private JButton downJButton;
+
+	ViewButton(Window window, Model model, Controller controller, String title) {
+		super(window, model, controller, title);
+
+		this.label = new JLabel(title);
+		getJif().add(this.label, BorderLayout.NORTH);
+
+		panelbuttons = new JPanel();
+		upJButton = new JButton("+");
+		downJButton = new JButton("-");
+
+		panelbuttons.add(upJButton);
+		panelbuttons.add(downJButton);
+
+		getJif().add(panelbuttons, BorderLayout.SOUTH);
+
+		display = new JTextField();
+		getJif().add(display, BorderLayout.CENTER);
+	}
+
+	public void setDisplay(String s) {
+		display.setText(s);
+	}
+
+	public float getDisplay() {
+		float result = 0;
+		try {
+			result = Float.valueOf(display.getText());
+		} catch (NumberFormatException e) {
+		}
+		return result;
+	}
+	
+	public JButton getUpJButton() {
+		return upJButton;
+	}
+
+	public JButton getDownJButton() {
+		return downJButton;
+	}
+
+}

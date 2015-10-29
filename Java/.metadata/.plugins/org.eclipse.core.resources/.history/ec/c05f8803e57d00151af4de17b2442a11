@@ -1,0 +1,39 @@
+package mvc;
+
+import java.util.Observable;
+
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+/**
+ * Classe permettant la création d'une sous-fenêtre avec contrôle par scroll de la température
+ * en Celsius.
+ *
+ */
+public class ViewScrollCelsius extends ViewScroll {
+
+	ViewScrollCelsius(Window window, Model model, Controller controller, String title) {
+		super(window, model, controller, title);
+		//data = model.getCelsius();
+
+		View currentObject = this;
+
+		slider.setValue((int) data);
+
+		slider.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent arg0) {
+				controller.Action(currentObject, Event.SCROLL);
+			}
+		});
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		if (getModel().getCelsius() != data) {
+			data = getModel().getCelsius();
+			slider.setValue((int) data);
+		} else {
+			data = slider.getValue();
+		}
+	}
+}

@@ -1,0 +1,46 @@
+package mvc;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Observable;
+
+/**
+ * Classe permettant la création d'une sous-fenêtre avec contrôle par boutons de la température.
+ *
+ */
+public class ViewButtonCelsius extends ViewButton {
+
+	View currentObject = this;
+
+	ViewButtonCelsius(Window window, Model model, Controller controller, String title) {
+		super(window, model, controller, title);
+		getJif().setLocation(0, 0);
+
+		setDisplay("" + model.getCelsius());
+
+		getUpJButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.Action(currentObject, Event.UPCELSIUS);
+			}
+		});
+
+		getDownJButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.Action(currentObject, Event.DOWNCELSIUS);
+			}
+		});
+
+		addDisplayListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				float temperature_celsius = getDisplayData();
+				model.setCelsius(temperature_celsius);
+			}
+		});
+
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		setDisplay("" + getModel().getCelsius());
+	}
+}

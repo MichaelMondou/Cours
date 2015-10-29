@@ -27,3 +27,5 @@
 1445995089432	Rename field 'temperature'
 1445996998802	Delete element
 1445997037220	Rename type 'View'
+1446077460677	Rename method 'getDisplay'
+1446077760045	Delete elements
