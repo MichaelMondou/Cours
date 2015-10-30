@@ -1,0 +1,55 @@
+package hex;
+
+import java.awt.Graphics;
+import java.util.Observable;
+import java.util.Observer;
+
+public class View implements Observer{
+	
+	private Model model;
+	private Controller controller;
+	
+	private Window window;
+	
+	View(Window window, Model model, Controller controller){
+		this.setModel(model);
+		model.addObserver(this);
+		this.setController(controller);
+		this.window = window;
+		window.repaint();
+	}
+
+	public void paint(Graphics g) {
+		window.paint(g);
+		for (int i = 0; i < model.getPlateau().cellules.size(); i++) {
+			for (int j = 0; j < model.getPlateau().cellules.get(i).size(); j++) {
+				model.getPlateau().cellules.get(i).get(j).creerPolygone();
+				g.setColor(model.getPlateau().cellules.get(i).get(j).getCouleur());
+				g.fillPolygon(model.getPlateau().cellules.get(i).get(j));
+			}
+		}
+	}
+	
+	public Model getModel() {
+		return model;
+	}
+
+	public void setModel(Model model) {
+		this.model = model;
+	}
+
+	public Controller getController() {
+		return controller;
+	}
+
+	public void setController(Controller controller) {
+		this.controller = controller;
+	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+
+		
+	}
+
+}

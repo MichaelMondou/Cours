@@ -1,0 +1,26 @@
+package hex;
+
+import java.util.Observable;
+
+public class Model extends Observable{
+	
+	private Grille plateau;
+
+	public void nextData() {
+
+	}
+	public Model(){
+		plateau = new Grille();
+		setChanged();
+		notifyObservers();
+	}
+	
+	public Grille getPlateau() {
+		return plateau;
+	}
+
+	public void setPlateau(Grille plateau) {
+		this.plateau = plateau;
+	}
+
+}
