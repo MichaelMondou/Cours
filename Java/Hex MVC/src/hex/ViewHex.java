@@ -1,16 +1,21 @@
 package hex;
 
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Observable;
 
-public class ViewHex extends View{
+public class ViewHex extends View implements MouseListener{
 
 	ViewHex(Window window, Model model, Controller controller) {
 		super(window, model, controller);
 		paint(panel.getGraphics());
 	}
 	
-	
+    public void mouseReleased(MouseEvent e)
+    {
+
+    }
 
 	public void paint(Graphics g) {
 		panel.paint(g);
@@ -22,12 +27,29 @@ public class ViewHex extends View{
 			}
 		}
 	}
-	
-	
 
 	@Override
 	public void update(Observable o, Object arg) {
 		paint(panel.getGraphics());
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		
 	}
 
 }

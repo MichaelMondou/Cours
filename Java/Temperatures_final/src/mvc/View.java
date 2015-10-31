@@ -42,6 +42,7 @@ public abstract class View implements Observer {
 		jif.setVisible(true);
 		this.label = new JLabel(title);
 		getJif().add(this.label, BorderLayout.NORTH);
+		data = 20;
 		window.getDesktop().add(jif);
 	}
 
