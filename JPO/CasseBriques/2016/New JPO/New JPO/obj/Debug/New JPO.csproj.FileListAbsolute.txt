@@ -1,0 +1,9 @@
+C:\Users\Mika\Desktop\New JPO\New JPO\bin\Debug\New JPO.exe.config
+C:\Users\Mika\Desktop\New JPO\New JPO\bin\Debug\New JPO.exe
+C:\Users\Mika\Desktop\New JPO\New JPO\bin\Debug\New JPO.pdb
+C:\Users\Mika\Desktop\New JPO\New JPO\obj\Debug\New JPO.csprojResolveAssemblyReference.cache
+C:\Users\Mika\Desktop\New JPO\New JPO\obj\Debug\New_JPO.JPO.resources
+C:\Users\Mika\Desktop\New JPO\New JPO\obj\Debug\New_JPO.Properties.Resources.resources
+C:\Users\Mika\Desktop\New JPO\New JPO\obj\Debug\New JPO.csproj.GenerateResource.Cache
+C:\Users\Mika\Desktop\New JPO\New JPO\obj\Debug\New JPO.exe
+C:\Users\Mika\Desktop\New JPO\New JPO\obj\Debug\New JPO.pdb

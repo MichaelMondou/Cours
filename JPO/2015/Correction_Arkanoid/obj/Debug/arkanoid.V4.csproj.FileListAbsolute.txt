@@ -1,0 +1,10 @@
+\\IUT\Etudiants\Home\thofrancisco\Desktop\Correction_Arkanoid\bin\Debug\arkanoid.V4.exe
+\\IUT\Etudiants\Home\thofrancisco\Desktop\Correction_Arkanoid\bin\Debug\arkanoid.V4.pdb
+\\IUT\Etudiants\Home\thofrancisco\Desktop\Correction_Arkanoid\obj\Debug\arkanoid.V4.csprojResolveAssemblyReference.cache
+\\IUT\Etudiants\Home\thofrancisco\Desktop\Correction_Arkanoid\obj\Debug\arkanoid.V4.Arkanoid.resources
+\\IUT\Etudiants\Home\thofrancisco\Desktop\Correction_Arkanoid\obj\Debug\arkanoid.V4.Properties.Resources.resources
+\\IUT\Etudiants\Home\thofrancisco\Desktop\Correction_Arkanoid\obj\Debug\arkanoid.V4.csproj.GenerateResource.Cache
+\\IUT\Etudiants\Home\thofrancisco\Desktop\Correction_Arkanoid\obj\Debug\arkanoid.V4.exe
+\\IUT\Etudiants\Home\thofrancisco\Desktop\Correction_Arkanoid\obj\Debug\arkanoid.V4.pdb
+W:\JPO\Prog\Arkanoid_Thomas\Correction_Arkanoid\obj\Debug\arkanoid.V4.exe
+W:\JPO\Prog\Arkanoid_Thomas\Correction_Arkanoid\obj\Debug\arkanoid.V4.pdb
