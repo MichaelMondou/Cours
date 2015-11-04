@@ -1,0 +1,56 @@
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\bin\Debug\Test1.exe.config
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\bin\Debug\Test1.exe
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\bin\Debug\Test1.pdb
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\obj\Debug\Test1.csprojResolveAssemblyReference.cache
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\obj\Debug\Test1.Properties.Resources.resources
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\obj\Debug\Test1.csproj.GenerateResource.Cache
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\obj\Debug\Test1.exe
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\obj\Debug\Test1.pdb
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\obj\Debug\Test1.FenetrePrincipale.resources
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\bin\Debug\LinqToTwitter.AspNet.dll
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\bin\Debug\LinqToTwitterPcl.dll
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\bin\Debug\System.Net.Http.Extensions.dll
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\bin\Debug\System.Net.Http.Primitives.dll
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\bin\Debug\System.Reactive.Core.dll
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\bin\Debug\System.Reactive.Interfaces.dll
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\bin\Debug\System.Reactive.Linq.dll
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\bin\Debug\System.Reactive.PlatformServices.dll
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\bin\Debug\System.Net.Http.Extensions.xml
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\bin\Debug\System.Net.Http.Primitives.xml
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\bin\Debug\System.Reactive.Core.xml
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\bin\Debug\System.Reactive.Interfaces.xml
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\bin\Debug\System.Reactive.Linq.xml
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\bin\Debug\System.Reactive.PlatformServices.xml
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\obj\Debug\Test1.csproj.App.config
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\obj\Debug\Test1.nouveauTweetFenetre.resources
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\obj\Debug\Test1.parametresFenetre.resources
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\obj\Debug\Test1.testWindow.resources
+F:\Mes documents\Mes documents\Cours\S3\JPO\Tests\Twitter\Test1\Test1\obj\Debug\Test1.TweetControl.resources
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\bin\Debug\Test1.exe.config
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\obj\Debug\Test1.exe
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\obj\Debug\Test1.pdb
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\bin\Debug\Test1.exe
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\bin\Debug\Test1.pdb
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\bin\Debug\LinqToTwitter.AspNet.dll
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\bin\Debug\LinqToTwitterPcl.dll
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\bin\Debug\System.Reactive.Core.dll
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\bin\Debug\System.Reactive.Interfaces.dll
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\bin\Debug\System.Reactive.Linq.dll
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\bin\Debug\System.Reactive.PlatformServices.dll
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\bin\Debug\System.Reactive.Core.xml
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\bin\Debug\System.Reactive.Interfaces.xml
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\bin\Debug\System.Reactive.Linq.xml
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\bin\Debug\System.Reactive.PlatformServices.xml
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\obj\Debug\Test1.csproj.App.config
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\obj\Debug\Test1.csprojResolveAssemblyReference.cache
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\obj\Debug\Test1.FenetrePrincipale.resources
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\obj\Debug\Test1.nouveauTweetFenetre.resources
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\obj\Debug\Test1.parametresFenetre.resources
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\obj\Debug\Test1.Properties.Resources.resources
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\obj\Debug\Test1.testWindow.resources
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\obj\Debug\Test1.TweetControl.resources
+C:\Users\Remi\Dropbox\IUT\S3\JPO\Twitter\Test1\Test1\obj\Debug\Test1.csproj.GenerateResource.Cache
