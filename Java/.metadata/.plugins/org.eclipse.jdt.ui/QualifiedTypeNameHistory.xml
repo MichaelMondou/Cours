@@ -13,7 +13,6 @@
 <fullyQualifiedTypeName name="javax.swing.JMenuBar"/>
 <fullyQualifiedTypeName name="javax.swing.JMenu"/>
 <fullyQualifiedTypeName name="javax.swing.JMenuItem"/>
-<fullyQualifiedTypeName name="java.awt.Point"/>
 <fullyQualifiedTypeName name="javax.swing.UIManager"/>
 <fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
@@ -30,5 +29,9 @@
 <fullyQualifiedTypeName name="java.awt.Polygon"/>
 <fullyQualifiedTypeName name="javax.swing.JFrame"/>
 <fullyQualifiedTypeName name="javax.swing.JPanel"/>
+<fullyQualifiedTypeName name="java.awt.Canvas"/>
+<fullyQualifiedTypeName name="javax.swing.event.MouseInputAdapter"/>
+<fullyQualifiedTypeName name="java.awt.event.MouseEvent"/>
+<fullyQualifiedTypeName name="java.awt.Point"/>
 <fullyQualifiedTypeName name="java.awt.Color"/>
 </qualifiedTypeNameHistroy>

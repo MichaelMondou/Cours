@@ -1,0 +1,23 @@
+package hex;
+
+import java.awt.event.MouseEvent;
+
+public class Controller {
+	
+	private Model model;
+
+	public Controller(Model model) {
+		this.model = model;
+	}
+	
+	public void Action(Object obj, MouseEvent event) {
+		switch (obj.toString()) {
+		case Cellule:
+			model.modifyColor(obj);
+			break;
+		default:
+			break;
+		}
+	}
+
+}

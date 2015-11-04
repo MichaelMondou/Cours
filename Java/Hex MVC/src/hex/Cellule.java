@@ -26,6 +26,9 @@ public class Cellule extends Polygon {
 	 * Couleur de la cellule
 	 */
 	private Color couleur;
+
+	private boolean modify;
+
 	/**
 	 * Rayon de la cellule
 	 */
@@ -41,6 +44,7 @@ public class Cellule extends Polygon {
 		this.l = l;
 		this.c = c;
 		this.couleur = couleur;
+		this.modify = false;
 	}
 
 	public void creerPolygone() {
@@ -88,5 +92,13 @@ public class Cellule extends Polygon {
 
 	public void setCouleur(Color couleur) {
 		this.couleur = couleur;
+	}
+
+	public boolean isModify() {
+		return modify;
+	}
+
+	public void setModify(boolean modify) {
+		this.modify = modify;
 	}
 }

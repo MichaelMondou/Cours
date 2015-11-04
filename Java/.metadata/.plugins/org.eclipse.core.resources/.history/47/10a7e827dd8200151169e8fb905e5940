@@ -1,0 +1,42 @@
+package hex;
+
+import java.awt.Color;
+import java.util.Observable;
+
+public class Model extends Observable {
+
+	private Grille plateau;
+
+	private int joueur;
+
+	public void nextData() {
+
+	}
+
+	public Model() {
+		plateau = new Grille();
+		joueur = 1;
+	}
+
+	public Grille getPlateau() {
+		return plateau;
+	}
+
+	public void setPlateau(Grille plateau) {
+		this.plateau = plateau;
+	}
+
+	public void modifyColor(Cellule cellule) {
+		/*if (joueur == 1) {
+			System.out.println("Joueur 1 : ");
+			System.out.println(x + " , " + y);
+			joueur = 2;
+		} else {
+			System.out.println("Joueur 2 : ");
+			System.out.println(x + " , " + y);
+			joueur = 1;
+		}*/
+		cellule.setCouleur(Color.PINK);
+	}
+
+}

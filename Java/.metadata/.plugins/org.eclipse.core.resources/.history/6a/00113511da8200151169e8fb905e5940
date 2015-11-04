@@ -1,0 +1,20 @@
+package hex;
+
+import java.awt.event.MouseEvent;
+
+import javax.swing.event.MouseInputAdapter;
+
+public class Click extends MouseInputAdapter{
+	
+	Cellule cellule;
+	Controller controller;
+	
+	public Click(Cellule cellule, Controller controller) {
+		this.cellule = cellule;
+		this.controller = controller;
+	}
+
+	public void mouseClicked(MouseEvent click){
+		controller.Action(view, click);
+	}
+}

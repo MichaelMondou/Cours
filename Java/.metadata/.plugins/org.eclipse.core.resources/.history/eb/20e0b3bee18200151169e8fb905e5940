@@ -1,0 +1,59 @@
+package hex;
+
+import java.awt.Color;
+import java.awt.Point;
+import java.util.Observable;
+
+public class Model extends Observable {
+
+	private Grille plateau;
+
+	private int joueur;
+
+	public void nextData() {
+
+	}
+
+	public Model() {
+		plateau = new Grille();
+		joueur = 1;
+	}
+
+	public Grille getPlateau() {
+		return plateau;
+	}
+
+	public void setPlateau(Grille plateau) {
+		this.plateau = plateau;
+	}
+
+	public void modifyColor(Point p) {
+		/*if (joueur == 1) {
+			System.out.println("Joueur 1 : ");
+			System.out.println(x + " , " + y);
+			joueur = 2;
+		} else {
+			System.out.println("Joueur 2 : ");
+			System.out.println(x + " , " + y);
+			joueur = 1;
+		}*/
+		for (int i = 0; i < getPlateau().cellules.size(); i++) {
+			for (int j = 0; j < getPlateau().cellules.get(i).size(); j++) {
+				if(getPlateau().cellules.get(i).get(j).contains(p)){
+					if(joueur == 1){
+						getPlateau().cellules.get(i).get(j).setCouleur(Color.PINK);
+						joueur = 2;
+					}
+					else{
+						getPlateau().cellules.get(i).get(j).setCouleur(Color.BLUE);
+						joueur = 1;
+					}
+
+				}
+			}
+		}
+		setChanged();
+		notifyObservers();
+	}
+
+}

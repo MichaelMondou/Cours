@@ -35,6 +35,7 @@ public class Grille {
 				int ordonée = this.cellules.get(i).get(j).getY();
 				ordonée -= 27 * i;
 				this.cellules.get(i).get(j).setY(ordonée);
+				this.cellules.get(i).get(j).creerPolygone();
 			}
 		}
 	}

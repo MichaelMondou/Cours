@@ -1,0 +1,30 @@
+package hex;
+
+import javax.swing.event.MouseInputAdapter;
+
+public class Click extends MouseInputAdapter{
+	
+	private int xClick;
+	private int yClick;
+	
+	public void mouseClicked(MouseInputAdapter click){
+		
+	}
+
+	public int getxClick() {
+		return xClick;
+	}
+
+	public void setxClick(int xClick) {
+		this.xClick = xClick;
+	}
+
+	public int getyClick() {
+		return yClick;
+	}
+
+	public void setyClick(int yClick) {
+		this.yClick = yClick;
+	}
+
+}
