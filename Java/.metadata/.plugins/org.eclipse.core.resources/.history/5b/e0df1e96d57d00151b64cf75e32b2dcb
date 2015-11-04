@@ -1,7 +1,0 @@
-package mvc;
-
-public class ViewButtonCelsius extends ViewButton{
-	
-	
-
-}

@@ -17,8 +17,8 @@ public class Grille {
 		for (int i = 0; i < longueur; i++) {
 			ArrayList<Cellule> cellules_temp = new ArrayList<Cellule>();
 			for (int j = 0; j < hauteur; j++) {
-				abscisse = 500 + i * 49;
-				ordonée = 300 + j * 55;
+				abscisse = 170 + i * 49;
+				ordonée = 250 + j * 55;
 				cellules_temp.add(new Cellule(abscisse, ordonée, i, j, Color.GRAY));
 			}
 			cellules.add(cellules_temp);

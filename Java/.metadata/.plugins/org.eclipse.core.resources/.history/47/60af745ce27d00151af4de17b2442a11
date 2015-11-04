@@ -1,5 +1,0 @@
-package mvc;
-
-public enum Event {
-	UPCELSIUS, DOWNCELSIUS, UPFARENHEIT, DOWNFARENHEIT, SCROLL
-}
