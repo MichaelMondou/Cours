@@ -19,6 +19,8 @@ public class Model extends Observable{
 
 	public void setPlateau(Grille plateau) {
 		this.plateau = plateau;
+		setChanged();
+		notifyObservers();
 	}
 
 }

@@ -1,6 +1,7 @@
 package hex;
 
 import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Observable;
@@ -14,7 +15,7 @@ public class ViewHex extends View implements MouseListener{
 	
     public void mouseReleased(MouseEvent e)
     {
-
+    	
     }
 
 	public void paint(Graphics g) {
@@ -26,6 +27,7 @@ public class ViewHex extends View implements MouseListener{
 				g.fillPolygon(getModel().getPlateau().cellules.get(i).get(j));
 			}
 		}
+		panel.addMouseListener(this);
 	}
 
 	@Override
@@ -34,9 +36,17 @@ public class ViewHex extends View implements MouseListener{
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent arg0) {
+    public void mouseClicked( MouseEvent e )
+    {
 		
-	}
+          // Clique gauche de la souris
+           if(e.getButton()==MouseEvent.BUTTON1)
+           {
+                // Récupération de la position
+                Point position = e.getPoint();
+                System.out.println(position.x);
+            }
+     }
 
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
@@ -45,6 +55,7 @@ public class ViewHex extends View implements MouseListener{
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {
+		
 	}
 
 	@Override
