@@ -16,11 +16,11 @@ namespace New_JPO
         public const int HAUTEUR_BLOCS = 30;
         public const int SCORE_BRIQUE = 25;
 
-        public const int VITESSE_BALLE = 3;
+        public const double VITESSE_BALLE = 3;
         public static Color COULEUR_BALLE = Color.Red;
         public const int TAILLE_BALLE = 10;
 
-        public const int VITESSE_BARRE = 3;
+        public const int VITESSE_BARRE = 10;
         public static Color COULEUR_BARRE = Color.Yellow;
         public const int LARGEUR_BARRE = 80;
         public const int HAUTEUR_BARRE = 10;
