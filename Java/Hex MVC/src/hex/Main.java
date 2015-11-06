@@ -12,6 +12,5 @@ public class Main {
 		ViewHex view = new ViewHex(window, model, controller);
 		
 		model.addObserver(view);
-
 	}
 }
