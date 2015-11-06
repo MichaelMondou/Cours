@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace New_JPO
 {
-    public enum Etat { PAUSE, JOUE, PERDU };                               // Les différents états du jeu
+    public enum Etat { PAUSE, JOUE, PERDU };                        // Les différents états du jeu
     public enum Niveau { DEBUTANT, INTERMEDIAIRE, EXPERT };         // Les différents états du jeu
     public partial class JPO : Form
     {
@@ -92,12 +92,23 @@ namespace New_JPO
 
         #endregion
 
+        public void reinitialisation()
+        {
+            for (int i = 0; i < Constantes.NB_BLOCS_HAUTEUR; i++)
+            {
+                for (int j = 0; j < Constantes.NB_BLOCS_LARGEUR; j++)
+                {
+                    blocs[i][j].Visible = true;
+                }
+            }
+        }
+
         #region GESTION DES EVENEMENTS
 
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
+
             this.label1.Text = "Score : " + score;
             this.label4.Text = "Vies : " + vies_joueur;
             balle.toucherFenetre(this.Size.Width, this.Size.Height);
@@ -107,6 +118,7 @@ namespace New_JPO
             {
                 etat_du_jeu = Etat.PAUSE;
                 balle.initialisation();
+                balle.miseAJourNiveau(niveau_du_jeu);
                 vies_joueur--;
             }
 
@@ -126,7 +138,7 @@ namespace New_JPO
             {
                 this.label2.Visible = true;
                 this.label2.Text = "PAUSE";
-                this.label3.Text = "Appuyez sur la touche Entrée pour jouer";
+                this.label3.Text = "Cliquez ou entrez pour jouer";
                 this.label5.Visible = false;
             }
 
@@ -160,56 +172,7 @@ namespace New_JPO
                 balle.ToucheBloc = false;// fin de la phase de collision, toucheBloc est réinitialisé pour le prochain tour
 
                 #endregion
-
-                #region Colision de la balle avec les autres élements
-
-                /*          if (balle.sortie(this.Size.Height))
-            {
-                timer1.Enabled = false;
-                if (vies_joueur > 0)        //reste-t-il des vies au joueur ?
-                {
-                    //perdreVie();
-                    // emplacement de la balle au demarage
-                    this.balle.Location = new Point(978 / 2 - (Constantes.TAILLE_BALLE / 2), 500);
-                    etat_du_jeu = Etat.RELANCE;
-                }
-                else
-                {
-                    perdu();
-                    this.Dispose(true);
-                }
-
             }
-*/
-                // on vérifie si la balle a touché la barre 
-                // la méthode ajuste les prochains déplacements
-
-
-                #endregion
-
-                #region verification de fin de jeu
-
-                /*  bool fini = true;
-            // On vérifie si tous les block sont détruits
-            foreach (Bloc[] ligne in blocs)
-                foreach (Bloc colonne in ligne)
-                {
-                    if (colonne.Visible == true)//Si un block est visible(donc restant), alors la partie continue.
-                    {
-                        fini = false;
-                        break;
-                    }
-                }
-            if (fini)//si il ne reste aucun block, alors on affiche les événements de victoire
-            {
-                this.timer1.Stop();
-                MessageBox.Show("Bravo !");
-                this.Dispose(true);
-            }*/
-                #endregion
-            }
-
-        #endregion
         }
 
         private void JPO_KeyDown(object sender, KeyEventArgs e)
@@ -229,13 +192,13 @@ namespace New_JPO
             if (e.KeyCode == Keys.Space && etat_du_jeu == Etat.PERDU)
             {
                 balle.initialisation();
+                balle.miseAJourNiveau(niveau_du_jeu);
                 barre.initialisation();
-                miseEnPlaceDesBlocs();
+                reinitialisation();
                 miseEnPlaceDesCouleurs();
                 vies_joueur = Constantes.NB_VIES;
                 score = 0;
                 etat_du_jeu = Etat.JOUE;
-
             }
         }
 
@@ -264,5 +227,19 @@ namespace New_JPO
             balle.miseAJourNiveau(niveau_du_jeu);
             barre.miseAJourNiveau(niveau_du_jeu);
         }
+
+        private void JPO_MouseMove(object sender, MouseEventArgs souris)
+        {
+            //Il faut donc déplacer la barre en fonction de la position de la souris
+            int moitie = barre.Size.Width / 2;
+            barre.Location = new System.Drawing.Point(souris.X - moitie, barre.Location.Y);
+        }
+
+        private void JPO_MouseClick(object sender, MouseEventArgs e)
+        {
+            etat_du_jeu = Etat.JOUE;
+        }
     }
+
+        #endregion
 }
