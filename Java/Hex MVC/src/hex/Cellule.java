@@ -26,9 +26,13 @@ public class Cellule extends Polygon {
 	 * Couleur de la cellule
 	 */
 	private Color couleur;
-
+	
+	/**
+	 * Sert à savoir si la cellule à déjà était modifiée 
+	 * pour ne pas pouvor cliquer deux fois dessus 
+	 */
 	private boolean modify;
-
+	
 	/**
 	 * Rayon de la cellule
 	 */
@@ -37,6 +41,14 @@ public class Cellule extends Polygon {
 	 * Angle de la cellule
 	 */
 	private static final double arc = (Math.PI * 2) / 6;
+	
+	
+	private int zone;
+	
+	
+	
+	
+	
 
 	Cellule(int x, int y, int l, int c, Color couleur) {
 		this.x = x;
