@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace New_JPO
 {
-    public enum Etat { PAUSE, JOUE, PERDU };                        // Les différents états du jeu
-    public enum Niveau { DEBUTANT, INTERMEDIAIRE, EXPERT };         // Les différents états du jeu
+    // Les différents états du jeu
+    public enum Etat { PAUSE, JOUE, PERDU };
+    // Les différents niveaux du jeu        
+    public enum Niveau { DEBUTANT, INTERMEDIAIRE, EXPERT };
+
     public partial class JPO : Form
     {
-
         #region LES VARIABLES DU JEUX : On déclare ici les variables nécessaires au bon fonctionnement du jeu
 
         private Bloc[][] blocs;                                         // Tableau de blocs
@@ -31,7 +33,7 @@ namespace New_JPO
 
         #endregion
 
-        #region FONCTIONS DE CONSTRUCTION
+        #region FONCTIONS DE CONSTRUCTION : On met en place ici les différents éléments du casse brique
 
         public JPO()
         {
@@ -46,7 +48,7 @@ namespace New_JPO
             score = 0;
         }
 
-        public void miseEnPlaceDesBlocs()  // Cette fonction met en place les blocs
+        public void miseEnPlaceDesBlocs()  // Cette action met en place les blocs
         {
             System.ComponentModel.ComponentResourceManager ressources = new System.ComponentModel.ComponentResourceManager(typeof(JPO));
 
@@ -77,13 +79,13 @@ namespace New_JPO
             }
         }
 
-        public void miseEnPlaceDeLaBalle()
+        public void miseEnPlaceDeLaBalle() // Cette action met en place la balle
         {
             balle = new Balle();
             this.Controls.Add(this.balle);
         }
 
-        public void miseEnPlaceDeLaBarre()
+        public void miseEnPlaceDeLaBarre() // Cette action met en place la barre
         {
             barre = new Barre();
             this.Controls.Add(this.barre);
@@ -92,10 +94,21 @@ namespace New_JPO
 
         #endregion
 
-<<<<<<< HEAD
-        public void afficherLabels()
+        #region EVENEMENTS
+        private void timer1_Tick(object sender, EventArgs e)
         {
-=======
+            afficherLabels();
+            jeuEnMarche();
+            balle.toucherFenetre(this.Size.Width, this.Size.Height);
+            balle.toucherBarre(this.barre);
+            sortieDeBalle();
+            jeuEnPause();
+            finDePartie();
+        }
+        #endregion
+
+        #region GESTION DES EVENEMENTS
+
         public void reinitialisation()
         {
             for (int i = 0; i < Constantes.NB_BLOCS_HAUTEUR; i++)
@@ -107,13 +120,8 @@ namespace New_JPO
             }
         }
 
-        #region GESTION DES EVENEMENTS
-
-
-        private void timer1_Tick(object sender, EventArgs e)
+        public void afficherLabels()
         {
-
->>>>>>> 99d6332a5fb425c18fab4c6a295e23c0b01d4778
             this.label1.Text = "Score : " + score;
             this.label4.Text = "Vies : " + vies_joueur;
         }
@@ -150,8 +158,6 @@ namespace New_JPO
                 this.label5.Visible = false;
                 balle.bouger();
 
-                #region Bloc touché par la balle
-
                 for (int i = 0; i < Constantes.NB_BLOCS_HAUTEUR; i++)
                     for (int j = 0; j < Constantes.NB_BLOCS_LARGEUR; j++)
                     {
@@ -171,8 +177,6 @@ namespace New_JPO
                     }
                 balle.ToucheBloc = false;// fin de la phase de collision, toucheBloc est réinitialisé pour le prochain tour
             }
-                #endregion
-<<<<<<< HEAD
         }
 
         public void finDePartie()
@@ -190,21 +194,9 @@ namespace New_JPO
             }
         }
 
-        #region GESTION DES EVENEMENTS
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            afficherLabels();
-            jeuEnMarche();
-            balle.toucherFenetre(this.Size.Width, this.Size.Height);
-            balle.toucherBarre(this.barre);
-            sortieDeBalle();
-            jeuEnPause();
-            finDePartie();
-=======
-            }
->>>>>>> 99d6332a5fb425c18fab4c6a295e23c0b01d4778
-        }
         #endregion
+
+        #region INTERACTIONS AVEC LE JEU
 
         private void JPO_KeyDown(object sender, KeyEventArgs e)
         {
@@ -270,7 +262,7 @@ namespace New_JPO
         {
             etat_du_jeu = Etat.JOUE;
         }
-    }
 
         #endregion
+    }
 }
