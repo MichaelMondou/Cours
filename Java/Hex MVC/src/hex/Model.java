@@ -9,6 +9,8 @@ public class Model extends Observable {
 	private Grille plateau;
 
 	private int joueur;
+	
+	
 
 	public void nextData() {
 
@@ -17,6 +19,7 @@ public class Model extends Observable {
 	public Model() {
 		plateau = new Grille();
 		joueur = 1;
+		
 	}
 
 	public Grille getPlateau() {
