@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace New_JPO
 {
-    public enum Etat { PAUSE, JOUE, PERDU };                               // Les différents états du jeu
+    public enum Etat { PAUSE, JOUE, PERDU };                        // Les différents états du jeu
     public enum Niveau { DEBUTANT, INTERMEDIAIRE, EXPERT };         // Les différents états du jeu
     public partial class JPO : Form
     {
@@ -92,8 +92,28 @@ namespace New_JPO
 
         #endregion
 
+<<<<<<< HEAD
         public void afficherLabels()
         {
+=======
+        public void reinitialisation()
+        {
+            for (int i = 0; i < Constantes.NB_BLOCS_HAUTEUR; i++)
+            {
+                for (int j = 0; j < Constantes.NB_BLOCS_LARGEUR; j++)
+                {
+                    blocs[i][j].Visible = true;
+                }
+            }
+        }
+
+        #region GESTION DES EVENEMENTS
+
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+>>>>>>> 99d6332a5fb425c18fab4c6a295e23c0b01d4778
             this.label1.Text = "Score : " + score;
             this.label4.Text = "Vies : " + vies_joueur;
         }
@@ -104,6 +124,7 @@ namespace New_JPO
             {
                 etat_du_jeu = Etat.PAUSE;
                 balle.initialisation();
+                balle.miseAJourNiveau(niveau_du_jeu);
                 vies_joueur--;
             }
         }
@@ -114,7 +135,7 @@ namespace New_JPO
             {
                 this.label2.Visible = true;
                 this.label2.Text = "PAUSE";
-                this.label3.Text = "Appuyez sur la touche Entrée pour jouer";
+                this.label3.Text = "Cliquez ou entrez pour jouer";
                 this.label5.Visible = false;
             }
         }
@@ -151,6 +172,7 @@ namespace New_JPO
                 balle.ToucheBloc = false;// fin de la phase de collision, toucheBloc est réinitialisé pour le prochain tour
             }
                 #endregion
+<<<<<<< HEAD
         }
 
         public void finDePartie()
@@ -178,6 +200,9 @@ namespace New_JPO
             sortieDeBalle();
             jeuEnPause();
             finDePartie();
+=======
+            }
+>>>>>>> 99d6332a5fb425c18fab4c6a295e23c0b01d4778
         }
         #endregion
 
@@ -198,13 +223,13 @@ namespace New_JPO
             if (e.KeyCode == Keys.Space && etat_du_jeu == Etat.PERDU)
             {
                 balle.initialisation();
+                balle.miseAJourNiveau(niveau_du_jeu);
                 barre.initialisation();
-                miseEnPlaceDesBlocs();
+                reinitialisation();
                 miseEnPlaceDesCouleurs();
                 vies_joueur = Constantes.NB_VIES;
                 score = 0;
                 etat_du_jeu = Etat.JOUE;
-
             }
         }
 
@@ -233,5 +258,19 @@ namespace New_JPO
             balle.miseAJourNiveau(niveau_du_jeu);
             barre.miseAJourNiveau(niveau_du_jeu);
         }
+
+        private void JPO_MouseMove(object sender, MouseEventArgs souris)
+        {
+            //Il faut donc déplacer la barre en fonction de la position de la souris
+            int moitie = barre.Size.Width / 2;
+            barre.Location = new System.Drawing.Point(souris.X - moitie, barre.Location.Y);
+        }
+
+        private void JPO_MouseClick(object sender, MouseEventArgs e)
+        {
+            etat_du_jeu = Etat.JOUE;
+        }
     }
+
+        #endregion
 }
