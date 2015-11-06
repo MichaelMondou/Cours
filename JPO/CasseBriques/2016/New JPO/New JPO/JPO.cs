@@ -92,36 +92,24 @@ namespace New_JPO
 
         #endregion
 
-        #region GESTION DES EVENEMENTS
-
-
-        private void timer1_Tick(object sender, EventArgs e)
+        public void afficherLabels()
         {
-            
             this.label1.Text = "Score : " + score;
             this.label4.Text = "Vies : " + vies_joueur;
-            balle.toucherFenetre(this.Size.Width, this.Size.Height);
-            balle.toucherBarre(this.barre);
+        }
 
+        public void sortieDeBalle()
+        {
             if (balle.sortie())
             {
                 etat_du_jeu = Etat.PAUSE;
                 balle.initialisation();
                 vies_joueur--;
             }
+        }
 
-            if (vies_joueur == 0)
-            {
-                etat_du_jeu = Etat.PERDU;
-            }
-
-            if (etat_du_jeu == Etat.PERDU)
-            {
-                this.label5.Visible = true;
-                this.label5.Text = "FIN DE PARTIE";
-                this.label3.Text = "Appuyez sur la touche Espace pour rejouer";
-            }
-
+        public void jeuEnPause()
+        {
             if (etat_du_jeu == Etat.PAUSE)
             {
                 this.label2.Visible = true;
@@ -129,7 +117,10 @@ namespace New_JPO
                 this.label3.Text = "Appuyez sur la touche Entrée pour jouer";
                 this.label5.Visible = false;
             }
+        }
 
+        public void jeuEnMarche()
+        {
             if (etat_du_jeu == Etat.JOUE)
             {
                 this.label1.Text = "Score : " + score;
@@ -158,59 +149,37 @@ namespace New_JPO
                         }
                     }
                 balle.ToucheBloc = false;// fin de la phase de collision, toucheBloc est réinitialisé pour le prochain tour
-
-                #endregion
-
-                #region Colision de la balle avec les autres élements
-
-                /*          if (balle.sortie(this.Size.Height))
-            {
-                timer1.Enabled = false;
-                if (vies_joueur > 0)        //reste-t-il des vies au joueur ?
-                {
-                    //perdreVie();
-                    // emplacement de la balle au demarage
-                    this.balle.Location = new Point(978 / 2 - (Constantes.TAILLE_BALLE / 2), 500);
-                    etat_du_jeu = Etat.RELANCE;
-                }
-                else
-                {
-                    perdu();
-                    this.Dispose(true);
-                }
-
             }
-*/
-                // on vérifie si la balle a touché la barre 
-                // la méthode ajuste les prochains déplacements
-
-
                 #endregion
-
-                #region verification de fin de jeu
-
-                /*  bool fini = true;
-            // On vérifie si tous les block sont détruits
-            foreach (Bloc[] ligne in blocs)
-                foreach (Bloc colonne in ligne)
-                {
-                    if (colonne.Visible == true)//Si un block est visible(donc restant), alors la partie continue.
-                    {
-                        fini = false;
-                        break;
-                    }
-                }
-            if (fini)//si il ne reste aucun block, alors on affiche les événements de victoire
-            {
-                this.timer1.Stop();
-                MessageBox.Show("Bravo !");
-                this.Dispose(true);
-            }*/
-                #endregion
-            }
-
-        #endregion
         }
+
+        public void finDePartie()
+        {
+            if (vies_joueur == 0)
+            {
+                etat_du_jeu = Etat.PERDU;
+            }
+
+            if (etat_du_jeu == Etat.PERDU)
+            {
+                this.label5.Visible = true;
+                this.label5.Text = "FIN DE PARTIE";
+                this.label3.Text = "Appuyez sur la touche Espace pour rejouer";
+            }
+        }
+
+        #region GESTION DES EVENEMENTS
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            afficherLabels();
+            jeuEnMarche();
+            balle.toucherFenetre(this.Size.Width, this.Size.Height);
+            balle.toucherBarre(this.barre);
+            sortieDeBalle();
+            jeuEnPause();
+            finDePartie();
+        }
+        #endregion
 
         private void JPO_KeyDown(object sender, KeyEventArgs e)
         {
