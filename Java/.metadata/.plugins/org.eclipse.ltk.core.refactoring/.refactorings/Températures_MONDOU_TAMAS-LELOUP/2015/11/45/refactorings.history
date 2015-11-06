@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;Températures_MONDOU_TAMAS-LELOUP&apos;&#x0D;&#x0A;- Original project: &apos;Températures_MONDOU_TAMAS-LELOUP&apos;&#x0D;&#x0A;- Original element: &apos;uml2.ucls&apos;" description="Delete element" element1="src/mvc/uml2.ucls" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="1" stamp="1446815793834" subPackages="false" version="1.0"/>
+</session>
