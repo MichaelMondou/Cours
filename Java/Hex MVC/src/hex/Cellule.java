@@ -43,7 +43,7 @@ public class Cellule extends Polygon {
 	private static final double arc = (Math.PI * 2) / 6;
 	
 	
-	private int zone;
+	private int zone=0;
 	
 	
 	
