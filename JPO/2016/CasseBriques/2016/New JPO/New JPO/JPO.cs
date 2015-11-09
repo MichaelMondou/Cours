@@ -12,6 +12,8 @@ namespace New_JPO
 {
     // Les différents états du jeu
     public enum Etat { PAUSE, JOUE, PERDU };
+
+    public enum Bonus { RIEN, MULTIBALLES };
     // Les différents niveaux du jeu        
     public enum Niveau { DEBUTANT, INTERMEDIAIRE, EXPERT };
 
@@ -26,10 +28,16 @@ namespace New_JPO
 
         private Balle balle;                                            // La balle du jeu
 
+        private Balle balle2;                                           // La balle du bonus multiballes
+        private Balle balle3;                                           // La deuxième balle du bonus multiballe
+
         private Barre barre;                                            // La barre du jeu
 
+        private bool bonus_activation = false;                          // Limite l'activation du bonus à une fois
+
         public Etat etat_du_jeu = Etat.PAUSE;                           // L'état initial du jeu
-        public Niveau niveau_du_jeu = Niveau.DEBUTANT;                  // L'état initial du jeu
+        public Niveau niveau_du_jeu = Niveau.DEBUTANT;                  // Le niveau initial du jeu
+        public Bonus bonus;
 
         #endregion
 
@@ -42,6 +50,7 @@ namespace New_JPO
             miseEnPlaceDesCouleurs();
             miseEnPlaceDesBlocs();
             miseEnPlaceDeLaBalle();
+            miseEnPlaceDuMultiBalles();
             miseEnPlaceDeLaBarre();
 
             vies_joueur = Constantes.NB_VIES;
@@ -85,6 +94,18 @@ namespace New_JPO
             this.Controls.Add(this.balle);
         }
 
+        public void miseEnPlaceDuMultiBalles()
+        {
+            balle2 = new Balle();
+            balle3 = new Balle();
+            balle2.DeplacementX *= -1;
+            balle3.DeplacementY *= 2;
+            this.Controls.Add(this.balle2);
+            this.Controls.Add(this.balle3);
+            balle2.Visible = false;
+            balle3.Visible = false;
+        }
+
         public void miseEnPlaceDeLaBarre() // Cette action met en place la barre
         {
             barre = new Barre();
@@ -101,6 +122,7 @@ namespace New_JPO
             jeuEnMarche();
             balle.toucherFenetre(this.Size.Width, this.Size.Height);
             balle.toucherBarre(this.barre);
+            bonusActifs();
             sortieDeBalle();
             jeuEnPause();
             finDePartie();
@@ -128,7 +150,22 @@ namespace New_JPO
 
         public void sortieDeBalle()
         {
-            if (balle.sortie())
+            if (bonus == Bonus.MULTIBALLES)
+            {
+                if (balle.sortie() && balle2.sortie() && balle3.sortie())
+                {
+                    etat_du_jeu = Etat.PAUSE;
+                    balle.initialisation();
+                    balle.miseAJourNiveau(niveau_du_jeu);
+                    vies_joueur--;
+                    bonus = Bonus.RIEN;
+                    bonus_activation = false;
+                    balle2.Visible = false;
+                    balle3.Visible = false;
+                    miseEnPlaceDuMultiBalles();
+                }
+            }
+            else if (balle.sortie())
             {
                 etat_du_jeu = Etat.PAUSE;
                 balle.initialisation();
@@ -148,6 +185,30 @@ namespace New_JPO
             }
         }
 
+        private void collisionBlocs(Balle b)
+        {
+            for (int i = 0; i < Constantes.NB_BLOCS_HAUTEUR; i++)
+            {
+                for (int j = 0; j < Constantes.NB_BLOCS_LARGEUR; j++)
+                {
+                    if (!b.ToucheBloc)    // Si la balle n'a pas encore touché de bloc
+                    {
+                        if (blocs[i][j].Visible)
+                        {
+                            if (niveau_du_jeu == Niveau.DEBUTANT)
+                                score += b.toucheDuBloc(blocs[i][j]);
+                            else if (niveau_du_jeu == Niveau.INTERMEDIAIRE)
+                                score += 2 * b.toucheDuBloc(blocs[i][j]);
+                            else if (niveau_du_jeu == Niveau.EXPERT)
+                                score += 3 * b.toucheDuBloc(blocs[i][j]);
+                        }
+
+                    }
+                }
+            }
+            b.ToucheBloc = false;// fin de la phase de collision, toucheBloc est réinitialisé pour le prochain tour
+        }
+
         public void jeuEnMarche()
         {
             if (etat_du_jeu == Etat.JOUE)
@@ -158,26 +219,7 @@ namespace New_JPO
                 this.label5.Visible = false;
                 balle.bouger();
 
-                for (int i = 0; i < Constantes.NB_BLOCS_HAUTEUR; i++)
-                {
-                    for (int j = 0; j < Constantes.NB_BLOCS_LARGEUR; j++)
-                    {
-                        if (!balle.ToucheBloc)    // Si la balle n'a pas encore touché de bloc
-                        {
-                            if (blocs[i][j].Visible)
-                            {
-                                if (niveau_du_jeu == Niveau.DEBUTANT)
-                                    score += balle.toucheDuBloc(blocs[i][j]);
-                                else if (niveau_du_jeu == Niveau.INTERMEDIAIRE)
-                                    score += 2 * balle.toucheDuBloc(blocs[i][j]);
-                                else if (niveau_du_jeu == Niveau.EXPERT)
-                                    score += 3 * balle.toucheDuBloc(blocs[i][j]);
-                            }
-
-                        }
-                    }
-                }
-                balle.ToucheBloc = false;// fin de la phase de collision, toucheBloc est réinitialisé pour le prochain tour
+                collisionBlocs(balle);
             }
         }
 
@@ -194,6 +236,25 @@ namespace New_JPO
                 this.label5.Text = "FIN DE PARTIE";
                 this.label3.Text = "Appuyez sur la touche Espace pour rejouer";
             }
+        }
+
+        public void bonusActifs()
+        {
+            if (bonus == Bonus.MULTIBALLES && etat_du_jeu == Etat.JOUE)
+            {
+                balle2.Visible = true;
+                balle3.Visible = true;
+                balle2.bouger();
+                balle3.bouger();
+                balle2.toucherFenetre(this.Size.Width, this.Size.Height);
+                balle2.toucherBarre(this.barre);
+                balle3.toucherFenetre(this.Size.Width, this.Size.Height);
+                balle3.toucherBarre(this.barre);
+
+                collisionBlocs(balle2);
+                collisionBlocs(balle3);
+            }
+
         }
 
         #endregion
@@ -225,6 +286,16 @@ namespace New_JPO
                 score = 0;
                 etat_du_jeu = Etat.JOUE;
             }
+
+            if (e.KeyCode == Keys.P)
+            {
+                if (bonus_activation == false)
+                {
+                    bonus = Bonus.MULTIBALLES;
+                    bonus_activation = true;
+                }
+            }
+
         }
 
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
@@ -236,6 +307,8 @@ namespace New_JPO
         {
             niveau_du_jeu = Niveau.DEBUTANT;
             balle.miseAJourNiveau(niveau_du_jeu);
+            balle2.miseAJourNiveau(niveau_du_jeu);
+            balle3.miseAJourNiveau(niveau_du_jeu);
             barre.miseAJourNiveau(niveau_du_jeu);
         }
 
@@ -243,6 +316,8 @@ namespace New_JPO
         {
             niveau_du_jeu = Niveau.INTERMEDIAIRE;
             balle.miseAJourNiveau(niveau_du_jeu);
+            balle2.miseAJourNiveau(niveau_du_jeu);
+            balle3.miseAJourNiveau(niveau_du_jeu);
             barre.miseAJourNiveau(niveau_du_jeu);
         }
 
@@ -250,6 +325,8 @@ namespace New_JPO
         {
             niveau_du_jeu = Niveau.EXPERT;
             balle.miseAJourNiveau(niveau_du_jeu);
+            balle2.miseAJourNiveau(niveau_du_jeu);
+            balle3.miseAJourNiveau(niveau_du_jeu);
             barre.miseAJourNiveau(niveau_du_jeu);
         }
 
@@ -262,7 +339,8 @@ namespace New_JPO
 
         private void JPO_MouseClick(object sender, MouseEventArgs e)
         {
-            etat_du_jeu = Etat.JOUE;
+            if(etat_du_jeu == Etat.PAUSE)
+                etat_du_jeu = Etat.JOUE;
         }
 
         #endregion
