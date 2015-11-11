@@ -47,6 +47,8 @@ namespace New_JPO
         {
             InitializeComponent();
 
+            miseEnPlaceDuBackground();
+
             miseEnPlaceDesCouleurs();
             miseEnPlaceDesBlocs();
             miseEnPlaceDeLaBalle();
@@ -55,6 +57,32 @@ namespace New_JPO
 
             vies_joueur = Constantes.NB_VIES;
             score = 0;
+        }
+
+        public void miseEnPlaceDuBackground()
+        {
+            Random rnd = new Random(DateTime.Now.Millisecond);
+            int x = rnd.Next(1, 5);
+            switch (x)
+            {
+                case 1:
+                    this.BackgroundImage = global::New_JPO.Properties.Resources.background_1;
+                    break;
+                case 2:
+                    this.BackgroundImage = global::New_JPO.Properties.Resources.background_2;
+                    break;
+                case 3:
+                    this.BackgroundImage = global::New_JPO.Properties.Resources.background_3;
+                    break;
+                case 4:
+                    this.BackgroundImage = global::New_JPO.Properties.Resources.background_4;
+                    break;
+                case 5:
+                    this.BackgroundImage = global::New_JPO.Properties.Resources.background_5;
+                    break;
+                default:
+                    break;
+            }
         }
 
         public void miseEnPlaceDesBlocs()  // Cette action met en place les blocs
@@ -146,6 +174,7 @@ namespace New_JPO
         {
             this.label1.Text = "Score : " + score;
             this.label4.Text = "Vies : " + vies_joueur;
+            this.label6.Text = "Niveau : " + niveau_du_jeu;
         }
 
         public void sortieDeBalle()
@@ -232,6 +261,7 @@ namespace New_JPO
 
             if (etat_du_jeu == Etat.PERDU)
             {
+                this.label2.Visible = false;
                 this.label5.Visible = true;
                 this.label5.Text = "FIN DE PARTIE";
                 this.label3.Text = "Appuyez sur la touche Espace pour rejouer";
@@ -271,7 +301,7 @@ namespace New_JPO
             {
                 etat_du_jeu = Etat.PAUSE;
             }
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && etat_du_jeu != Etat.PERDU)
             {
                 etat_du_jeu = Etat.JOUE;
             }
@@ -287,7 +317,7 @@ namespace New_JPO
                 etat_du_jeu = Etat.JOUE;
             }
 
-            if (e.KeyCode == Keys.P)
+            if (e.KeyCode == Keys.M)
             {
                 if (bonus_activation == false)
                 {
@@ -332,14 +362,18 @@ namespace New_JPO
 
         private void JPO_MouseMove(object sender, MouseEventArgs souris)
         {
-            //Il faut donc déplacer la barre en fonction de la position de la souris
-            int moitie = barre.Size.Width / 2;
-            barre.Location = new System.Drawing.Point(souris.X - moitie, barre.Location.Y);
+            int x;
+            if (souris.X < 0)
+                x = 0;
+            else if (souris.X > Constantes.LARGEUR_ECRAN_JEU - barre.Width - 15)
+                x = Constantes.LARGEUR_ECRAN_JEU - barre.Width - 15;
+            else x = souris.X;
+            barre.Location = new System.Drawing.Point(x, barre.Location.Y);
         }
 
         private void JPO_MouseClick(object sender, MouseEventArgs e)
         {
-            if(etat_du_jeu == Etat.PAUSE)
+            if (etat_du_jeu == Etat.PAUSE)
                 etat_du_jeu = Etat.JOUE;
         }
 

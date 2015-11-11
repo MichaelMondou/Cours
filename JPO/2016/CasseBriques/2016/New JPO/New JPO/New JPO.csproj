@@ -44,9 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Balle_SAVE.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Balle.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -76,6 +73,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -89,6 +87,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ball.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1330.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00025869.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Aurora_Mountains-Nature_HD_Wallpaper_1920x1080.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loup-hurlant-dans-la-nuit-bleu.73485.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Terre.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\balle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\raquette.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
