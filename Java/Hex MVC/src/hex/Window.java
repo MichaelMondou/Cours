@@ -21,6 +21,7 @@ public class Window extends JFrame {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setSize(largeur, hauteur);
 		window.setLocationRelativeTo(null);
+		window.setResizable(false);
 		panel = new JPanel();
 		window.add(panel);
 		window.setVisible(true);

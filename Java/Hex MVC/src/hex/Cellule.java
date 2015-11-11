@@ -26,6 +26,13 @@ public class Cellule extends Polygon {
 	 * Couleur de la cellule
 	 */
 	private Color couleur;
+	
+	/**
+	 * Sert à savoir si la cellule à déjà était modifiée 
+	 * pour ne pas pouvor cliquer deux fois dessus 
+	 */
+	private boolean modify;
+	
 	/**
 	 * Rayon de la cellule
 	 */
@@ -34,6 +41,14 @@ public class Cellule extends Polygon {
 	 * Angle de la cellule
 	 */
 	private static final double arc = (Math.PI * 2) / 6;
+	
+	
+	private int zone=0;
+	
+	
+	
+	
+	
 
 	Cellule(int x, int y, int l, int c, Color couleur) {
 		this.x = x;
@@ -41,6 +56,7 @@ public class Cellule extends Polygon {
 		this.l = l;
 		this.c = c;
 		this.couleur = couleur;
+		this.modify = false;
 	}
 
 	public void creerPolygone() {
@@ -88,5 +104,13 @@ public class Cellule extends Polygon {
 
 	public void setCouleur(Color couleur) {
 		this.couleur = couleur;
+	}
+
+	public boolean isModify() {
+		return modify;
+	}
+
+	public void setModify(boolean modify) {
+		this.modify = modify;
 	}
 }

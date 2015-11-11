@@ -1,0 +1,1 @@
+Le script et l'édition de registre ne sont pas fonctionnels. Il reste à modifier le chemin, afin de les mettre à jour avec la JPO 2015

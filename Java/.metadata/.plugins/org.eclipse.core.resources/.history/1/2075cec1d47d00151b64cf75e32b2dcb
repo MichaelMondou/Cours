@@ -1,7 +1,0 @@
-package mvc;
-
-public abstract class ViewButton extends View {
-
-	
-	
-}
