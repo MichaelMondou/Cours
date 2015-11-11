@@ -47,7 +47,7 @@ namespace GestionCompteFacebook
 				loginBrowser.Visible = false;
 				ongletsApplication.Visible = true;
 				FacebookClient fb = new FacebookClient(accessToken);
-				dynamic feed = fb.Get("me?fields=id,name,picture,email,bio");
+				dynamic feed = fb.Get("me?fields=id,name,picture");
 			}
 		}
 	}
