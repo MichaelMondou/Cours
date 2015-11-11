@@ -74,6 +74,11 @@ namespace Puissance4
 
         private void Puissance4_Paint(object sender, PaintEventArgs e)
         {
+
+            Image image = Properties.Resources.bleu;
+            for (int x = 0; x < Puissance4.NB_COLS; x++)
+                e.Graphics.DrawImage(image, new Rectangle(x * Puissance4.SIZE_W, Puissance4.MARGIN_TOP, Puissance4.SIZE_W, Puissance4.SIZE_H));
+
             jeton.dessiner(e.Graphics);
             grille.dessiner(e.Graphics);
 

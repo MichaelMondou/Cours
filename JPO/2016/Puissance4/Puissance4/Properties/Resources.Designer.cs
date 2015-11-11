@@ -73,6 +73,16 @@ namespace Puissance4.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bleu {
+            get {
+                object obj = ResourceManager.GetObject("bleu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap jaune {
             get {
                 object obj = ResourceManager.GetObject("jaune", resourceCulture);

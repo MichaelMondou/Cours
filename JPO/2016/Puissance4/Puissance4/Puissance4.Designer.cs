@@ -30,16 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Puissance4));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.nouveauToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.AboutButton = new System.Windows.Forms.ToolStripButton();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.nouveauToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.AboutButton = new System.Windows.Forms.ToolStripButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolStrip1.SuspendLayout();
             this.statusStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -50,14 +48,34 @@
             this.AboutButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(425, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(420, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // nouveauToolStripButton
+            // 
+            this.nouveauToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.nouveauToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("nouveauToolStripButton.Image")));
+            this.nouveauToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.nouveauToolStripButton.Name = "nouveauToolStripButton";
+            this.nouveauToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.nouveauToolStripButton.Text = "Nouvelle partie";
+            this.nouveauToolStripButton.Click += new System.EventHandler(this.nouveauToolStripButton_Click);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
             this.toolStripSeparator.Size = new System.Drawing.Size(6, 25);
+            // 
+            // AboutButton
+            // 
+            this.AboutButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.AboutButton.Image = ((System.Drawing.Image)(resources.GetObject("AboutButton.Image")));
+            this.AboutButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.AboutButton.Name = "AboutButton";
+            this.AboutButton.Size = new System.Drawing.Size(23, 22);
+            this.AboutButton.Text = "A propos";
+            this.AboutButton.Click += new System.EventHandler(this.AboutButton_Click);
             // 
             // statusStrip
             // 
@@ -66,7 +84,7 @@
             this.toolStripStatusLabel2});
             this.statusStrip.Location = new System.Drawing.Point(0, 379);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(425, 22);
+            this.statusStrip.Size = new System.Drawing.Size(420, 22);
             this.statusStrip.TabIndex = 1;
             this.statusStrip.Text = "statusStrip";
             // 
@@ -82,42 +100,11 @@
             this.toolStripStatusLabel2.Size = new System.Drawing.Size(107, 17);
             this.toolStripStatusLabel2.Text = "Score Joueur Jaune";
             // 
-            // nouveauToolStripButton
-            // 
-            this.nouveauToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.nouveauToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("nouveauToolStripButton.Image")));
-            this.nouveauToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.nouveauToolStripButton.Name = "nouveauToolStripButton";
-            this.nouveauToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.nouveauToolStripButton.Text = "Nouvelle partie";
-            this.nouveauToolStripButton.Click += new System.EventHandler(this.nouveauToolStripButton_Click);
-            // 
-            // AboutButton
-            // 
-            this.AboutButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.AboutButton.Image = ((System.Drawing.Image)(resources.GetObject("AboutButton.Image")));
-            this.AboutButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.AboutButton.Name = "AboutButton";
-            this.AboutButton.Size = new System.Drawing.Size(23, 22);
-            this.AboutButton.Text = "A propos";
-            this.AboutButton.Click += new System.EventHandler(this.AboutButton_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(42)))), ((int)(((byte)(224)))));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 28);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(425, 82);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // Puissance4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 401);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(420, 401);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip1);
             this.DoubleBuffered = true;
@@ -133,7 +120,6 @@
             this.toolStrip1.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,7 +134,6 @@
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
