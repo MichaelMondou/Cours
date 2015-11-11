@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{235F5683-92B5-4C82-A1D2-DBF4B1EAE941}</ProjectGuid>
+    <ProjectGuid>{807E003A-FB97-44F8-9B71-B4B33B8D17AE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>New_JPO</RootNamespace>
-    <AssemblyName>New JPO</AssemblyName>
+    <RootNamespace>Puissance4</RootNamespace>
+    <AssemblyName>Puissance4</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,26 +44,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Balle.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Barre.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Bloc.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Constantes.cs" />
-    <Compile Include="JPO.cs">
+    <Compile Include="Apropos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="JPO.Designer.cs">
-      <DependentUpon>JPO.cs</DependentUpon>
+    <Compile Include="Apropos.Designer.cs">
+      <DependentUpon>Apropos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Constantes.cs" />
+    <Compile Include="Grille.cs" />
+    <Compile Include="Jeton.cs" />
+    <Compile Include="Puissance4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Puissance4.Designer.cs">
+      <DependentUpon>Puissance4.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="JPO.resx">
-      <DependentUpon>JPO.cs</DependentUpon>
+    <EmbeddedResource Include="Apropos.resx">
+      <DependentUpon>Apropos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Puissance4.resx">
+      <DependentUpon>Puissance4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -86,31 +88,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Resources\case.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ball.jpg" />
+    <None Include="Resources\jaune.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\1330.jpg" />
+    <None Include="Resources\logo_iut-bordeaux-1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\00025869.jpg" />
+    <None Include="Resources\puissance4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Aurora_Mountains-Nature_HD_Wallpaper_1920x1080.jpg" />
+    <None Include="Resources\rouge.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\loup-hurlant-dans-la-nuit-bleu.73485.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Terre.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\balle.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\raquette.png" />
+    <None Include="Resources\case1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

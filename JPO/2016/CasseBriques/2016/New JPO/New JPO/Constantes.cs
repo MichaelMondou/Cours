@@ -18,11 +18,14 @@ namespace New_JPO
 
         public const double VITESSE_BALLE = 3;
         public static Color COULEUR_BALLE = Color.Red;
-        public const int TAILLE_BALLE = 10;
+        public const int TAILLE_BALLE = 15;
 
         public const int VITESSE_BARRE = 10;
         public static Color COULEUR_BARRE = Color.Yellow;
         public const int LARGEUR_BARRE = 80;
-        public const int HAUTEUR_BARRE = 10;
+        public const int HAUTEUR_BARRE = 15;
+
+        public const int LARGEUR_ECRAN_JEU = 978;
+        public const int HAUTEUR_ECRAN_JEU = 490;
     }
 }

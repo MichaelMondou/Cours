@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using System.IO;
 
 namespace New_JPO
 {
@@ -23,7 +24,8 @@ namespace New_JPO
         //Initialisation de la balle
         public Balle()
         {
-            this.BackColor = Constantes.COULEUR_BALLE;
+            this.Image = global::New_JPO.Properties.Resources.balle;
+            this.BackColor = Color.Transparent;
             this.Size = new Size(Constantes.TAILLE_BALLE, Constantes.TAILLE_BALLE);
             this.Centre = new Point(this.Location.X + ((this.Location.X + this.Width - this.Location.X) / 2), (this.Location.Y + (this.Location.Y + this.Height - this.Location.Y) / 2));
             initialisation();
@@ -33,7 +35,7 @@ namespace New_JPO
         {
             deplacementX = Constantes.VITESSE_BALLE;
             deplacementY = -Constantes.VITESSE_BALLE;
-            this.Location = new Point(978 / 2 - (Constantes.TAILLE_BALLE / 2), 480);
+            this.Location = new Point(Constantes.LARGEUR_ECRAN_JEU / 2 - (Constantes.TAILLE_BALLE / 2), 475);
         }
 
         public void miseAJourNiveau(Niveau niveau_du_jeu)
