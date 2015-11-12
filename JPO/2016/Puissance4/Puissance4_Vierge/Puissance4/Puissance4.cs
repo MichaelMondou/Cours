@@ -12,22 +12,6 @@ namespace Puissance4
 {
     public partial class Puissance4 : Form
     {
-        public static int SIZE_W = 97;
-        public static int SIZE_H = 97;
-
-        public static int NB_COLS = 7;//7
-        public static int NB_ROWS = 6;//6
-
-        public static int MARGIN_TOP = 25;//Marge du haut (taille du menu en px)
-        public static int MARGIN_BOTTOM = 25;//Marge du bas (taille de la barre en px)
-
-        public static int WIDTH = SIZE_W * NB_COLS;
-        public static int HEIGHT = SIZE_H * NB_ROWS;
-
-        public static int SPEED = 25;
-
-        public static int PUISSANCE = 4;
-
         private bool clicEffectue = false;
 
         private Grille grille;
@@ -47,17 +31,16 @@ namespace Puissance4
             #region Puissance4
             InitializeComponent();
 
-            ClientSize = new System.Drawing.Size(WIDTH - 6, HEIGHT + SIZE_H + MARGIN_TOP + MARGIN_BOTTOM - 6);
+            ClientSize = new System.Drawing.Size(Constantes.WIDTH - 6, Constantes.HEIGHT + Constantes.SIZE_H + Constantes.MARGIN_TOP + Constantes.MARGIN_BOTTOM - 6);
 
             this.grille = new Grille();
-            this.jeton = new Jeton(joueur, WIDTH / 2 - SIZE_W / 2, 0);
+            this.jeton = new Jeton(joueur, Constantes.WIDTH / 2 - Constantes.SIZE_W / 2, 0);
             #endregion
 
             toolStripStatusLabel1.Text = "Rouge : 0";
             toolStripStatusLabel2.Text = "Jaune : 0";
 
-            Refresh();
-            
+            Refresh();     
         }
 
         private void init()
@@ -97,23 +80,23 @@ namespace Puissance4
 
         private void afficherLigneHaut(PaintEventArgs e)
         {
-            for (int x = 0; x < Puissance4.NB_COLS; x++)
+            for (int x = 0; x < Constantes.NB_COLS; x++)
             {
-                e.Graphics.DrawImage(Properties.Resources.caseBleue, new Rectangle(x * Puissance4.SIZE_W, Puissance4.MARGIN_TOP, Puissance4.SIZE_W, Puissance4.SIZE_H));
+                e.Graphics.DrawImage(Properties.Resources.caseBleue, new Rectangle(x * Constantes.SIZE_W, Constantes.MARGIN_TOP, Constantes.SIZE_W, Constantes.SIZE_H));
             }
         }
 
         private void Puissance4_MouseMove(object sender, MouseEventArgs e)
         {
-            int x = (e.X / SIZE_W) * SIZE_W;
+            int x = (e.X / Constantes.SIZE_W) * Constantes.SIZE_W;
 
             if (x < 0)
             {
                 x = 0;
             }
-            else if (x > WIDTH - SIZE_W)
+            else if (x > Constantes.WIDTH - Constantes.SIZE_W)
             {
-                x = WIDTH - SIZE_W;
+                x = Constantes.WIDTH - Constantes.SIZE_W;
             }
 
             jeton.setPotision(x, 0);
@@ -122,20 +105,14 @@ namespace Puissance4
 
         private void nouveauToolStripButton_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Voulez-vous commencer une nouvelle partie ?", "Nouvelle partie", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
+            /*if (MessageBox.Show("Voulez-vous commencer une nouvelle partie ?", "Nouvelle partie", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {*/
                 joueurRouge = 0;
                 joueurJaune = 0;
                 toolStripStatusLabel1.Text = "Rouge : 0";
                 toolStripStatusLabel2.Text = "Jaune : 0";
                 init();
-            }
-        }
-
-        private void AboutButton_Click(object sender, EventArgs e)
-        {
-            Apropos about = new Apropos();
-            about.ShowDialog();
+            //}
         }
 
         private void Puissance4_Load(object sender, EventArgs e)
@@ -148,11 +125,11 @@ namespace Puissance4
             clicEffectue = true;
 
             #region MouseCLick
-            int i = ((MouseEventArgs)e).X / SIZE_W;
+            int i = ((MouseEventArgs)e).X / Constantes.SIZE_W;
 
-            if (i >= NB_COLS)
+            if (i >= Constantes.NB_COLS)
             {
-                i = NB_COLS - 1;
+                i = Constantes.NB_COLS - 1;
             }
 
             if (grille[i, 0].getCouleur() != null)
@@ -162,12 +139,12 @@ namespace Puissance4
             int j = grille.ligneInsertion(i);
             int y = 0;
 
-            while (y <= HEIGHT - (NB_ROWS - j - 1) * SIZE_H)
+            while (y <= Constantes.HEIGHT - (Constantes.NB_ROWS - j - 1) * Constantes.SIZE_H)
             {
                 jeton.setPositionY(y);
                 y++;
 
-                if (y % SPEED == 0)
+                if (y % Constantes.SPEED == 0)
                 {
                     Refresh();
                 }
@@ -200,7 +177,7 @@ namespace Puissance4
 
                 init();
             }
-            else if (++nbJetons == NB_COLS * NB_ROWS)
+            else if (++nbJetons == Constantes.NB_COLS * Constantes.NB_ROWS)
             {
                 MessageBox.Show("Egalité !");
                 joueurRouge++;

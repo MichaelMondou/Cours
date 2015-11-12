@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace Puissance_4
+namespace Puissance4
 {
     class Grille
     {
-        private Jeton[][] jetons = new Jeton[Puissance4.NB_COLS][];
+        private Jeton[][] jetons = new Jeton[Constantes.NB_COLS][];
 
         public Grille()
         {
@@ -17,21 +18,21 @@ namespace Puissance_4
 
         public void init()
         {
-            for (int i = 0; i < Puissance4.NB_COLS; i++)
+            for (int i = 0; i < Constantes.NB_COLS; i++)
             {
-                this.jetons[i] = new Jeton[Puissance4.NB_COLS];
+                this.jetons[i] = new Jeton[Constantes.NB_COLS];
 
-                for (int j = 0; j < Puissance4.NB_COLS; j++)
+                for (int j = 0; j < Constantes.NB_COLS; j++)
                 {
-                    this.jetons[i][j] = new Jeton(null, i * Puissance4.SIZE_W, j * Puissance4.SIZE_H + Puissance4.SIZE_H);
+                    this.jetons[i][j] = new Jeton(null, i * Constantes.SIZE_W, j * Constantes.SIZE_H + Constantes.SIZE_H);
                 }
             }
         }
 
         public void dessiner(Graphics g)
         {
-            for (int i = 0; i < Puissance4.NB_COLS; i++)
-                for (int j = 0; j < Puissance4.NB_ROWS; j++)
+            for (int i = 0; i < Constantes.NB_COLS; i++)
+                for (int j = 0; j < Constantes.NB_ROWS; j++)
                 {
                     dessinerJetons(g, i, j);
                     dessinerCase(g, i, j);
@@ -46,14 +47,14 @@ namespace Puissance_4
         private void dessinerCase(Graphics g, int x, int y)
         {
             Image image = Properties.Resources._case;
-            g.DrawImage(image, new Rectangle(x * Puissance4.SIZE_W, Puissance4.MARGIN_TOP + y * Puissance4.SIZE_H + Puissance4.SIZE_H, Puissance4.SIZE_W, Puissance4.SIZE_H));
+            g.DrawImage(image, new Rectangle(x * Constantes.SIZE_W, Constantes.MARGIN_TOP + y * Constantes.SIZE_H + Constantes.SIZE_H, Constantes.SIZE_W, Constantes.SIZE_H));
         }
 
         public int ligneInsertion(int i)
         {
             int j = 0;
 
-            while (j < Puissance4.NB_ROWS && this.jetons[i][j].getCouleur() == null)
+            while (j < Constantes.NB_ROWS && this.jetons[i][j].getCouleur() == null)
             {
                 j++;
             }
@@ -107,17 +108,17 @@ namespace Puissance_4
             int j = lig + 1;
             int cpt = 1;
 
-            if (lig <= Puissance4.NB_ROWS - Puissance4.PUISSANCE)
+            if (lig <= Constantes.NB_ROWS - Constantes.PUISSANCE)
             {
-                while (j < Puissance4.NB_ROWS && couleur == this.jetons[col][j++].getCouleur())
+                while (j < Constantes.NB_ROWS && couleur == this.jetons[col][j++].getCouleur())
                 {
                     cpt++;
                 }
 
-                if (cpt >= Puissance4.PUISSANCE)
+                if (cpt >= Constantes.PUISSANCE)
                 {
                     Point p1 = new Point(col, lig);
-                    Point p2 = new Point(col, lig + Puissance4.PUISSANCE - 1);
+                    Point p2 = new Point(col, lig + Constantes.PUISSANCE - 1);
 
                     return new Point[] { p1, p2 };
                 }
@@ -137,7 +138,7 @@ namespace Puissance_4
 
             //Comptage à droite
             int i = col;
-            while (i < Puissance4.NB_COLS - 1 && couleur == this.jetons[++i][lig].getCouleur())
+            while (i < Constantes.NB_COLS - 1 && couleur == this.jetons[++i][lig].getCouleur())
             {
                 p2.X = i;
                 cpt++;
@@ -151,7 +152,7 @@ namespace Puissance_4
                 cpt++;
             }
 
-            if (cpt >= Puissance4.PUISSANCE)
+            if (cpt >= Constantes.PUISSANCE)
             {
                 return new Point[] { p1, p2 };
             }
@@ -171,7 +172,7 @@ namespace Puissance_4
             //Vers le bas
             int i = col;
             int j = lig;
-            while (i < Puissance4.NB_COLS - 1 && j < Puissance4.NB_ROWS - 1 && couleur == this.jetons[++i][++j].getCouleur())
+            while (i < Constantes.NB_COLS - 1 && j < Constantes.NB_ROWS - 1 && couleur == this.jetons[++i][++j].getCouleur())
             {
                 p1.X = i;
                 p1.Y = j;
@@ -188,7 +189,7 @@ namespace Puissance_4
                 cpt++;
             }
 
-            if (cpt >= Puissance4.PUISSANCE)
+            if (cpt >= Constantes.PUISSANCE)
             {
                 return new Point[] { p1, p2 };
             }         
@@ -208,7 +209,7 @@ namespace Puissance_4
             //Vers le bas
             int i = col;
             int j = lig;
-            while (i > 0 && j < Puissance4.NB_ROWS - 1 && couleur == this.jetons[--i][++j].getCouleur())
+            while (i > 0 && j < Constantes.NB_ROWS - 1 && couleur == this.jetons[--i][++j].getCouleur())
             {
                 p1.X = i;
                 p1.Y = j;
@@ -218,14 +219,14 @@ namespace Puissance_4
             //Vers le haut
             i = col;
             j = lig;
-            while (i < Puissance4.NB_COLS - 1 && j > 0 && couleur == this.jetons[++i][--j].getCouleur())
+            while (i < Constantes.NB_COLS - 1 && j > 0 && couleur == this.jetons[++i][--j].getCouleur())
             {
                 p2.X = i;
                 p2.Y = j;
                 cpt++;
             }
 
-            if (cpt >= Puissance4.PUISSANCE)
+            if (cpt >= Constantes.PUISSANCE)
             {
                 return new Point[] { p1, p2 };
             }

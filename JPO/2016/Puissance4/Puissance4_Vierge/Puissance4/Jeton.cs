@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace Puissance_4
+namespace Puissance4
 {
     class Jeton
     {
         private string couleur;
         private Point position;
-        
+
         public static void dessinerTrait(Graphics g, Point[] p)
         {
             g.DrawLine(new Pen(Color.RoyalBlue, 10),
-                        new Point(p[0].X * Puissance4.SIZE_W + Puissance4.SIZE_W / 2, Puissance4.MARGIN_TOP + ((p[0].Y + 1) * Puissance4.SIZE_H + Puissance4.SIZE_H / 2)),
-                        new Point(p[1].X * Puissance4.SIZE_W + Puissance4.SIZE_W / 2, Puissance4.MARGIN_TOP + ((p[1].Y + 1) * Puissance4.SIZE_H + Puissance4.SIZE_H / 2)));
+                        new Point(p[0].X * Constantes.SIZE_W + Constantes.SIZE_W / 2, Constantes.MARGIN_TOP + ((p[0].Y + 1) * Constantes.SIZE_H + Constantes.SIZE_H / 2)),
+                        new Point(p[1].X * Constantes.SIZE_W + Constantes.SIZE_W / 2, Constantes.MARGIN_TOP + ((p[1].Y + 1) * Constantes.SIZE_H + Constantes.SIZE_H / 2)));
         }
 
         public Jeton(String couleur, int x, int y)
@@ -28,8 +29,8 @@ namespace Puissance_4
         {
             if (this.couleur != null)
             {
-                Image image = (Bitmap)Properties.Resources.ResourceManager.GetObject(this.couleur);
-                g.DrawImage(image, new Rectangle(this.position.X, Puissance4.MARGIN_TOP + this.position.Y, Puissance4.SIZE_W, Puissance4.SIZE_H));
+                Image image = (Image)Properties.Resources.ResourceManager.GetObject(couleur);
+                g.DrawImage(image, new Rectangle(this.position.X, Constantes.MARGIN_TOP + this.position.Y, Constantes.SIZE_W, Constantes.SIZE_H));
             }
         }
 
