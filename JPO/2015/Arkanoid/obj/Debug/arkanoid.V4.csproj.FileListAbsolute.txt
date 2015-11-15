@@ -22,3 +22,5 @@ C:\Users\Mika\Desktop\JPO\Arkanoid\obj\Debug\arkanoid.V4.csprojResolveAssemblyRe
 C:\Users\Mika\Desktop\JPO\Arkanoid\obj\Debug\arkanoid.V4.Arkanoid.resources
 C:\Users\Mika\Desktop\JPO\Arkanoid\obj\Debug\arkanoid.V4.Properties.Resources.resources
 C:\Users\Mika\Desktop\JPO\Arkanoid\obj\Debug\arkanoid.V4.csproj.GenerateResource.Cache
+C:\Users\Mika\Documents\Cours IUT\Semestre 3\GIT\Cours\JPO\2015\Arkanoid\obj\Debug\arkanoid.V4.exe
+C:\Users\Mika\Documents\Cours IUT\Semestre 3\GIT\Cours\JPO\2015\Arkanoid\obj\Debug\arkanoid.V4.pdb
