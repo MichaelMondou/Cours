@@ -132,7 +132,7 @@
             // instructions_label
             // 
             this.instructions_label.AutoSize = true;
-            this.instructions_label.BackColor = System.Drawing.Color.Transparent;
+            this.instructions_label.BackColor = System.Drawing.Color.Black;
             this.instructions_label.Font = new System.Drawing.Font("StarJedi Special Edition", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.instructions_label.Location = new System.Drawing.Point(190, 4);
             this.instructions_label.Name = "instructions_label";
@@ -167,7 +167,7 @@
             // 
             // jeuToolStripMenuItem1
             // 
-            this.jeuToolStripMenuItem1.BackColor = System.Drawing.Color.Transparent;
+            this.jeuToolStripMenuItem1.BackColor = System.Drawing.Color.Black;
             this.jeuToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.quitterToolStripMenuItem1});
             this.jeuToolStripMenuItem1.ForeColor = System.Drawing.Color.Gold;
@@ -186,7 +186,7 @@
             // 
             // niveauToolStripMenuItem1
             // 
-            this.niveauToolStripMenuItem1.BackColor = System.Drawing.Color.Transparent;
+            this.niveauToolStripMenuItem1.BackColor = System.Drawing.Color.Black;
             this.niveauToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.debutantToolStripMenuItem1,
             this.intermédiaireToolStripMenuItem1,
@@ -249,11 +249,12 @@
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // CasseBrique
+            // Casse_Brique
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(778, 429);
             this.Controls.Add(this.vies_label);
             this.Controls.Add(this.etat_label);
@@ -267,7 +268,7 @@
             this.ForeColor = System.Drawing.Color.Gold;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "CasseBrique";
+            this.Name = "Casse_Brique";
             this.Text = "Star Wars Casse Brique";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CasseBrique_KeyDown);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.CasseBrique_MouseClick);

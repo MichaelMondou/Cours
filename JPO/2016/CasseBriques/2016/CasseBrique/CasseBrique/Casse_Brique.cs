@@ -49,6 +49,8 @@ namespace CasseBrique
         {
             InitializeComponent();
 
+            miseEnPlaceDuBackground();
+
             miseEnPlaceDesCouleurs();
             miseEnPlaceDesBlocs();
             miseEnPlaceDeLaBalle();
@@ -58,6 +60,25 @@ namespace CasseBrique
             vitesse_balle = Constantes.VITESSE_BALLE_DEBUTANT;
             vies_joueur = Constantes.NB_VIES;
             score = 0;
+        }
+
+        public void miseEnPlaceDuBackground()
+        {
+            Random rnd = new Random(DateTime.Now.Millisecond);
+            int x = rnd.Next(1, 3);
+            switch (x)
+            {
+                case 1:
+                    this.BackgroundImage = global::CasseBrique.Properties.Resources.background_1;
+                    break;
+                case 2:
+                    this.BackgroundImage = global::CasseBrique.Properties.Resources.background_2;
+                    break;
+                case 3:
+                    this.BackgroundImage = global::CasseBrique.Properties.Resources.background_3;
+                    break;
+            }
+
         }
 
         public void miseEnPlaceDesBlocs()  // Cette action met en place les blocs
