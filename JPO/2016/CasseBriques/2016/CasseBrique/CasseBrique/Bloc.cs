@@ -13,9 +13,9 @@ namespace CasseBrique
         private int largeur = Constantes.LARGEUR_ECRAN_JEU / Constantes.NB_BLOCS_LARGEUR;
         private int hauteur = Constantes.HAUTEUR_BLOCS;
 
-        public Bloc(int i, int j, Color couleur)
+        public Bloc(int i, int j, Image image_bloc)
         {
-            this.BackColor = couleur;
+            this.BackgroundImage = image_bloc;
 
             this.BorderStyle = BorderStyle.FixedSingle;
 

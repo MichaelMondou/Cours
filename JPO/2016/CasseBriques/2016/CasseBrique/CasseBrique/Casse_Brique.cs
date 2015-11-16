@@ -12,6 +12,7 @@ namespace CasseBrique
 {
     // Les différents états du jeu
     public enum Etat { PAUSE, JOUE, PERDU };
+    // Les différents bonus du jeu
     public enum Bonus { RIEN, MULTIBALLES };
     // Les différents niveaux du jeu        
     public enum Niveau { debutant, intermediaire, expert };
@@ -21,25 +22,42 @@ namespace CasseBrique
 
         #region LES VARIABLES DU JEU : On déclare ici les variables nécessaires au bon fonctionnement du jeu
 
-        private Bloc[][] blocs;                                         // Tableau de blocs
-        private Color[] couleurs;                                       // Tableau de couleur des blocs
-        private int vies_joueur;                                        // Nombre de vie du joueur
-        private int score;                                              // Score du joueur
+        // Tableau de blocs
+        private Bloc[][] blocs;
 
-        private Balle balle;                                            // La balle du jeu
+        // Tableau de couleur des blocs
+        private Image[] images_blocs;
 
-        private Balle balle2;                                           // La balle du bonus multiballes
-        private Balle balle3;                                           // La deuxième balle du bonus multiballe
+        // Nombre de vie du joueur
+        private int vies_joueur;
 
-        private Barre barre;                                            // La barre du jeu
+        // Score du joueur
+        private int score;
 
+        // Balle du jeu
+        private Balle balle;
+
+        // Balles du bonus Multi-balles
+        private Balle balle2;
+        private Balle balle3;
+
+        // Barre du jeu
+        private Barre barre;
+
+        // Vitesse de la balle
         private int vitesse_balle;
 
-        private bool bonus_activation = false;                          // Limite l'activation du bonus à une fois
+        // Limite l'activation du bonus à une fois
+        private bool bonus_activation = false;
 
-        public Etat etat_du_jeu = Etat.PAUSE;                           // L'état initial du jeu
-        public Niveau niveau_du_jeu = Niveau.debutant;                  // Le niveau initial du jeu
-        public Bonus bonus;
+        // L'état initial du jeu
+        public Etat etat_du_jeu = Etat.PAUSE;
+
+        // Le niveau initial du jeu
+        public Niveau niveau_du_jeu = Niveau.debutant;
+
+        // Bonus initial (il n'y en a pas)
+        public Bonus bonus = Bonus.RIEN;
 
         #endregion
 
@@ -62,10 +80,11 @@ namespace CasseBrique
             score = 0;
         }
 
+        // Cette action sert à mettre en place l'image d'arrière-plan du jue parmi les fonds d'écran disponibles dans les ressources.
         public void miseEnPlaceDuBackground()
         {
             Random rnd = new Random(DateTime.Now.Millisecond);
-            int x = rnd.Next(1, 3);
+            int x = rnd.Next(1, 4);
             switch (x)
             {
                 case 1:
@@ -78,10 +97,10 @@ namespace CasseBrique
                     this.BackgroundImage = global::CasseBrique.Properties.Resources.background_3;
                     break;
             }
-
         }
 
-        public void miseEnPlaceDesBlocs()  // Cette action met en place les blocs
+        // Cette action sert à mettre en place les blocs du jeu
+        public void miseEnPlaceDesBlocs()
         {
 
             blocs = new Bloc[Constantes.NB_BLOCS_LARGEUR][];
@@ -92,35 +111,22 @@ namespace CasseBrique
 
                 for (int j = 0; j < Constantes.NB_BLOCS_LARGEUR; j++)
                 {
-                    this.blocs[i][j] = new Bloc(i, j, couleurs[i]);
-                    this.blocs[i][j].BorderStyle = BorderStyle.FixedSingle;
+                    this.blocs[i][j] = new Bloc(i, j, images_blocs[i]);
                     this.Controls.Add(this.blocs[i][j]);
                 }
             }
         }
 
-        public void miseEnPlaceDesCouleurs() // Cette action met en place les couleurs à associer aux blocs
+        // Cette action sert à mettre en place les couleurs à associer aux blocs
+        public void miseEnPlaceDesCouleurs()
         {
-            Random rnd = new Random(DateTime.Now.Millisecond);
+            images_blocs = new Image[Constantes.NB_BLOCS_HAUTEUR];
 
-            bool bleu = false;
-
-            couleurs = new Color[Constantes.NB_BLOCS_HAUTEUR];
-
-            for (int i = 0; i < Constantes.NB_BLOCS_HAUTEUR; i++)
-            {
-                if (!bleu)
-                {
-                    couleurs[i] = Color.FromArgb(rnd.Next(150, 255), 0, 0);
-                    bleu = true;
-                }
-                else
-                {
-                    couleurs[i] = Color.FromArgb(0, 0, rnd.Next(150, 255));
-                    bleu = false;
-                }
-
-            }
+            images_blocs[0] = global::CasseBrique.Properties.Resources.bloc_1;
+            images_blocs[1] = global::CasseBrique.Properties.Resources.bloc_2;
+            images_blocs[2] = global::CasseBrique.Properties.Resources.bloc_3;
+            images_blocs[3] = global::CasseBrique.Properties.Resources.bloc_4;
+            images_blocs[4] = global::CasseBrique.Properties.Resources.bloc_5;
         }
 
         public void miseEnPlaceDeLaBalle() // Cette action met en place la balle
