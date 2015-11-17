@@ -14,7 +14,7 @@ namespace Puissance4
 
         public static void dessinerTrait(Graphics g, Point[] p)
         {
-            g.DrawLine(new Pen(Color.RoyalBlue, 10),
+            g.DrawLine(new Pen(Color.GhostWhite, 10),
                         new Point(p[0].X * Constantes.SIZE_W + Constantes.SIZE_W / 2, Constantes.MARGIN_TOP + ((p[0].Y + 1) * Constantes.SIZE_H + Constantes.SIZE_H / 2)),
                         new Point(p[1].X * Constantes.SIZE_W + Constantes.SIZE_W / 2, Constantes.MARGIN_TOP + ((p[1].Y + 1) * Constantes.SIZE_H + Constantes.SIZE_H / 2)));
         }
@@ -46,13 +46,13 @@ namespace Puissance4
 
         public void inverserCouleur()
         {
-            if (this.couleur == "rouge")
+            if (this.couleur == "darkVador" || this.couleur == "bombeVador")
             {
-                this.couleur = "jaune";
+                this.couleur = "luke";
             }
-            else if (this.couleur == "jaune")
+            else if (this.couleur == "luke" || this.couleur == "bombeluke")
             {
-                this.couleur = "rouge";
+                this.couleur = "darkVador";
             }
         }
 
@@ -65,5 +65,10 @@ namespace Puissance4
         {
             this.couleur = couleur;
         }
+
+		public Point getPosition()
+		{
+			return position;
+		}
     }
 }

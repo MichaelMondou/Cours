@@ -35,7 +35,7 @@ namespace Puissance4
                 for (int j = 0; j < Constantes.NB_ROWS; j++)
                 {
                     dessinerJetons(g, i, j);
-                    dessinerCase(g, i, j);
+					dessinerCase(g, i, j);
                 }
         }
 
@@ -46,7 +46,7 @@ namespace Puissance4
 
         private void dessinerCase(Graphics g, int x, int y)
         {
-            Image image = Properties.Resources._case;
+            Image image = Properties.Resources.caseVide;
             g.DrawImage(image, new Rectangle(x * Constantes.SIZE_W, Constantes.MARGIN_TOP + y * Constantes.SIZE_H + Constantes.SIZE_H, Constantes.SIZE_W, Constantes.SIZE_H));
         }
 
