@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace CasseBrique
 {
@@ -50,6 +51,12 @@ namespace CasseBrique
         // Limite l'activation du bonus à une fois
         private bool bonus_activation = false;
 
+        // Musique du jeu
+        private SoundPlayer musique_fond;
+
+        // Sert à savoir si la chanson est lancée ou non
+        private bool play;
+
         // L'état initial du jeu
         public Etat etat_du_jeu = Etat.PAUSE;
 
@@ -78,6 +85,10 @@ namespace CasseBrique
             vitesse_balle = Constantes.VITESSE_BALLE_DEBUTANT;
             vies_joueur = Constantes.NB_VIES;
             score = 0;
+
+            musique_fond = new SoundPlayer(global::CasseBrique.Properties.Resources.StarWars_Theme);
+            musique_fond.Play();
+            play = true;
         }
 
         // Cette action sert à mettre en place l'image d'arrière-plan du jue parmi les fonds d'écran disponibles dans les ressources.
@@ -122,19 +133,33 @@ namespace CasseBrique
         {
             images_blocs = new Image[Constantes.NB_BLOCS_HAUTEUR];
 
-            images_blocs[0] = global::CasseBrique.Properties.Resources.bloc_1;
-            images_blocs[1] = global::CasseBrique.Properties.Resources.bloc_2;
-            images_blocs[2] = global::CasseBrique.Properties.Resources.bloc_3;
-            images_blocs[3] = global::CasseBrique.Properties.Resources.bloc_4;
-            images_blocs[4] = global::CasseBrique.Properties.Resources.bloc_5;
+            Image[] images = new Image[5];
+
+            int j = 0;
+
+            images[0] = global::CasseBrique.Properties.Resources.bloc_1;
+            images[1] = global::CasseBrique.Properties.Resources.bloc_2;
+            images[2] = global::CasseBrique.Properties.Resources.bloc_3;
+            images[3] = global::CasseBrique.Properties.Resources.bloc_4;
+            images[4] = global::CasseBrique.Properties.Resources.bloc_5;
+
+            for (int i = 0; i < Constantes.NB_BLOCS_HAUTEUR; i++)
+            {
+                if (j == 5)
+                    j = 0;
+                images_blocs[i] = images[j];
+                j++;
+            }
         }
 
-        public void miseEnPlaceDeLaBalle() // Cette action met en place la balle
+        // Cette action sert à mettre en place la balle
+        public void miseEnPlaceDeLaBalle()
         {
             balle = new Balle();
             this.Controls.Add(this.balle);
         }
 
+        // Cette action sert à mettre en place le multi-balles
         public void miseEnPlaceDuMultiBalles()
         {
             balle2 = new Balle();
@@ -147,7 +172,8 @@ namespace CasseBrique
             balle3.Visible = false;
         }
 
-        public void miseEnPlaceDeLaBarre() // Cette action met en place la barre
+        // Cette action sert à mettre en place la barre
+        public void miseEnPlaceDeLaBarre()
         {
             barre = new Barre();
             this.Controls.Add(this.barre);
@@ -156,7 +182,7 @@ namespace CasseBrique
 
         #endregion
 
-        #region EVENEMENTS
+        #region EVENEMENTS : On appelle les différents événements du jeu
         private void timer1_Tick(object sender, EventArgs e)
         {
             afficherLabels();
@@ -170,19 +196,9 @@ namespace CasseBrique
         }
         #endregion
 
-        #region GESTION DES EVENEMENTS
+        #region GESTION DES EVENEMENTS : On gère les différents événements du jeu
 
-        public void reinitialisation()
-        {
-            for (int i = 0; i < Constantes.NB_BLOCS_HAUTEUR; i++)
-            {
-                for (int j = 0; j < Constantes.NB_BLOCS_LARGEUR; j++)
-                {
-                    blocs[i][j].Visible = true;
-                }
-            }
-        }
-
+        // Cette action permet d'afficher les labels dynamiquement
         public void afficherLabels()
         {
             this.score_label.Text = "score : " + score;
@@ -190,6 +206,7 @@ namespace CasseBrique
             this.niveau_label.Text = "niveau : " + niveau_du_jeu;
         }
 
+        // Cette action permet de savoir si la (ou les) balle(s) est (sont) sortie(s)
         public void sortieDeBalle()
         {
             if (bonus == Bonus.MULTIBALLES)
@@ -214,24 +231,15 @@ namespace CasseBrique
             }
         }
 
-        public void jeuEnPause()
-        {
-            if (etat_du_jeu == Etat.PAUSE)
-            {
-                this.etat_label.Visible = true;
-                this.etat_label.Text = "pause";
-                this.instructions_label.Text = "cliquez ou entrez pour jouer";
-                this.fin_label.Visible = false;
-            }
-        }
-
+        // Cette action permet de détecter si la balle est en collision avec un bloc
         private void collisionBlocs(Balle b)
         {
             for (int i = 0; i < Constantes.NB_BLOCS_HAUTEUR; i++)
             {
                 for (int j = 0; j < Constantes.NB_BLOCS_LARGEUR; j++)
                 {
-                    if (!b.ToucheBloc)    // Si la balle n'a pas encore touché de bloc
+                    // Si la balle n'a pas encore touché de bloc
+                    if (!b.ToucheBloc)
                     {
                         if (blocs[i][j].Visible)
                         {
@@ -246,9 +254,23 @@ namespace CasseBrique
                     }
                 }
             }
-            b.ToucheBloc = false;// fin de la phase de collision, toucheBloc est réinitialisé pour le prochain tour
+            // Fin de la phase de collision, toucheBloc est réinitialisé pour le prochain tour
+            b.ToucheBloc = false;
         }
 
+        // Cette action permet d'afficher ce qu'il faut lorsque le jeu est en état de pause
+        public void jeuEnPause()
+        {
+            if (etat_du_jeu == Etat.PAUSE)
+            {
+                this.etat_label.Visible = true;
+                this.etat_label.Text = "pause";
+                this.instructions_label.Text = "cliquez ou entrez pour jouer";
+                this.fin_label.Visible = false;
+            }
+        }
+
+        // Cette action permet d'afficher ce qu'il faut lorsque le jeu est en état de marche
         public void jeuEnMarche()
         {
             if (etat_du_jeu == Etat.JOUE)
@@ -265,6 +287,7 @@ namespace CasseBrique
             }
         }
 
+        // Cette action permet d'afficher ce qu'il faut lorsque la partie est finie
         public void finDePartie()
         {
             if (vies_joueur == 0)
@@ -281,6 +304,19 @@ namespace CasseBrique
             }
         }
 
+        // Cette action permet de réinitialiser les blocs du jeu
+        public void reinitialisation()
+        {
+            for (int i = 0; i < Constantes.NB_BLOCS_HAUTEUR; i++)
+            {
+                for (int j = 0; j < Constantes.NB_BLOCS_LARGEUR; j++)
+                {
+                    blocs[i][j].Visible = true;
+                }
+            }
+        }
+
+        // Cette action permet d'exécuter le bonus du multi-balles
         public void bonusActifs()
         {
             if (bonus == Bonus.MULTIBALLES && etat_du_jeu == Etat.JOUE)
@@ -304,14 +340,11 @@ namespace CasseBrique
 
         #endregion
 
-        #region INTERACTIONS AVEC LE JEU
+        #region INTERACTIONS AVEC LE JEU : On gère les intéractions Clavier / Souris / Joueur
 
+        //Cette action permet de détecter les événements clavier
         private void CasseBrique_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Left)
-                barre.deplacer(-1);
-            if (e.KeyCode == Keys.Right)
-                barre.deplacer(1);
             if (e.KeyCode == Keys.Escape)
             {
                 etat_du_jeu = Etat.PAUSE;
@@ -342,53 +375,73 @@ namespace CasseBrique
 
         }
 
+        // Cette action permet de détecter l'appuie de la touche quitter
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // Cette action permet de détecter l'appuie de la touche Débutant
         private void débutantToolStripMenuItem_Click(object sender, EventArgs e)
         {
             niveau_du_jeu = Niveau.debutant;
             vitesse_balle = Constantes.VITESSE_BALLE_DEBUTANT;
-            barre.Width = Constantes.LARGEUR_BARRE_DEBUTANT;
-            barre.Height = Constantes.HAUTEUR_BARRE_DEBUTANT;
-            barre.BackgroundImage = global::CasseBrique.Properties.Resources.raquette_debutant;
+            barre.Width = Constantes.LARGEUR_BARRE;
+            barre.Height = Constantes.HAUTEUR_BARRE;
         }
 
+        // Cette action permet de détecter l'appuie de la touche Intermédiaire
         private void intermédiaireToolStripMenuItem_Click(object sender, EventArgs e)
         {
             niveau_du_jeu = Niveau.intermediaire;
             vitesse_balle = Constantes.VITESSE_BALLE_INTERMEDIAIRE;
-            barre.Width = Constantes.LARGEUR_BARRE_DEBUTANT;
-            barre.Height = Constantes.HAUTEUR_BARRE_DEBUTANT;
-            barre.BackgroundImage = global::CasseBrique.Properties.Resources.raquette_debutant;
+            barre.Width = Constantes.LARGEUR_BARRE;
+            barre.Height = Constantes.HAUTEUR_BARRE;
         }
 
+        // Cette action permet de détecter l'appuie de la touche Expert
         private void expertToolStripMenuItem_Click(object sender, EventArgs e)
         {
             niveau_du_jeu = Niveau.expert;
             vitesse_balle = Constantes.VITESSE_BALLE_INTERMEDIAIRE;
-            barre.Width = Constantes.LARGEUR_BARRE_EXPERT;
-            barre.Height = Constantes.HAUTEUR_BARRE_EXPERT;
-            barre.BackgroundImage = global::CasseBrique.Properties.Resources.raquette_expert;
+            barre.Width = Constantes.LARGEUR_BARRE / 2;
+            barre.Height = Constantes.HAUTEUR_BARRE / 2;
         }
 
+        // Cette action permet de bouger la raquette en fonction du mouvement de la souris
         private void CasseBrique_MouseMove(object sender, MouseEventArgs souris)
         {
             int x;
-            if (souris.X < 0)
+            if (souris.X < barre.Width / 2)
                 x = 0;
-            else if (souris.X > Constantes.LARGEUR_ECRAN_JEU - barre.Width)
+            else if (souris.X > Constantes.LARGEUR_ECRAN_JEU - barre.Width / 2)
                 x = Constantes.LARGEUR_ECRAN_JEU - barre.Width;
-            else x = souris.X;
+            else x = souris.X - barre.Width / 2;
             barre.Location = new System.Drawing.Point(x, barre.Location.Y);
         }
 
+        // Cette action permet de détecter le click de la souris et de commencer ainsi la partie
         private void CasseBrique_MouseClick(object sender, MouseEventArgs e)
         {
             if (etat_du_jeu == Etat.PAUSE)
                 etat_du_jeu = Etat.JOUE;
+        }
+
+        // Cette action permet d'activer ou non la chanson du jeu
+        private void sound_button_Click(object sender, EventArgs e)
+        {
+            if (play == true)
+            {
+                musique_fond.Stop();
+                sound_button.BackgroundImage = global::CasseBrique.Properties.Resources.haut_parleur_2;
+                play = false;
+            }
+            else
+            {
+                musique_fond.Play();
+                sound_button.BackgroundImage = global::CasseBrique.Properties.Resources.haut_parleur;
+                play = true;
+            }
         }
 
         #endregion

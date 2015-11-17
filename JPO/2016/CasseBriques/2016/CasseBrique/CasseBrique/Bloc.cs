@@ -16,6 +16,7 @@ namespace CasseBrique
         public Bloc(int i, int j, Image image_bloc)
         {
             this.BackgroundImage = image_bloc;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
 
             this.BorderStyle = BorderStyle.FixedSingle;
 

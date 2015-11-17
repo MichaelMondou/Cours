@@ -153,9 +153,9 @@ namespace CasseBrique.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap raquette_debutant {
+        public static System.Drawing.Bitmap haut_parleur {
             get {
-                object obj = ResourceManager.GetObject("raquette_debutant", resourceCulture);
+                object obj = ResourceManager.GetObject("haut_parleur", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,10 +163,29 @@ namespace CasseBrique.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap raquette_expert {
+        public static System.Drawing.Bitmap haut_parleur_2 {
             get {
-                object obj = ResourceManager.GetObject("raquette_expert", resourceCulture);
+                object obj = ResourceManager.GetObject("haut_parleur_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap raquette {
+            get {
+                object obj = ResourceManager.GetObject("raquette", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.IO.UnmanagedMemoryStream semblable à System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream StarWars_Theme {
+            get {
+                return ResourceManager.GetStream("StarWars_Theme", resourceCulture);
             }
         }
     }

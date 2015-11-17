@@ -67,18 +67,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -87,30 +87,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\balle.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\raquette_debutant.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\star-wars_00375718.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\78fa62e73747b8a591cebc6a45615c10_large.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3401991fc3b1d91d94d93e28524b9dfc_large.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\raquette_expert.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Image1.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Star-Wars-étoile-noire-150x150.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bloc_1.jpg" />
@@ -126,6 +102,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bloc_5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background_1.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background_2.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\balle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\raquette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\haut-parleur.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StarWars Theme.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\haut-parleur-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blaster.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

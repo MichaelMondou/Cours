@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace CasseBrique
 {
@@ -15,16 +16,17 @@ namespace CasseBrique
 
         private Point Centre;
 
-        //Initialisation de la balle
         public Balle()
         {
-            this.Image = global::CasseBrique.Properties.Resources.balle;
+            this.BackgroundImage = global::CasseBrique.Properties.Resources.balle;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
             this.BackColor = Color.Transparent;
             this.Size = new Size(Constantes.TAILLE_BALLE, Constantes.TAILLE_BALLE);
             this.Centre = new Point(this.Location.X + ((this.Location.X + this.Width - this.Location.X) / 2), (this.Location.Y + (this.Location.Y + this.Height - this.Location.Y) / 2));
             initialisation();
         }
 
+        // Cette action permet d'initialiser la balle
         public void initialisation()
         {
             deplacementX = 1;
@@ -32,13 +34,15 @@ namespace CasseBrique
             this.Location = new Point(Constantes.LARGEUR_ECRAN_JEU / 2 - (Constantes.TAILLE_BALLE / 2), Constantes.HAUTEUR_ECRAN_JEU - 115);
         }
 
+        // Cette action permet de déplacer la balle
         public void bouger()
         {
             Location = new Point(Location.X + (int)deplacementX, Location.Y + (int)deplacementY);
             this.Centre = new Point(this.Location.X + ((this.Location.X + this.Width - this.Location.X) / 2), (this.Location.Y + (this.Location.Y + this.Height - this.Location.Y) / 2));
         }
 
-        public void toucherFenetre(int largeurFenetre, int hauteurFenetre) // Savoir si la balle sort de la fenêtre
+        // Cette action sert à savoir si la balle touche la fenêtre
+        public void toucherFenetre(int largeurFenetre, int hauteurFenetre)
         {
             if (Location.X + Constantes.TAILLE_BALLE >= largeurFenetre - Constantes.TAILLE_BALLE)
             {
@@ -54,7 +58,8 @@ namespace CasseBrique
             }
         }
 
-        public void toucherBarre(Barre barre) // Savoir si la balle touche la barre
+        // Cette action sert à savoir si la balle touche la barre
+        public void toucherBarre(Barre barre)
         {
             if (this.Location.Y + this.Size.Height > barre.Location.Y &&
                this.Location.Y < barre.Location.Y &&
@@ -65,6 +70,7 @@ namespace CasseBrique
             }
         }
 
+        // Cette fonction sert à savoir si la balle est sortie de l'écran de jeu
         public bool sortie()
         {
             if (Location.Y > Constantes.HAUTEUR_ECRAN_JEU)
@@ -74,6 +80,8 @@ namespace CasseBrique
             return false;
         }
 
+
+        // Cette fonction sert à savoir si la balle touche un bloc et renvoie un nombre de points
         public int toucheDuBloc(Bloc bloc)
         {
             int nb = 0;
@@ -93,7 +101,7 @@ namespace CasseBrique
                 else if ((this.Centre.X <= bloc.Location.X) || (this.Centre.X >= bloc.Location.X + bloc.Width))
                 {
                     deplacementX = -1 * deplacementX;
-                }
+                }   
 
                 nb = Constantes.SCORE_BRIQUE;
                 bloc.Visible = false;
@@ -102,6 +110,8 @@ namespace CasseBrique
             return nb;
         }
 
+        // Ces fonctions servent à savoir si la balle touche respectivement les coins inférieur droit, inférieur gauche, supérieur gauche et supérieur droit 
+        // du bloc passé en paramètre
         private bool CoinInfDroit(Bloc bloc)
         {
             bool rentre = false;

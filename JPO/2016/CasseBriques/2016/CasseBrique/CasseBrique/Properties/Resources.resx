@@ -119,16 +119,16 @@
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="background_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\3401991fc3b1d91d94d93e28524b9dfc_large.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\background_1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="background_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\78fa62e73747b8a591cebc6a45615c10_large.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\background_2.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="background_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\star-wars_00375718.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\background_3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="balle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Star-Wars-étoile-noire-150x150.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\balle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bloc_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bloc_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,10 +145,16 @@
   <data name="bloc_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bloc_5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="raquette_debutant" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\raquette_debutant.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="haut_parleur" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\haut-parleur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="raquette_expert" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\raquette_expert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="haut_parleur_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\haut-parleur-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="raquette" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\raquette.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StarWars_Theme" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StarWars Theme.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
