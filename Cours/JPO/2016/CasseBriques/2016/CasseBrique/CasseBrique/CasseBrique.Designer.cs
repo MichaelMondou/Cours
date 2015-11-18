@@ -1,6 +1,6 @@
-﻿namespace TheForceBreakout
+﻿namespace CasseBrique
 {
-    partial class TheForceBreakout
+    partial class CasseBrique
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -373,7 +373,7 @@
             // sound_button
             // 
             this.sound_button.BackColor = System.Drawing.Color.Transparent;
-            this.sound_button.BackgroundImage = global::TheForceBreakout.Properties.Resources.haut_parleur;
+            this.sound_button.BackgroundImage = global::CasseBrique.Properties.Resources.haut_parleur;
             this.sound_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.sound_button.Location = new System.Drawing.Point(736, 396);
             this.sound_button.MaximumSize = new System.Drawing.Size(30, 30);
@@ -420,9 +420,9 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "The_Force_Breakout";
             this.Text = "The Force Breakout";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TheForceBreakout_KeyDown);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TheForceBreakout_MouseClick);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TheForceBreakout_MouseMove);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CasseBrique_KeyDown);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.CasseBrique_MouseClick);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CasseBrique_MouseMove);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sound_button)).EndInit();

@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheForceBreakout
+namespace CasseBrique
 {
     public class Constantes
     {
         public const int NB_VIES = 3;
 
-        public const int NB_BLOCS_LARGEUR = 10;
+        public const int NB_BLOCS_LARGEUR = 1;
         public const int NB_BLOCS_HAUTEUR = 1;
         public const int HAUTEUR_BLOCS = 30;
         public const int SCORE_BRIQUE = 25;
