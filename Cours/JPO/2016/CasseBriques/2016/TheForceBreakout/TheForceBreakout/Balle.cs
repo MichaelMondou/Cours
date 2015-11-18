@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
 
-namespace CasseBrique
+namespace TheForceBreakout
 {
     class Balle : PictureBox
     {
@@ -18,7 +18,7 @@ namespace CasseBrique
 
         public Balle()
         {
-            this.BackgroundImage = global::CasseBrique.Properties.Resources.balle;
+            this.BackgroundImage = global::TheForceBreakout.Properties.Resources.balle;
             this.BackgroundImageLayout = ImageLayout.Stretch;
             this.BackColor = Color.Transparent;
             this.Size = new Size(Constantes.TAILLE_BALLE, Constantes.TAILLE_BALLE);

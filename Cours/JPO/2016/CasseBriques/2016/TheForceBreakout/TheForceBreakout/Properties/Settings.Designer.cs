@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CasseBrique.Properties
+namespace TheForceBreakout.Properties
 {
 
 

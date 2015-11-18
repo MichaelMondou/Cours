@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CasseBrique
+namespace TheForceBreakout
 {
     class Barre : PictureBox
     {
@@ -14,7 +14,7 @@ namespace CasseBrique
 
         public Barre()
         {
-            this.BackgroundImage = global::CasseBrique.Properties.Resources.raquette;
+            this.BackgroundImage = global::TheForceBreakout.Properties.Resources.raquette;
             this.BackgroundImageLayout = ImageLayout.Stretch;
             this.BackColor = Color.Transparent;
             this.Size = new Size(Constantes.LARGEUR_BARRE, Constantes.HAUTEUR_BARRE);

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CasseBrique
+namespace TheForceBreakout
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace CasseBrique
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new The_Force_Breakout());
+            Application.Run(new TheForceBreakout());
         }
     }
 }

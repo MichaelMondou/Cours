@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
 
-namespace CasseBrique
+namespace TheForceBreakout
 {
     // Les différents états du jeu
     public enum Etat { PAUSE, JOUE, PERDU, GAGNE };
@@ -18,7 +18,7 @@ namespace CasseBrique
     // Les différents niveaux du jeu        
     public enum Niveau { debutant, intermediaire, expert };
 
-    public partial class The_Force_Breakout : Form
+    public partial class TheForceBreakout : Form
     {
 
         #region LES VARIABLES DU JEU : On déclare ici les variables nécessaires au bon fonctionnement du jeu
@@ -76,7 +76,7 @@ namespace CasseBrique
 
         #region FONCTIONS DE CONSTRUCTION : On met en place ici les différents éléments du casse brique
 
-        public The_Force_Breakout()
+        public TheForceBreakout()
         {
             InitializeComponent();
 
@@ -94,7 +94,7 @@ namespace CasseBrique
             nb_blocs = Constantes.NB_BLOCS_HAUTEUR * Constantes.NB_BLOCS_LARGEUR;
             nb_blocs_touches = 0;
 
-            musique_fond = new SoundPlayer(global::CasseBrique.Properties.Resources.StarWars_Theme);
+            musique_fond = new SoundPlayer(global::TheForceBreakout.Properties.Resources.StarWars_Theme);
             musique_fond.Play();
             play = true;
         }
@@ -107,13 +107,13 @@ namespace CasseBrique
             switch (x)
             {
                 case 1:
-                    this.BackgroundImage = global::CasseBrique.Properties.Resources.background_1;
+                    this.BackgroundImage = global::TheForceBreakout.Properties.Resources.background_1;
                     break;
                 case 2:
-                    this.BackgroundImage = global::CasseBrique.Properties.Resources.background_2;
+                    this.BackgroundImage = global::TheForceBreakout.Properties.Resources.background_2;
                     break;
                 case 3:
-                    this.BackgroundImage = global::CasseBrique.Properties.Resources.background_3;
+                    this.BackgroundImage = global::TheForceBreakout.Properties.Resources.background_3;
                     break;
             }
         }
@@ -145,11 +145,11 @@ namespace CasseBrique
 
             int j = 0;
 
-            images[0] = global::CasseBrique.Properties.Resources.bloc_1;
-            images[1] = global::CasseBrique.Properties.Resources.bloc_2;
-            images[2] = global::CasseBrique.Properties.Resources.bloc_3;
-            images[3] = global::CasseBrique.Properties.Resources.bloc_4;
-            images[4] = global::CasseBrique.Properties.Resources.bloc_5;
+            images[0] = global::TheForceBreakout.Properties.Resources.bloc_1;
+            images[1] = global::TheForceBreakout.Properties.Resources.bloc_2;
+            images[2] = global::TheForceBreakout.Properties.Resources.bloc_3;
+            images[3] = global::TheForceBreakout.Properties.Resources.bloc_4;
+            images[4] = global::TheForceBreakout.Properties.Resources.bloc_5;
 
             for (int i = 0; i < Constantes.NB_BLOCS_HAUTEUR; i++)
             {
@@ -317,7 +317,7 @@ namespace CasseBrique
                 this.fin_label.Visible = true;
                 this.fin_label.Text = "fin de partie";
                 this.victoire_label.Visible = true;
-                this.victoire_label.Text = "tu ne connais pas la force \n       du côté obscur";
+                this.victoire_label.Text = "tu ne connais pas la \n puissance du côté obscur";
                 this.instructions_label.Text = "appuyez sur la touche espace pour rejouer";
             }
 
@@ -370,7 +370,7 @@ namespace CasseBrique
         #region INTERACTIONS AVEC LE JEU : On gère les intéractions Clavier / Souris / Joueur
 
         //Cette action permet de détecter les événements clavier
-        private void CasseBrique_KeyDown(object sender, KeyEventArgs e)
+        private void TheForceBreakout_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
@@ -438,7 +438,7 @@ namespace CasseBrique
         }
 
         // Cette action permet de bouger la raquette en fonction du mouvement de la souris
-        private void CasseBrique_MouseMove(object sender, MouseEventArgs souris)
+        private void TheForceBreakout_MouseMove(object sender, MouseEventArgs souris)
         {
             int x;
             if (souris.X < barre.Width / 2)
@@ -450,7 +450,7 @@ namespace CasseBrique
         }
 
         // Cette action permet de détecter le click de la souris et de commencer ainsi la partie
-        private void CasseBrique_MouseClick(object sender, MouseEventArgs e)
+        private void TheForceBreakout_MouseClick(object sender, MouseEventArgs e)
         {
             if (etat_du_jeu == Etat.PAUSE)
                 etat_du_jeu = Etat.JOUE;
@@ -462,13 +462,13 @@ namespace CasseBrique
             if (play == true)
             {
                 musique_fond.Stop();
-                sound_button.BackgroundImage = global::CasseBrique.Properties.Resources.haut_parleur_2;
+                sound_button.BackgroundImage = global::TheForceBreakout.Properties.Resources.haut_parleur_2;
                 play = false;
             }
             else
             {
                 musique_fond.Play();
-                sound_button.BackgroundImage = global::CasseBrique.Properties.Resources.haut_parleur;
+                sound_button.BackgroundImage = global::TheForceBreakout.Properties.Resources.haut_parleur;
                 play = true;
             }
         }
