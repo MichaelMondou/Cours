@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Puissance4
 {
-    public partial class Puissance4 : Form
+    public partial class FenetrePrincipale : Form
     {
         private bool clicEffectue = false;
 
@@ -19,18 +19,17 @@ namespace Puissance4
         private Point[] jetonsGagnants;
 
         //Nombre de victoire des joueurs
-        private int joueurdarkVador = 0;
-        private int joueurluke = 0;
+        private int joueurdarkVador;
+        private int joueurluke;
 
         //Nombre d'utiliations de bombes restantes de chaque joueur
         private int bombesVadorRestantes = Constantes.NB_BOMBES;
 		private int bombeslukeRestantes = Constantes.NB_BOMBES;
 
-		private string joueur = "darkVador";//Nom du joueur qui doit jouer
+		private string joueur;
+        private int nbJetons;
 
-        private int nbJetons = 0;//Nombre de jeton posés
-
-        public Puissance4()
+        public FenetrePrincipale()
         {
             #region Puissance4
             InitializeComponent();
@@ -44,21 +43,23 @@ namespace Puissance4
             toolStripStatusLabel1.Text = "Dark Vador : 0";
             toolStripStatusLabel2.Text = "Luke : 0";
 
-            Refresh();     
+            initVariables();  
         }
 
-        private void init()
+        private void initVariables()
         {
             grille.init();
 
-            joueur = "darkVador";
+            joueur = "darkVador"; // Nom du joueur qui doit commencer
 
             jeton.setCouleur(joueur);
             jetonsGagnants = null;
 
             nbJetons = 0;
-			bombesVadorRestantes = 1;
-			bombeslukeRestantes = 1;
+            joueurdarkVador = 0;
+            joueurluke = 0;
+            bombesVadorRestantes = Constantes.NB_BOMBES;
+            bombeslukeRestantes = Constantes.NB_BOMBES;
 
             Refresh();
         }
@@ -66,7 +67,7 @@ namespace Puissance4
         private void Puissance4_Paint(object sender, PaintEventArgs e)
         {
             // On affiche des carrés bleux en haut de la fenêtre
-            afficherLigneHaut(e);
+            Grille.dessinerLigneHaut(e);
 
             // On affiche le jeton s'il se déplace et la grille
             jeton.dessiner(e.Graphics);
@@ -75,20 +76,12 @@ namespace Puissance4
             // Si un clic de souris est détecté, on affiche des carrés au dessus du jeton pour avoir un aspect visuel plus sympathique
             if (clicEffectue)
             {
-                afficherLigneHaut(e);
+                Grille.dessinerLigneHaut(e);
             }
 
             if (jetonsGagnants != null)
             {
                 Jeton.dessinerTrait(e.Graphics, jetonsGagnants);
-            }
-        }
-
-        private void afficherLigneHaut(PaintEventArgs e)
-        {
-            for (int x = 0; x < Constantes.NB_COLS; x++)
-            {
-                e.Graphics.DrawImage(Properties.Resources.casePleine, new Rectangle(x * Constantes.SIZE_W, Constantes.MARGIN_TOP, Constantes.SIZE_W, Constantes.SIZE_H));
             }
         }
 
@@ -113,11 +106,9 @@ namespace Puissance4
         {
             if (MessageBox.Show("Voulez-vous commencer une nouvelle partie ?", "Nouvelle partie", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                joueurdarkVador = 0;
-                joueurluke = 0;
                 toolStripStatusLabel1.Text = "Dark Vador : 0";
                 toolStripStatusLabel2.Text = "Luke : 0";
-                init();
+                initVariables();
             }
         }
 
@@ -216,7 +207,7 @@ namespace Puissance4
                     MessageBox.Show("Partie finie !\nVictoire du joueur Luke Skywalker");
                 }
 
-                init();
+                initVariables();
             }
             else if (++nbJetons == Constantes.NB_COLS * Constantes.NB_ROWS)
             {
@@ -226,7 +217,7 @@ namespace Puissance4
                 toolStripStatusLabel1.Text = "Dark Vador : " + joueurdarkVador.ToString();
                 toolStripStatusLabel2.Text = "Luke Skywalker : " + joueurluke.ToString();
 
-                init();
+                initVariables();
             }
             else
             {

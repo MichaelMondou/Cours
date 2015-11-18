@@ -1,6 +1,6 @@
 ﻿namespace Puissance4
 {
-    partial class Puissance4
+    partial class FenetrePrincipale
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Puissance4));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FenetrePrincipale));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.nouveauToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();

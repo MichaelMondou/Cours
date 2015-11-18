@@ -14,7 +14,7 @@ namespace Puissance4
         public const int NB_COLS = 7;//7
         public const int NB_ROWS = 6;//6
 
-        public const int MARGIN_TOP = 25;//Marge du haut (taille du menu en px)
+        public const int MARGIN_TOP = 0;//Marge du haut (taille du menu en px)
         public const int MARGIN_BOTTOM = 25;//Marge du bas (taille de la barre en px)
 
         public const int WIDTH = SIZE_W * NB_COLS;
@@ -23,5 +23,7 @@ namespace Puissance4
         public const int SPEED = 25;
 
         public const int PUISSANCE = 4;
+
+		public const int NB_BOMBES = 1;
     }
 }

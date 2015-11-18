@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Puissance4</RootNamespace>
-    <AssemblyName>Puissance4</AssemblyName>
+    <AssemblyName>Puissance 4</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\darkVador.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,27 +50,27 @@
     <Compile Include="Constantes.cs" />
     <Compile Include="Grille.cs" />
     <Compile Include="Jeton.cs" />
-    <Compile Include="Puissance4.cs">
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="FenetrePrincipale.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Puissance4.Designer.cs">
-      <DependentUpon>Puissance4.cs</DependentUpon>
+    <Compile Include="FenetrePrincipale.Designer.cs">
+      <DependentUpon>FenetrePrincipale.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Puissance4.resx">
-      <DependentUpon>Puissance4.cs</DependentUpon>
+    <EmbeddedResource Include="FenetrePrincipale.resx">
+      <DependentUpon>FenetrePrincipale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -79,22 +82,27 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\case.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\jaune.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\logo_iut-bordeaux-1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\puissance4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\rouge.png" />
+    <None Include="Resources\darkVador.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\case1.png" />
+    <None Include="Resources\bombevador.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bombeLuke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\luke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\darkVador.ico" />
+    <Content Include="Resources\casePleine.png" />
+    <Content Include="Resources\caseVide.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

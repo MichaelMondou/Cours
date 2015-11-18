@@ -16,7 +16,7 @@ namespace Puissance4
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Puissance4());
+            Application.Run(new FenetrePrincipale());
         }
     }
 }

@@ -63,9 +63,9 @@ namespace Puissance4.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _case {
+        internal static System.Drawing.Bitmap bombeLuke {
             get {
-                object obj = ResourceManager.GetObject("_case", resourceCulture);
+                object obj = ResourceManager.GetObject("bombeLuke", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Puissance4.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap caseBleue {
+        internal static System.Drawing.Bitmap bombeVador {
             get {
-                object obj = ResourceManager.GetObject("caseBleue", resourceCulture);
+                object obj = ResourceManager.GetObject("bombeVador", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,29 @@ namespace Puissance4.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap jaune {
+        internal static System.Drawing.Bitmap casePleine {
             get {
-                object obj = ResourceManager.GetObject("jaune", resourceCulture);
+                object obj = ResourceManager.GetObject("casePleine", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap caseVide {
+            get {
+                object obj = ResourceManager.GetObject("caseVide", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap darkVador {
+            get {
+                object obj = ResourceManager.GetObject("darkVador", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +123,9 @@ namespace Puissance4.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap puissance4 {
+        internal static System.Drawing.Bitmap luke {
             get {
-                object obj = ResourceManager.GetObject("puissance4", resourceCulture);
+                object obj = ResourceManager.GetObject("luke", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +133,9 @@ namespace Puissance4.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap rouge {
+        internal static System.Drawing.Bitmap puissance4 {
             get {
-                object obj = ResourceManager.GetObject("rouge", resourceCulture);
+                object obj = ResourceManager.GetObject("puissance4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

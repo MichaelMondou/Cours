@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Puissance4
 {
@@ -48,6 +49,14 @@ namespace Puissance4
         {
             Image image = Properties.Resources.caseVide;
             g.DrawImage(image, new Rectangle(x * Constantes.SIZE_W, Constantes.MARGIN_TOP + y * Constantes.SIZE_H + Constantes.SIZE_H, Constantes.SIZE_W, Constantes.SIZE_H));
+        }
+
+        public static void dessinerLigneHaut(PaintEventArgs e)
+        {
+            for (int x = 0; x < Constantes.NB_COLS; x++)
+            {
+                e.Graphics.DrawImage(Properties.Resources.casePleine, new Rectangle(x * Constantes.SIZE_W, Constantes.MARGIN_TOP, Constantes.SIZE_W, Constantes.SIZE_H));
+            }
         }
 
         public int ligneInsertion(int i)
