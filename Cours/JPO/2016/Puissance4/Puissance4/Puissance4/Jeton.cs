@@ -50,7 +50,7 @@ namespace Puissance4
             {
                 this.couleur = "luke";
             }
-            else if (this.couleur == "luke" || this.couleur == "bombeluke")
+            else if (this.couleur == "luke" || this.couleur == "bombeLuke")
             {
                 this.couleur = "darkVador";
             }

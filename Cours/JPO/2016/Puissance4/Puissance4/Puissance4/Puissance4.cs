@@ -16,18 +16,17 @@ namespace Puissance4
 
         private Grille grille;
         private Jeton jeton;//Jeton que l'on déplace en haut de la grille
-        private Point[] jetons_gagnants;
+        private Point[] jetonsGagnants;
 
         //Nombre de victoire des joueurs
         private int joueurdarkVador = 0;
         private int joueurluke = 0;
 
         //Nombre d'utiliations de bombes restantes de chaque joueur
-        private int bombesVadorRestantes = 1;
-        private int bombeslukeRestantes = 1;
+        private int bombesVadorRestantes = Constantes.NB_BOMBES;
+		private int bombeslukeRestantes = Constantes.NB_BOMBES;
 
-        public enum Joueurs { darkVador, luke, bombeVador, bombeLuke };
-        private Joueurs joueur = Joueurs.darkVador;//Nom du joueur qui doit jouer
+		private string joueur = "darkVador";//Nom du joueur qui doit jouer
 
         private int nbJetons = 0;//Nombre de jeton posés
 
@@ -39,7 +38,7 @@ namespace Puissance4
             ClientSize = new System.Drawing.Size(Constantes.WIDTH - 6, Constantes.HEIGHT + Constantes.SIZE_H + Constantes.MARGIN_TOP + Constantes.MARGIN_BOTTOM - 6);
 
             this.grille = new Grille();
-            this.jeton = new Jeton(joueur.ToString(), Constantes.WIDTH / 2 - Constantes.SIZE_W / 2, 0);
+            this.jeton = new Jeton(joueur, Constantes.WIDTH / 2 - Constantes.SIZE_W / 2, 0);
             #endregion
 
             toolStripStatusLabel1.Text = "Dark Vador : 0";
@@ -52,10 +51,10 @@ namespace Puissance4
         {
             grille.init();
 
-            joueur = Joueurs.darkVador;
+            joueur = "darkVador";
 
-            jeton.setCouleur(joueur.ToString());
-            jetons_gagnants = null;
+            jeton.setCouleur(joueur);
+            jetonsGagnants = null;
 
             nbJetons = 0;
 			bombesVadorRestantes = 1;
@@ -79,9 +78,9 @@ namespace Puissance4
                 afficherLigneHaut(e);
             }
 
-            if (jetons_gagnants != null)
+            if (jetonsGagnants != null)
             {
-                Jeton.dessinerTrait(e.Graphics, jetons_gagnants);
+                Jeton.dessinerTrait(e.Graphics, jetonsGagnants);
             }
         }
 
@@ -158,30 +157,40 @@ namespace Puissance4
                 }
             }
 
-            if (joueur == Joueurs.bombeVador || joueur == Joueurs.bombeLuke)
+            if (joueur == "bombeVador" || joueur == "bombeLuke")
             {
                 Refresh();
                 System.Threading.Thread.Sleep(100);
 
                 if (j + 1 <= Constantes.NB_ROWS)
                 {
-                    grille[i, j+1].setCouleur(null);
+					switch (joueur)
+					{
+						case "bombeVador":
+							grille[i, j + 1].setCouleur("darkVador");
+							break;
+						case "bombeLuke":
+							grille[i, j + 1].setCouleur("luke");
+							break;
+					}
                 }
 
                 switch (joueur)
                 {
-                    case Joueurs.bombeVador:
-                        joueur = Joueurs.darkVador;
+                    case "bombeVador":
+                        joueur = "darkVador";
                         break;
-                    case Joueurs.bombeLuke:
-                        joueur = Joueurs.luke;
+                    case "bombeLuke":
+                        joueur = "luke";
                         break;
                 }
+				// On teste si le jeton remplacé fait gagner le joueur
+				jetonsGagnants = grille.jetonGagnant(i, j+1);
             }
             else
             {
                 grille[i, j].setCouleur(jeton.getCouleur());
-                jetons_gagnants = grille.jetonGagnant(i, j);
+				jetonsGagnants = grille.jetonGagnant(i, j);
             }
 
             Puissance4_MouseMove(sender, (MouseEventArgs)e);
@@ -190,17 +199,17 @@ namespace Puissance4
             Refresh();
             #endregion
 
-            if (jetons_gagnants != null)
+            if (jetonsGagnants != null)
             {
                 Refresh();//Permet d'afficher quels jetons sont gagnants
 
-                if (joueur == Joueurs.darkVador)
+                if (joueur == "darkVador")
                 {
                     joueurdarkVador++;
                     toolStripStatusLabel1.Text = "Dark Vador : " + joueurdarkVador.ToString();
                     MessageBox.Show("Partie finie !\nVictoire du joueur Dark Vador");
                 }
-                else if (joueur == Joueurs.luke)
+                else if (joueur == "luke")
                 {
                     joueurluke++;
                     toolStripStatusLabel2.Text = "Luke Skywalker : " + joueurluke.ToString();
@@ -221,13 +230,13 @@ namespace Puissance4
             }
             else
             {
-                if (joueur == Joueurs.darkVador)
+                if (joueur == "darkVador")
                 {
-                    joueur = Joueurs.luke;
+                    joueur = "luke";
                 }
-                else if (joueur == Joueurs.luke)
+                else if (joueur == "luke")
                 {
-                    joueur = Joueurs.darkVador;
+                    joueur = "darkVador";
                 }
             }
             clicEffectue = false;
@@ -237,17 +246,17 @@ namespace Puissance4
         {
             if (e.KeyChar == 'b' || e.KeyChar == 'B')
             {
-                if(joueur == Joueurs.darkVador && bombesVadorRestantes > 0)
+                if(joueur == "darkVador" && bombesVadorRestantes > 0)
 				{
                     bombesVadorRestantes--;
-                    joueur = Joueurs.bombeVador;
-					jeton = new Jeton(joueur.ToString(), jeton.getPosition().X, jeton.getPosition().Y);
+                    joueur = "bombeVador";
+					jeton = new Jeton(joueur, jeton.getPosition().X, jeton.getPosition().Y);
                 }
-                else if (joueur == Joueurs.luke && bombeslukeRestantes > 0)
+                else if (joueur == "luke" && bombeslukeRestantes > 0)
                 {
                     bombeslukeRestantes--;
-                    joueur =  Joueurs.bombeLuke;
-					jeton = new Jeton(joueur.ToString(), jeton.getPosition().X, jeton.getPosition().Y);
+                    joueur =  "bombeLuke";
+					jeton = new Jeton(joueur, jeton.getPosition().X, jeton.getPosition().Y);
                 }
 				Refresh();
             }

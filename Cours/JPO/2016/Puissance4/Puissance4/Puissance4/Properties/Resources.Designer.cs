@@ -63,9 +63,9 @@ namespace Puissance4.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bombeluke {
+        internal static System.Drawing.Bitmap bombeLuke {
             get {
-                object obj = ResourceManager.GetObject("bombeluke", resourceCulture);
+                object obj = ResourceManager.GetObject("bombeLuke", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

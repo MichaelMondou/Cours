@@ -23,5 +23,7 @@ namespace Puissance4
         public const int SPEED = 25;
 
         public const int PUISSANCE = 4;
+
+		public const int NB_BOMBES = 1;
     }
 }
