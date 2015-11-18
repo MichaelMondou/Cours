@@ -53,6 +53,11 @@
     <Compile Include="Constantes.cs" />
     <Compile Include="Grille.cs" />
     <Compile Include="Jeton.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Puissance4.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,14 +74,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -88,22 +88,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\case.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\jaune.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\logo_iut-bordeaux-1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\puissance4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\rouge.png" />
+    <None Include="Resources\darkVador.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\case1.png" />
+    <None Include="Resources\bombevador.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bombeLuke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\luke.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

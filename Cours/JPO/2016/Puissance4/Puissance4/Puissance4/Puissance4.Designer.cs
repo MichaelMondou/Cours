@@ -104,6 +104,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(420, 401);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip1);
@@ -112,8 +113,8 @@
             this.Name = "Puissance4";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Puissance 4 - Journée Portes Ouvertes";
-            this.Load += new System.EventHandler(this.Puissance4_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Puissance4_Paint);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Puissance4_KeyPress);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Puissance4_MouseClick);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Puissance4_MouseMove);
             this.toolStrip1.ResumeLayout(false);
