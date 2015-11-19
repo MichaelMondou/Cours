@@ -69,9 +69,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FenetrePrincipale";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Puissance 4 - Journée Portes Ouvertes";
+            this.Text = "Sans titre";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Puissance4_Paint);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Puissance4_KeyPress);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FenetrePrincipale_KeyPress);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Puissance4_MouseClick);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Puissance4_MouseMove);
             this.statusStrip.ResumeLayout(false);

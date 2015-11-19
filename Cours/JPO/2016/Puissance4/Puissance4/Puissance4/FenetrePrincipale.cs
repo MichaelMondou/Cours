@@ -24,9 +24,9 @@ namespace Puissance4
 
         //Nombre d'utiliations de bombes restantes de chaque joueur
         private int bombesVadorRestantes = Constantes.NB_BOMBES;
-		private int bombeslukeRestantes = Constantes.NB_BOMBES;
+        private int bombeslukeRestantes = Constantes.NB_BOMBES;
 
-		private string joueur;
+        private string joueur;
         private int nbJetons;
 
         public FenetrePrincipale()
@@ -40,10 +40,9 @@ namespace Puissance4
             this.jeton = new Jeton(joueur, Constantes.WIDTH / 2 - Constantes.SIZE_W / 2, 0);
             #endregion
 
-            toolStripStatusLabel1.Text = "Dark Vador : 0";
-            toolStripStatusLabel2.Text = "Luke : 0";
-
-            initVariables();  
+            initBarreScores();
+            initVariables();
+            Refresh();
         }
 
         private void initVariables()
@@ -60,8 +59,12 @@ namespace Puissance4
             joueurluke = 0;
             bombesVadorRestantes = Constantes.NB_BOMBES;
             bombeslukeRestantes = Constantes.NB_BOMBES;
+        }
 
-            Refresh();
+        private void initBarreScores()
+        {
+            toolStripStatusLabel1.Text = "Dark Vador : 0";
+            toolStripStatusLabel2.Text = "Luke : 0";
         }
 
         private void Puissance4_Paint(object sender, PaintEventArgs e)
@@ -106,16 +109,9 @@ namespace Puissance4
         {
             if (MessageBox.Show("Voulez-vous commencer une nouvelle partie ?", "Nouvelle partie", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                toolStripStatusLabel1.Text = "Dark Vador : 0";
-                toolStripStatusLabel2.Text = "Luke : 0";
+                initBarreScores();
                 initVariables();
             }
-        }
-
-        private void AboutButton_Click(object sender, EventArgs e)
-        {
-            Apropos about = new Apropos();
-            about.ShowDialog();
         }
 
         private void Puissance4_MouseClick(object sender, MouseEventArgs e)
@@ -155,15 +151,15 @@ namespace Puissance4
 
                 if (j + 1 <= Constantes.NB_ROWS)
                 {
-					switch (joueur)
-					{
-						case "bombeVador":
-							grille[i, j + 1].setCouleur("darkVador");
-							break;
-						case "bombeLuke":
-							grille[i, j + 1].setCouleur("luke");
-							break;
-					}
+                    switch (joueur)
+                    {
+                        case "bombeVador":
+                            grille[i, j + 1].setCouleur("darkVador");
+                            break;
+                        case "bombeLuke":
+                            grille[i, j + 1].setCouleur("luke");
+                            break;
+                    }
                 }
 
                 switch (joueur)
@@ -175,13 +171,13 @@ namespace Puissance4
                         joueur = "luke";
                         break;
                 }
-				// On teste si le jeton remplacé fait gagner le joueur
-				jetonsGagnants = grille.jetonGagnant(i, j+1);
+                // On teste si le jeton remplacé fait gagner le joueur
+                jetonsGagnants = grille.jetonGagnant(i, j + 1);
             }
             else
             {
                 grille[i, j].setCouleur(jeton.getCouleur());
-				jetonsGagnants = grille.jetonGagnant(i, j);
+                jetonsGagnants = grille.jetonGagnant(i, j);
             }
 
             Puissance4_MouseMove(sender, (MouseEventArgs)e);
@@ -232,25 +228,31 @@ namespace Puissance4
             }
             clicEffectue = false;
         }
-
         private void Puissance4_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 'b' || e.KeyChar == 'B')
             {
-                if(joueur == "darkVador" && bombesVadorRestantes > 0)
-				{
+                if (joueur == "darkVador" && bombesVadorRestantes > 0)
+                {
                     bombesVadorRestantes--;
                     joueur = "bombeVador";
-					jeton = new Jeton(joueur, jeton.getPosition().X, jeton.getPosition().Y);
+                    jeton = new Jeton(joueur, jeton.getPosition().X, jeton.getPosition().Y);
                 }
                 else if (joueur == "luke" && bombeslukeRestantes > 0)
                 {
                     bombeslukeRestantes--;
-                    joueur =  "bombeLuke";
-					jeton = new Jeton(joueur, jeton.getPosition().X, jeton.getPosition().Y);
+                    joueur = "bombeLuke";
+                    jeton = new Jeton(joueur, jeton.getPosition().X, jeton.getPosition().Y);
                 }
-				Refresh();
+                Refresh();
             }
+        }
+
+        private void AboutButton_Click(object sender, EventArgs e)
+        {
+            Apropos about = new Apropos();
+            about.ShowDialog();
         }
     }
 }
+

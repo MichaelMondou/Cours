@@ -100,7 +100,7 @@
             this.toolStripStatusLabel2.Size = new System.Drawing.Size(107, 17);
             this.toolStripStatusLabel2.Text = "Score Joueur Jaune";
             // 
-            // Puissance4
+            // FenetrePrincipale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -110,7 +110,7 @@
             this.Controls.Add(this.toolStrip1);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Puissance4";
+            this.Name = "FenetrePrincipale";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Puissance 4 - Journée Portes Ouvertes";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Puissance4_Paint);

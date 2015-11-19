@@ -229,23 +229,11 @@ namespace Puissance4
             clicEffectue = false;
         }
 
-        private void Puissance4_KeyPress(object sender, KeyPressEventArgs e)
+        private void FenetrePrincipale_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 'b' || e.KeyChar == 'B')
             {
-                if(joueur == "darkVador" && bombesVadorRestantes > 0)
-				{
-                    bombesVadorRestantes--;
-                    joueur = "bombeVador";
-					jeton = new Jeton(joueur, jeton.getPosition().X, jeton.getPosition().Y);
-                }
-                else if (joueur == "luke" && bombeslukeRestantes > 0)
-                {
-                    bombeslukeRestantes--;
-                    joueur =  "bombeLuke";
-					jeton = new Jeton(joueur, jeton.getPosition().X, jeton.getPosition().Y);
-                }
-				Refresh();
+                // Code du bonus
             }
         }
     }
