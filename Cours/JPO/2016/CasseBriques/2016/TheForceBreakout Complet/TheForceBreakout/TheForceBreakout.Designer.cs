@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TheForceBreakout));
             this.jeuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.niveauToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -326,7 +327,7 @@
             this.quitterToolStripMenuItem3.Font = new System.Drawing.Font("StarJedi Special Edition", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quitterToolStripMenuItem3.ForeColor = System.Drawing.Color.Gold;
             this.quitterToolStripMenuItem3.Name = "quitterToolStripMenuItem3";
-            this.quitterToolStripMenuItem3.Size = new System.Drawing.Size(181, 30);
+            this.quitterToolStripMenuItem3.Size = new System.Drawing.Size(128, 30);
             this.quitterToolStripMenuItem3.Text = "quit";
             this.quitterToolStripMenuItem3.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
@@ -416,6 +417,7 @@
             this.Font = new System.Drawing.Font("StarJedi Special Edition", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Gold;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "TheForceBreakout";
