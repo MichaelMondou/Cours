@@ -12,6 +12,8 @@ namespace Puissance4
 {
     public partial class FenetrePrincipale : Form
     {
+        #region VARIABLES DU JEU
+        // Le joueur a effectue un clic
         private bool clicEffectue = false;
 
         private Grille grille;
@@ -28,7 +30,9 @@ namespace Puissance4
 
 		private string joueur;
         private int nbJetons;
+        #endregion
 
+        #region FONCTION DE CONSTRUCTION : On déclare ici les fonction 
         public FenetrePrincipale()
         {
             #region Puissance4
@@ -41,30 +45,34 @@ namespace Puissance4
             #endregion
 
             initBarreScores();
-            initVariables();
+            initManche();
             Refresh();
         }
 
-        private void initVariables()
+        // Cette action initialise la partie (lorsque le jeu se lance ou lorsqu'on clique sur "Nouvelle partie")
+        private void initManche()
         {
-            grille.init();
-
-            joueur = "darkVador"; // Nom du joueur qui doit commencer
-
-            jeton.setCouleur(joueur);
             jetonsGagnants = null;
-
+            joueur = "darkVador"; // Nom du joueur qui doit commencer
+            jeton.setCouleur(joueur);
+            grille.init();
             nbJetons = 0;
-            joueurdarkVador = 0;
-            joueurluke = 0;
-            bombesVadorRestantes = Constantes.NB_BOMBES;
-            bombeslukeRestantes = Constantes.NB_BOMBES;   
         }
 
+        // Cette action remet à zéro la barre des scores
         private void initBarreScores()
         {
             toolStripStatusLabel1.Text = "Dark Vador : 0";
             toolStripStatusLabel2.Text = "Luke : 0";
+        }
+
+        private void resetPartie()
+        {
+            joueurdarkVador = 0;
+            joueurluke = 0;
+            bombesVadorRestantes = Constantes.NB_BOMBES;
+            bombeslukeRestantes = Constantes.NB_BOMBES;
+            initBarreScores();
         }
 
         private void Puissance4_Paint(object sender, PaintEventArgs e)
@@ -87,7 +95,9 @@ namespace Puissance4
                 Jeton.dessinerTrait(e.Graphics, jetonsGagnants);
             }
         }
+        #endregion
 
+        #region GESTION DES EVENEMENTS : On déclare ici les fonction gérant les évènements (clics, mouvement de souris, appui sur des touches du clavier)
         private void Puissance4_MouseMove(object sender, MouseEventArgs e)
         {
             int x = (e.X / Constantes.SIZE_W) * Constantes.SIZE_W;
@@ -109,8 +119,7 @@ namespace Puissance4
         {
             if (MessageBox.Show("Voulez-vous commencer une nouvelle partie ?", "Nouvelle partie", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                initBarreScores();
-                initVariables();
+                resetPartie();
             }
         }
 
@@ -203,7 +212,7 @@ namespace Puissance4
                     MessageBox.Show("Partie finie !\nVictoire du joueur Luke Skywalker");
                 }
 
-                initVariables();
+                initManche();
             }
             else if (++nbJetons == Constantes.NB_COLS * Constantes.NB_ROWS)
             {
@@ -213,7 +222,7 @@ namespace Puissance4
                 toolStripStatusLabel1.Text = "Dark Vador : " + joueurdarkVador.ToString();
                 toolStripStatusLabel2.Text = "Luke Skywalker : " + joueurluke.ToString();
 
-                initVariables();
+                initManche();
             }
             else
             {
@@ -236,5 +245,7 @@ namespace Puissance4
                 // Code du bonus
             }
         }
+        #endregion
+
     }
 }

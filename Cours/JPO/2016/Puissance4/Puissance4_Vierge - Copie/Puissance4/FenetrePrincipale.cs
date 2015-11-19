@@ -237,5 +237,24 @@ namespace Puissance4
             }
         }
         #endregion
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            Apropos about = new Apropos();
+            about.ShowDialog();
+        }
+
+        private void nouveauBouton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Voulez-vous commencer une nouvelle partie ?", "Nouvelle partie", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                resetPartie();
+            }
+        }
     }
 }
