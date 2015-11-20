@@ -2,15 +2,17 @@ package hex;
 
 import java.awt.Color;
 import java.awt.Point;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Observable;
 
 public class Model extends Observable {
 
 	private Grille plateau;
 
-	private int joueur;
-	
-	
+	private ArrayList<Joueur> joueur;
+
+	private int tourJoueur=1;
 
 	public void nextData() {
 
@@ -18,8 +20,12 @@ public class Model extends Observable {
 
 	public Model() {
 		plateau = new Grille();
-		joueur = 1;
-		
+		joueur = new ArrayList<Joueur>();
+		Joueur j1 = new Joueur("joueur1", Color.BLACK);
+		Joueur j2 = new Joueur("joueur2", Color.WHITE);
+		joueur.add(j1);
+		joueur.add(j2);
+
 	}
 
 	public Grille getPlateau() {
@@ -31,25 +37,45 @@ public class Model extends Observable {
 	}
 
 	public void modifyColor(Point p) {
-		for (int i = 0; i < getPlateau().cellules.size(); i++) {
-			for (int j = 0; j < getPlateau().cellules.get(i).size(); j++) {
-				if (getPlateau().cellules.get(i).get(j).contains(p) && !(getPlateau().cellules.get(i).get(j).isModify())) {
-					if (joueur == 1) {
-						getPlateau().cellules.get(i).get(j).setCouleur(Color.BLACK);
-						getPlateau().cellules.get(i).get(j).setModify(true);
-						joueur = 2;
-						setChanged();
-						notifyObservers();
-					} else {
-						getPlateau().cellules.get(i).get(j).setCouleur(Color.WHITE);
-						getPlateau().cellules.get(i).get(j).setModify(true);
-						joueur = 1;
-						setChanged();
-						notifyObservers();
-					}
+		for (int i = 0; i < getPlateau().getCellules().size(); i++) {
+			for (int j = 0; j < getPlateau().getCellules().get(i).size(); j++) {
+				if (getPlateau().getCellules().get(i).get(j).contains(p)
+						&& !(getPlateau().getCellules().get(i).get(j).isModify())) {
+					/*
+					 * if (tourJoueur == 1) {
+					 * getPlateau().getCellules().get(i).get(j).setCouleur(Color
+					 * .BLACK);
+					 * getPlateau().getCellules().get(i).get(j).setModify(true);
+					 * tourJoueur = 2;
+					 * //System.out.println(getPlateau().cellules.get(i).get(j).
+					 * getL()+" "+getPlateau().cellules.get(i).get(j).getC());
+					 * 
+					 * setChanged(); notifyObservers(); } else {
+					 * getPlateau().getCellules().get(i).get(j).setCouleur(Color
+					 * .WHITE);
+					 * getPlateau().getCellules().get(i).get(j).setModify(true);
+					 * tourJoueur = 1; setChanged(); notifyObservers();
+					 */
+					
+				   
+				   
+				   
+					getPlateau().getCellules().get(i).get(j).setCouleur(joueur.get(tourJoueur-1).getCouleur());
+					getPlateau().getCellules().get(i).get(j).setModify(true);
+					joueur.get(tourJoueur-1).ajoutCellule(getPlateau().getCellules().get(i).get(j));
+					changeTourJoueur();
+					setChanged();
+					notifyObservers();
 				}
 			}
 		}
 	}
 
+	private void changeTourJoueur() {
+		if (tourJoueur == 1)
+			tourJoueur = 2;
+		else
+			tourJoueur = 1;
+
+	}
 }

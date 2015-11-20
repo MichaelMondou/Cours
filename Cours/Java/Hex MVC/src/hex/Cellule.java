@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Polygon;
 
 @SuppressWarnings("serial")
-public class Cellule extends Polygon {
+public class Cellule extends Polygon implements Comparable {
 
 	/**
 	 * Coordonnée X de la cellule
@@ -26,13 +26,13 @@ public class Cellule extends Polygon {
 	 * Couleur de la cellule
 	 */
 	private Color couleur;
-	
+
 	/**
-	 * Sert à savoir si la cellule à déjà était modifiée 
-	 * pour ne pas pouvor cliquer deux fois dessus 
+	 * Sert à savoir si la cellule à déjà était modifiée pour ne pas pouvor
+	 * cliquer deux fois dessus
 	 */
 	private boolean modify;
-	
+
 	/**
 	 * Rayon de la cellule
 	 */
@@ -41,14 +41,11 @@ public class Cellule extends Polygon {
 	 * Angle de la cellule
 	 */
 	private static final double arc = (Math.PI * 2) / 6;
-	
-	
-	private int zone=0;
-	
-	
-	
-	
-	
+
+	/**
+	 * zone d'appartenance pour gérer victoire
+	 */
+	private int zone = 0;
 
 	Cellule(int x, int y, int l, int c, Color couleur) {
 		this.x = x;
@@ -113,4 +110,30 @@ public class Cellule extends Polygon {
 	public void setModify(boolean modify) {
 		this.modify = modify;
 	}
+
+	public int getZone() {
+		return zone;
+	}
+
+	public void setZone(int zone) {
+		this.zone = zone;
+	}
+
+	
+
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		int resultat = 0;
+		Cellule autre_cellule=(Cellule)o;
+		if (this.zone > autre_cellule.zone)
+			resultat = 1;
+		if (this.zone < autre_cellule.zone)
+			resultat = -1;
+		if (this.zone == autre_cellule.zone)
+			resultat = 0;
+		return resultat;
+	}
+
+	
 }
