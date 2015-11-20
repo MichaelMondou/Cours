@@ -43,26 +43,66 @@ public class Grille {
 	}
 
 	public void affecterZone(Cellule cellule, Joueur joueur) {
-		if (cellule.getC() == 0)
-			cellule.setZone(1);
-		/*else if()
-		{*/
-			this.update(cellule, joueur);
-		//}
+		
+		//TODO faire la condition
+		if(this.around(cellule, joueur).size()>0)
+		{
+			this.updateGrid(cellule, joueur);
+			joueur.updateZone();
+		}
+		else
+		{
+			cellule.setZone(joueur.getZone());
+			joueur.upZone();
+		}
+		if(this.fin(joueur))
+		{
+			System.out.println("noir gagné");
+		}
+		
 
 	}
 
-	private void update(Cellule cellule, Joueur joueur) {
-		// TODO Auto-generated method stub
+	private boolean fin(Joueur joueur) {
+		boolean fin1=false;
+		boolean fin2=false;
+		boolean fin=false;
+		for(int i=0;i<joueur.getCellules_joueur().size();i++)
+		{
+			if(joueur.getCellules_joueur().get(i).getC()==6 && 
+					joueur.getCellules_joueur().get(i).getZone()==1)
+			{
+				fin1=true;
+			}
+		}
+		for(int i=0;i<joueur.getCellules_joueur().size();i++)
+		{
+			if(joueur.getCellules_joueur().get(i).getC()==0 && 
+					joueur.getCellules_joueur().get(i).getZone()==1)
+			{
+				fin2=true;
+			}
+		}
+		if(fin1 && fin2){
+			fin = true;
+		}
+		
+		
+		return fin;
+	}
+
+	private void updateGrid(Cellule cellule, Joueur joueur) {
 		ArrayList<Cellule>neighbors=new ArrayList<Cellule>();
 		neighbors=this.around(cellule, joueur);
 		cellule.setZone(neighbors.get(0).getZone());
-		update(neighbors.get(1),joueur);
-
+		if(neighbors.size()>1)
+		{
+			for(int i=1;i<neighbors.size()-1;i++)
+				updateGrid(neighbors.get(i),joueur);
+		}
 	}
 
 	private ArrayList<Cellule> around(Cellule cellule, Joueur joueur) {
-		// TODO Auto-generated method stub
 		int left = cellule.getC() - 1;
 		int right = cellule.getC() + 1;
 		int top = cellule.getL() - 1;

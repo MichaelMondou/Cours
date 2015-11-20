@@ -63,6 +63,7 @@ public class Model extends Observable {
 					getPlateau().getCellules().get(i).get(j).setCouleur(joueur.get(tourJoueur-1).getCouleur());
 					getPlateau().getCellules().get(i).get(j).setModify(true);
 					joueur.get(tourJoueur-1).ajoutCellule(getPlateau().getCellules().get(i).get(j));
+					getPlateau().affecterZone(getPlateau().getCellules().get(i).get(j), joueur.get(tourJoueur-1));
 					changeTourJoueur();
 					setChanged();
 					notifyObservers();
