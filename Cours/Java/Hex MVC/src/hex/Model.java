@@ -8,9 +8,9 @@ import java.util.Observable;
 
 public class Model extends Observable {
 
-	private Grille plateau;
+	private Grid plateau;
 
-	private ArrayList<Joueur> joueur;
+	private ArrayList<Player> joueur;
 
 	private int tourJoueur=1;
 
@@ -19,28 +19,28 @@ public class Model extends Observable {
 	}
 
 	public Model() {
-		plateau = new Grille();
-		joueur = new ArrayList<Joueur>();
-		Joueur j1 = new Joueur("joueur1", Color.BLACK);
-		Joueur j2 = new Joueur("joueur2", Color.WHITE);
+		plateau = new Grid();
+		joueur = new ArrayList<Player>();
+		Player j1 = new Player("player1", Color.BLACK);
+		Player j2 = new Player("player2", Color.WHITE);
 		joueur.add(j1);
 		joueur.add(j2);
 
 	}
 
-	public Grille getPlateau() {
+	public Grid getPlateau() {
 		return plateau;
 	}
 
-	public void setPlateau(Grille plateau) {
+	public void setPlateau(Grid plateau) {
 		this.plateau = plateau;
 	}
 
 	public void modifyColor(Point p) {
-		for (int i = 0; i < getPlateau().getCellules().size(); i++) {
-			for (int j = 0; j < getPlateau().getCellules().get(i).size(); j++) {
-				if (getPlateau().getCellules().get(i).get(j).contains(p)
-						&& !(getPlateau().getCellules().get(i).get(j).isModify())) {
+		for (int i = 0; i < getPlateau().getCell().size(); i++) {
+			for (int j = 0; j < getPlateau().getCell().get(i).size(); j++) {
+				if (getPlateau().getCell().get(i).get(j).contains(p)
+						&& !(getPlateau().getCell().get(i).get(j).isModify())) {
 					/*
 					 * if (tourJoueur == 1) {
 					 * getPlateau().getCellules().get(i).get(j).setCouleur(Color
@@ -60,10 +60,10 @@ public class Model extends Observable {
 				   
 				   
 				   
-					getPlateau().getCellules().get(i).get(j).setCouleur(joueur.get(tourJoueur-1).getCouleur());
-					getPlateau().getCellules().get(i).get(j).setModify(true);
-					joueur.get(tourJoueur-1).ajoutCellule(getPlateau().getCellules().get(i).get(j));
-					getPlateau().affecterZone(getPlateau().getCellules().get(i).get(j), joueur.get(tourJoueur-1));
+					getPlateau().getCell().get(i).get(j).setColor(joueur.get(tourJoueur-1).getColor());
+					getPlateau().getCell().get(i).get(j).setModify(true);
+					joueur.get(tourJoueur-1).addCell(getPlateau().getCell().get(i).get(j));
+					getPlateau().affectZone(getPlateau().getCell().get(i).get(j), joueur.get(tourJoueur-1));
 					changeTourJoueur();
 					setChanged();
 					notifyObservers();

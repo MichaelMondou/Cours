@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 7 resources" deleteContents="false" description="Delete 7 resources" element1="/Hex MVC" element2="/TD1" element3="/TD2" element4="/TD3" element5="/TD4" element6="/TD5" element7="/Températures_MONDOU_TAMAS-LELOUP" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="7" stamp="1448063700992"/>
+</session>

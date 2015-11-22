@@ -16,10 +16,10 @@ public class ViewHex extends View {
 
 	public void paint(Graphics g) {
 		panel.paint(g);
-		for (int i = 0; i < getModel().getPlateau().getCellules().size(); i++) {
-			for (int j = 0; j < getModel().getPlateau().getCellules().get(i).size(); j++) {
-				g.setColor(getModel().getPlateau().getCellules().get(i).get(j).getCouleur());
-				g.fillPolygon(getModel().getPlateau().getCellules().get(i).get(j));
+		for (int i = 0; i < getModel().getPlateau().getCell().size(); i++) {
+			for (int j = 0; j < getModel().getPlateau().getCell().get(i).size(); j++) {
+				g.setColor(getModel().getPlateau().getCell().get(i).get(j).getColor());
+				g.fillPolygon(getModel().getPlateau().getCell().get(i).get(j));
 			}
 		}
 	}

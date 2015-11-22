@@ -1,0 +1,161 @@
+package hex;
+
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+
+public class Grille {
+
+	static final int longueur = 7;
+	static final int hauteur = 7;
+
+	private ArrayList<ArrayList<Cell>> cellules = new ArrayList<ArrayList<Cell>>();
+
+	public Grille() {
+		int abscisse = 0;
+		int ordonée = 0;
+
+		for (int i = 0; i < longueur; i++) {
+			ArrayList<Cell> cellules_temp = new ArrayList<Cell>();
+			for (int j = 0; j < hauteur; j++) {
+				abscisse = 170 + i * 49;
+				ordonée = 250 + j * 55;
+				cellules_temp.add(new Cell(abscisse, ordonée, j, i, Color.GRAY));
+			}
+			getCell().add(cellules_temp);
+		}
+		miseEnPlace();
+	}
+
+	/**
+	 * Permet de mettre le plateau en décalé
+	 */
+	public void miseEnPlace() {
+		for (int i = 0; i < Grille.longueur; i++) {
+			for (int j = 0; j < Grille.hauteur; j++) {
+				int ordonée = this.getCell().get(i).get(j).getY();
+				ordonée -= 27 * i;
+				this.getCell().get(i).get(j).setY(ordonée);
+				this.getCell().get(i).get(j).createPolygon();
+			}
+		}
+	}
+
+	public void affecterZone(Cell cell, Player player) {
+
+		if (this.around(cell, player).size() > 0) {
+			this.updateGrid(cell, player);
+			player.updateZone();
+		} else {
+			cell.setZone(player.getZone());
+			player.upZone();
+		}
+		if (this.gameOver(player)) {
+			if(player.getColor() == Color.WHITE)
+				System.out.println("blanc gagné");
+			else
+				System.out.println("noir gagné");
+		}
+	}
+
+	private boolean gameOver(Player player) {
+		
+		boolean game_over = false;
+		
+		boolean zone1_player1 = false;
+		boolean zone2_player1 = false;
+		
+		boolean zone1_player2 = false;
+		boolean zone2_player2 = false;
+		
+		if(player.getColor() == Color.BLACK){
+			for (int i = 0; i < player.getCell_player().size(); i++) {
+				if (player.getCell_player().get(i).getC() == 6 && player.getCell_player().get(i).getZone() == 1) {
+					zone1_player1 = true;
+				}
+			}
+			for (int i = 0; i < player.getCell_player().size(); i++) {
+				if (player.getCell_player().get(i).getC() == 0 && player.getCell_player().get(i).getZone() == 1) {
+					zone2_player1 = true;
+				}
+			}
+			if (zone1_player1 && zone2_player1) {
+				game_over = true;
+			}
+		}
+		else{
+			for (int i = 0; i < player.getCell_player().size(); i++) {
+				if (player.getCell_player().get(i).getL() == 6 && player.getCell_player().get(i).getZone() == 1) {
+					zone1_player2 = true;
+				}
+			}
+			for (int i = 0; i < player.getCell_player().size(); i++) {
+				if (player.getCell_player().get(i).getL() == 0 && player.getCell_player().get(i).getZone() == 1) {
+					zone2_player2 = true;
+				}
+			}
+			if (zone1_player2 && zone2_player2) {
+				game_over = true;
+			}
+		}
+		return game_over;
+	}
+
+	private void updateGrid(Cell cellule, Player player) {
+		ArrayList<Cell> neighbors = new ArrayList<Cell>();
+		neighbors = this.around(cellule, player);
+		cellule.setZone(neighbors.get(0).getZone());
+		if (neighbors.size() > 1) {
+			for (int i = 1; i < neighbors.size() - 1; i++)
+				updateGrid(neighbors.get(i), player);
+		}
+	}
+
+	private ArrayList<Cell> around(Cell cell, Player player) {
+
+		int left = cell.getC() - 1;
+		int right = cell.getC() + 1;
+		int top = cell.getL() - 1;
+		int bottom = cell.getL() + 1;
+
+		ArrayList<Cell> neighbors = new ArrayList<Cell>();
+
+		for (int i = 0; i < player.getCell_player().size(); i++) {
+
+			int ligne = player.getCell_player().get(i).getL();
+			int colonne = player.getCell_player().get(i).getC();
+
+			if (colonne == left && ligne == cell.getL()) {
+				// regarder gauche
+				neighbors.add(player.getCell_player().get(i));
+			} else if (colonne == right && ligne == cell.getL()) {
+				// regarder droite
+				neighbors.add(player.getCell_player().get(i));
+			} else if (ligne == top && colonne == cell.getC()) {
+				// regarder haut
+				neighbors.add(player.getCell_player().get(i));
+			} else if (ligne == bottom && colonne == cell.getC()) {
+				// regarder bas
+				neighbors.add(player.getCell_player().get(i));
+			} else if (colonne == left && ligne == top) {
+				// gerer diag gauche
+				neighbors.add(player.getCell_player().get(i));
+			} else if (colonne == right && ligne == bottom) {
+				// gerer diag droite
+				neighbors.add(player.getCell_player().get(i));
+			}
+		}
+		Collections.sort(neighbors);
+		return neighbors;
+
+	}
+
+	public ArrayList<ArrayList<Cell>> getCell() {
+		return cellules;
+	}
+
+	public void setCellules(ArrayList<ArrayList<Cell>> cellules) {
+		this.cellules = cellules;
+	}
+}
