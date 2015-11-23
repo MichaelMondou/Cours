@@ -57,13 +57,13 @@ public class Grid {
 			else
 				System.out.println("blanc gagné");
 		}
-		this.reset();
 	}
 	
 	private void reset() {
-		for (int i = 0; i < this.getCell().size(); i++)
-			for (int j = 0; j < this.getCell().get(i).size(); j++)
-				this.getCell().get(i).get(j).setChangedZone(false);
+		// TODO Auto-generated method stub
+		for (int i = 0; i < this.getCellules().size(); i++)
+			for (int j = 0; j < this.getCellules().get(i).size(); j++)
+				this.getCellules().get(i).get(j).setChangedZone(false);
 
 	}
 
@@ -114,13 +114,9 @@ public class Grid {
 		ArrayList<Cell> neighbors = new ArrayList<Cell>();
 		neighbors = this.around(cellule, player);
 		cellule.setZone(neighbors.get(0).getZone());
-		cellule.setChangedZone(true);
 		if (neighbors.size() > 1) {
-			for (int i = 1; i < neighbors.size(); i++) {
-				if (!neighbors.get(i).isChangedZone())
-					updateGrid(neighbors.get(i), player);
-			}
-
+			for (int i = 1; i < neighbors.size() - 1; i++)
+				updateGrid(neighbors.get(i), player);
 		}
 	}
 

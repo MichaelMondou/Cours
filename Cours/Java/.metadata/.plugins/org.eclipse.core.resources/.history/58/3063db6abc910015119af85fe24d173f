@@ -36,8 +36,6 @@ public class Cell extends Polygon implements Comparable {
 
 	private boolean changedZone=false;
 
-
-
 	/**
 	 * Rayon de la cellule
 	 */
@@ -139,13 +137,5 @@ public class Cell extends Polygon implements Comparable {
 		return result;
 	}
 
-	
-	public boolean isChangedZone() {
-		return changedZone;
-	}
-
-	public void setChangedZone(boolean changedZone) {
-		this.changedZone = changedZone;
-	}
 	
 }
