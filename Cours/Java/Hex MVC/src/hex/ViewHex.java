@@ -3,6 +3,8 @@ package hex;
 import java.awt.Graphics;
 import java.util.Observable;
 
+import javax.swing.JOptionPane;
+
 public class ViewHex extends View {
 
 	Click click;
@@ -16,17 +18,29 @@ public class ViewHex extends View {
 
 	public void paint(Graphics g) {
 		panel.paint(g);
-		for (int i = 0; i < getModel().getPlateau().getCell().size(); i++) {
-			for (int j = 0; j < getModel().getPlateau().getCell().get(i).size(); j++) {
-				g.setColor(getModel().getPlateau().getCell().get(i).get(j).getColor());
-				g.fillPolygon(getModel().getPlateau().getCell().get(i).get(j));
+		for (int i = 0; i < getModel().getBoard().getCell().size(); i++) {
+			for (int j = 0; j < getModel().getBoard().getCell().get(i).size(); j++) {
+				g.setColor(getModel().getBoard().getCell().get(i).get(j).getColor());
+				g.fillPolygon(getModel().getBoard().getCell().get(i).get(j));
 			}
+		}
+	}
+	
+	public void showTheWinner(){
+		if(getModel().who_is_the_winner == Event.BLACK_WINNER){
+			JOptionPane.showMessageDialog(null, "Le joueur 1 a gagné");
+			getModel().restart();
+		}
+		else if(getModel().who_is_the_winner == Event.WHITE_WINNER){
+			JOptionPane.showMessageDialog(null, "Le joueur 2 a gagné");
+			getModel().restart();
 		}
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
 		paint(panel.getGraphics());
+		showTheWinner();
 	}
 
 }

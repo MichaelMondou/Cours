@@ -15,7 +15,7 @@ public class Controller {
 		switch (event.getID()) {
 		case MouseEvent.MOUSE_CLICKED:
 			Point p = new Point(event.getX(), event.getY());
-			model.modifyColor(p);
+			model.nextData(p);
 			break;
 		default:
 			break;

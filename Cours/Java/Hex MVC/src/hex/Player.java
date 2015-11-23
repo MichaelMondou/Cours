@@ -55,13 +55,11 @@ public class Player {
 	}
 
 	public void upZone() {
-		// TODO Auto-generated method stub
 		this.zone=zone+1;
 		
 	}
 
 	public void updateZone() {
-		// TODO Auto-generated method stub
 		int max=1;
 		for(int i=0;i<player_cells.size();i++)
 		{
@@ -77,13 +75,4 @@ public class Player {
 	public void setIdentity(int identity) {
 		this.identity = identity;
 	}
-	
-	public static int getId() {
-		return id;
-	}
-
-	public static void setId(int id) {
-		Player.id = id;
-	}
-
 }

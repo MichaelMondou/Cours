@@ -3,6 +3,8 @@ package hex;
 public class Main {
 
 	public static void main(String[] args) {
+		
+		
 
 		Window window = new Window("Hex", 640, 720);
 		
