@@ -1,0 +1,25 @@
+package hex;
+
+import java.awt.Point;
+import java.awt.event.MouseEvent;
+
+public class Contrôleur {
+	
+	private Modèle modele;
+
+	public Contrôleur(Modèle model) {
+		this.modele = model;
+	}
+	
+	public void Action(Vue object, MouseEvent event) {
+		switch (event.getID()) {
+		case MouseEvent.MOUSE_CLICKED:
+			Point p = new Point(event.getX(), event.getY());
+			modele.nextData(p);
+			break;
+		default:
+			break;
+		}
+	}
+
+}

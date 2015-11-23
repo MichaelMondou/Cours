@@ -1,0 +1,248 @@
+package hex;
+
+import java.awt.Color;
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Observable;
+
+public class Modèle extends Observable {
+
+	/**
+	 * Le plateau de jeu contenant des cellules
+	 */
+	private Grille grille;
+
+	/**
+	 * Les joueurs
+	 */
+	private ArrayList<Joueur> joueurs;
+
+	/**
+	 * Tour courant
+	 */
+	private int tour_du_joueur = 0;
+
+	/**
+	 * Sert à savoir s'il y a un gagnant
+	 */
+	public Evénement qui_est_le_gagnant;
+
+	public Modèle() {
+		grille = new Grille();
+		joueurs = new ArrayList<Joueur>();
+		Joueur j1 = new Joueur("joueur1", Color.BLACK);
+		Joueur j2 = new Joueur("joueur2", Color.WHITE);
+		joueurs.add(j1);
+		joueurs.add(j2);
+
+		qui_est_le_gagnant = Evénement.PAS_DE_GAGNANT;
+	}
+
+	/**
+	 * Cette fonction sert à détecter si un point p se trouve dans une cellule
+	 * cell
+	 */
+	public boolean estDansLaGrille(Point p, Cellule cellule) {
+		if (cellule.contains(p) && !(cellule.estModifiee())) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Cette action sert à enchaîner les différentes actions nécessaires au
+	 * fonctionnement du jeu
+	 * 
+	 * @param p
+	 */
+	public void prochainesDonnees(Point p) {
+		for (int i = 0; i < grille.getCellule().size(); i++) {
+			for (int j = 0; j < grille.getCellule().get(i).size(); j++) {
+				if (estDansLaGrille(p, grille.getCellule().get(i).get(j))) {
+					joueurs.get(tour_du_joueur).ajouterCellule(grille.getCellule().get(i).get(j));
+					affecterZone(grille.getCellule().get(i).get(j), joueurs.get(tour_du_joueur));
+					modifyColor(grille.getCellule().get(i).get(j));
+					gameOver(joueurs.get(tour_du_joueur));
+					changePlayerRound();
+					setChanged();
+					notifyObservers();
+				}
+			}
+		}
+	}
+
+	/**
+	 * Cette action sert à gérer l'affectation d'une zone sur la cellule passée
+	 * en paramètre en fonction du nombre de ses voisins.
+	 */
+	public void affecterZone(Cellule cellule, Joueur joueur) {
+
+		if (voisinsAutour(cellule, joueur).size() > 0) {
+			miseAJourDeLaGrille(cellule, joueur);
+			joueur.miseAJourDeLaZone();
+		} else {
+			cellule.setZone(joueur.getZone());
+			joueur.incrementationZone();
+		}
+		resetCells();
+	}
+
+	/**
+	 * Cette action permet d'attribuer une zone à la cellule passée en paramètre
+	 * en fonction des zones de ses voisins puis met à jour les zones de ses
+	 * voisins.
+	 */
+	private void miseAJourDeLaGrille(Cellule cellule, Joueur joueur) {
+		ArrayList<Cellule> voisins = new ArrayList<Cellule>();
+		voisins = voisinsAutour(cellule, joueur);
+		cellule.setZone(voisins.get(0).getZone());
+		cellule.setChangedZone(true);
+		if (voisins.size() > 1) {
+			for (int i = 1; i < voisins.size(); i++) {
+				if (!voisins.get(i).isChangedZone())
+					miseAJourDeLaGrille(voisins.get(i), joueur);
+			}
+		}
+	}
+
+	/**
+	 * Cette fonction sert à déterminer si la cellule a des voisins. Si c'est le
+	 * cas, elle retourne ses voisins.
+	 */
+
+	@SuppressWarnings("unchecked")
+	private ArrayList<Cellule> voisinsAutour(Cellule cell, Joueur player) {
+
+		int left = cell.getC() - 1;
+		int right = cell.getC() + 1;
+		int top = cell.getL() - 1;
+		int bottom = cell.getL() + 1;
+
+		ArrayList<Cellule> neighbors = new ArrayList<Cellule>();
+
+		for (int i = 0; i < player.getCellulesDuJoueur().size(); i++) {
+
+			int line = player.getCellulesDuJoueur().get(i).getL();
+			int column = player.getCellulesDuJoueur().get(i).getC();
+
+			if (column == left && line == cell.getL()) {
+				neighbors.add(player.getCellulesDuJoueur().get(i));
+			} else if (column == right && line == cell.getL()) {
+				neighbors.add(player.getCellulesDuJoueur().get(i));
+			} else if (line == top && column == cell.getC()) {
+				neighbors.add(player.getCellulesDuJoueur().get(i));
+			} else if (line == bottom && column == cell.getC()) {
+				neighbors.add(player.getCellulesDuJoueur().get(i));
+			} else if (column == left && line == top) {
+				neighbors.add(player.getCellulesDuJoueur().get(i));
+			} else if (column == right && line == bottom) {
+				neighbors.add(player.getCellulesDuJoueur().get(i));
+			}
+		}
+
+		Collections.sort(neighbors);
+		return neighbors;
+	}
+
+	/**
+	 * Cette action sert à réinitialiser le booléen de chaque zone. Ce dernier
+	 * indiquant si la zone de la cellule a déjà été mise à jour.
+	 */
+	private void resetCells() {
+		for (int i = 0; i < grille.getCellule().size(); i++)
+			for (int j = 0; j < grille.getCellule().get(i).size(); j++)
+				grille.getCellule().get(i).get(j).setChangedZone(false);
+	}
+
+	/**
+	 * Cette action sert à modifier la couleur de la cellule passée en paramètre
+	 */
+	public void modifyColor(Cellule cell) {
+		cell.setCouleur(joueurs.get(tour_du_joueur).getCouleur());
+		cell.setModify(true);
+	}
+
+	/**
+	 * Cette fonction sert à détecter si la partie est finie en regardant les
+	 * première et dernière colonne si c'est le premier joueur et les première
+	 * et dernière lignes si c'est le second joueur.
+	 */
+
+	public void gameOver(Joueur player) {
+
+		boolean player1_zone1 = false;
+		boolean player1_zone2 = false;
+
+		boolean player2_zone1 = false;
+		boolean player2_zone2 = false;
+
+		if (player.getIdentite() == 0) {
+			for (int i = 0; i < player.getCellulesDuJoueur().size(); i++) {
+				if (player.getCellulesDuJoueur().get(i).getC() == 6 && player.getCellulesDuJoueur().get(i).getZone() == 1) {
+					player1_zone1 = true;
+				}
+			}
+			for (int i = 0; i < player.getCellulesDuJoueur().size(); i++) {
+				if (player.getCellulesDuJoueur().get(i).getC() == 0 && player.getCellulesDuJoueur().get(i).getZone() == 1) {
+					player1_zone2 = true;
+				}
+			}
+			if (player1_zone1 && player1_zone2) {
+				qui_est_le_gagnant = Evénement.JOUEUR_UN_GAGNANT;
+			}
+		} else {
+			for (int i = 0; i < player.getCellulesDuJoueur().size(); i++) {
+				if (player.getCellulesDuJoueur().get(i).getL() == 6 && player.getCellulesDuJoueur().get(i).getZone() == 1) {
+					player2_zone1 = true;
+				}
+			}
+			for (int i = 0; i < player.getCellulesDuJoueur().size(); i++) {
+				if (player.getCellulesDuJoueur().get(i).getL() == 0 && player.getCellulesDuJoueur().get(i).getZone() == 1) {
+					player2_zone2 = true;
+				}
+			}
+			if (player2_zone1 && player2_zone2) {
+				qui_est_le_gagnant = Evénement.JOUEUR_DEUX_GAGNANT;
+			}
+		}
+	}
+
+	/**
+	 * Cette action sert à changer de tour
+	 */
+	public void changePlayerRound() {
+		if (tour_du_joueur == 0)
+			tour_du_joueur = 1;
+		else
+			tour_du_joueur = 0;
+	}
+
+	/**
+	 * Cette action sert à réinitialiser tous les paramètres du jeu pour
+	 * commencer une nouvelle partie
+	 */
+	public void restart() {
+		grille = new Grille();
+		joueurs = new ArrayList<Joueur>();
+		Joueur j1 = new Joueur("player1", Color.BLACK);
+		Joueur j2 = new Joueur("player2", Color.WHITE);
+		j1.setIdentite(0);
+		j2.setIdentite(1);
+		joueurs.add(j1);
+		joueurs.add(j2);
+		qui_est_le_gagnant = Evénement.PAS_DE_GAGNANT;
+
+		setChanged();
+		notifyObservers();
+	}
+
+	public Grille getBoard() {
+		return grille;
+	}
+
+	public void setBoard(Grille board) {
+		this.grille = board;
+	}
+
+}

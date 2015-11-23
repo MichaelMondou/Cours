@@ -1,0 +1,18 @@
+package hex;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		
+
+		Fenêtre fenetre = new Fenêtre("Hex", 640, 720);
+		
+		estDansLaGrille modele = new estDansLaGrille();
+		Contrôleur controleur = new Contrôleur(modele);
+		
+		VueHex vue = new VueHex(fenetre, modele, controleur);
+		
+		modele.addObserver(vue);
+	}
+}

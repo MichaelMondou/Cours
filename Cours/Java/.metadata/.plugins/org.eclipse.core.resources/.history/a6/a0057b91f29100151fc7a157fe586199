@@ -1,0 +1,38 @@
+package hex;
+
+import java.util.Observer;
+
+import javax.swing.JPanel;
+
+public abstract class Vue implements Observer {
+
+	private estDansLaGrille model;
+	private Contrôleur controller;
+
+	protected Fenêtre window;
+	protected JPanel panel;
+
+	Vue(Fenêtre window, estDansLaGrille model, Contrôleur controller) {
+		this.setModel(model);
+		model.addObserver(this);
+		this.setController(controller);
+		this.window = window;
+		panel = window.getPanel();
+	}
+
+	public estDansLaGrille getModel() {
+		return model;
+	}
+
+	public void setModel(estDansLaGrille model) {
+		this.model = model;
+	}
+
+	public Contrôleur getController() {
+		return controller;
+	}
+
+	public void setController(Contrôleur controller) {
+		this.controller = controller;
+	}
+}

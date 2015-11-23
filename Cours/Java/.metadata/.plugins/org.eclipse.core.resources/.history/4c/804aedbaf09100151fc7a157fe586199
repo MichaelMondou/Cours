@@ -1,0 +1,5 @@
+package hex;
+
+public enum Evénement {
+NO_WINNER, BLACK_WINNER, WHITE_WINNER
+}

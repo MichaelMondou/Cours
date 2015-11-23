@@ -1,0 +1,23 @@
+package hex;
+
+import javax.swing.UIManager;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		try {
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+		} catch (Exception e) {
+		}
+
+		Window window = new Window("Hex", 640, 720);
+		
+		Model model = new Model();
+		Controller controller = new Controller(model);
+		
+		ViewHex view = new ViewHex(window, model, controller);
+		
+		model.addObserver(view);
+	}
+}
