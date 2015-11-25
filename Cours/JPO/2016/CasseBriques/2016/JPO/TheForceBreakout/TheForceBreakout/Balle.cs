@@ -61,10 +61,8 @@ namespace TheForceBreakout
         // Cette action sert à savoir si la balle touche la barre
         public void toucherBarre(Barre barre)
         {
-            if (this.Location.Y + this.Size.Height > barre.Location.Y &&
-               this.Location.Y < barre.Location.Y &&
-               this.Location.X + this.Size.Width < barre.Location.X + barre.Size.Width &&
-               this.Location.X > barre.Location.X)
+            // TODO: utiliser les coins inf et gérer le cas ou la balle est directement dedans 
+            if (CoinInfDroit(barre)||CoinInfGauche(barre))
             {
                 deplacementY = -1 * deplacementY;
             }
@@ -94,14 +92,40 @@ namespace TheForceBreakout
                 * Si le centre de la balle est à gauche ou à droite de la brique
                 **/
 
-                if ((this.Centre.Y <= bloc.Location.Y) || (this.Centre.Y >= bloc.Location.Y + bloc.Height))
+                if(coinSupDroit(bloc))
+                  {
+                      if(Location.X+ Width == bloc.Location.X && Location.Y<=bloc.Location.Y+bloc.Height && Location.Y>=bloc.Location.Y)
+                          deplacementX *= -1;
+
+                      if ((Location.X + Width <= bloc.Location.X + bloc.Width) && (Location.X+ Width >= bloc.Location.X) && (Location.Y == bloc.Location.Y+bloc.Height))
+                          deplacementY *= -1;        
+                  }
+                //attntion au else if
+                else if (CoinSupGauche(bloc))
                 {
-                    deplacementY = -1 * deplacementY;
+
+                    if ((Location.X <= bloc.Location.X + bloc.Width) && (Location.X >= bloc.Location.X) && (Location.Y == bloc.Location.Y + bloc.Height))
+                        deplacementY *= -1;
+
+                    if (Location.X == bloc.Location.X + bloc.Width && Location.Y <= bloc.Location.Y + bloc.Height && Location.Y >= bloc.Location.Y)
+                        deplacementX *= -1;
                 }
-                else if ((this.Centre.X <= bloc.Location.X) || (this.Centre.X >= bloc.Location.X + bloc.Width))
+                else if (CoinInfDroit(bloc))
                 {
-                    deplacementX = -1 * deplacementX;
-                }   
+                    if (Location.X + Width == bloc.Location.X && Location.Y + Height <= bloc.Location.Y + bloc.Height && Location.Y >= bloc.Location.Y)
+                        deplacementX *= -1;
+
+                    if ((Location.X + Width <= bloc.Location.X + bloc.Width) && (Location.X + Width >= bloc.Location.X) && (Location.Y + Height == bloc.Location.Y))
+                        deplacementY *= -1;
+                }
+                else if(CoinInfGauche(bloc))
+                {
+                    if ((Location.X <= bloc.Location.X + bloc.Width) && (Location.X >= bloc.Location.X) && (Location.Y +Height== bloc.Location.Y ))
+                        deplacementY *= -1;
+
+                    if (Location.X == bloc.Location.X + bloc.Width && Location.Y+Height <= bloc.Location.Y + bloc.Height && Location.Y+Height >= bloc.Location.Y)
+                        deplacementX *= -1;
+                }
 
                 nb = Constantes.SCORE_BRIQUE;
                 bloc.Visible = false;
@@ -116,7 +140,18 @@ namespace TheForceBreakout
         {
             bool rentre = false;
             if (((bloc.Location.Y <= this.Location.Y + this.Height) && (this.Location.Y + this.Height <= bloc.Location.Y + bloc.Height)) &&
-                ((bloc.Location.X <= this.Location.X + this.Width) && (this.Location.X <= bloc.Location.X + bloc.Width)))
+                ((bloc.Location.X <= this.Location.X + this.Width) && (this.Location.X +Width<= bloc.Location.X + bloc.Width)))
+            {
+                rentre = true;
+            }
+            return rentre;
+        }
+
+        private bool CoinInfDroit(Barre barre)
+        {
+            bool rentre = false;
+            if (((barre.Location.Y <= this.Location.Y + this.Height) && (this.Location.Y + this.Height <= barre.Location.Y + barre.Height)) &&
+                ((barre.Location.X <= this.Location.X + this.Width) && (this.Location.X + Width <= barre.Location.X + barre.Width)))
             {
                 rentre = true;
             }
@@ -128,6 +163,17 @@ namespace TheForceBreakout
             bool rentre = false;
             if (((bloc.Location.Y <= this.Location.Y + this.Height) && (this.Location.Y + this.Height <= bloc.Location.Y + bloc.Height)) &&
                 ((bloc.Location.X <= this.Location.X) && (this.Location.X <= bloc.Location.X + bloc.Width)))
+            {
+                rentre = true;
+            }
+            return rentre;
+        }
+
+        private bool CoinInfGauche(Barre barre)
+        {
+            bool rentre = false;
+            if (((barre.Location.Y <= this.Location.Y + this.Height) && (this.Location.Y + this.Height <= barre.Location.Y + barre.Height)) &&
+                ((barre.Location.X <= this.Location.X) && (this.Location.X <= barre.Location.X + barre.Width)))
             {
                 rentre = true;
             }
@@ -149,13 +195,14 @@ namespace TheForceBreakout
         {
             bool rentre = false;
             if (((bloc.Location.Y <= this.Location.Y) && (this.Location.Y <= bloc.Location.Y + bloc.Height)) &&
-                ((bloc.Location.X <= this.Location.X + this.Width) && (this.Location.X <= bloc.Location.X + bloc.Width)))
+                ((bloc.Location.X <= Location.X + Width) && (Location.X + Width <= bloc.Location.X + bloc.Width)))
             {
                 rentre = true;
             }
             return rentre;
         }
 
+       
         public int DeplacementY
         {
             get { return deplacementY; }

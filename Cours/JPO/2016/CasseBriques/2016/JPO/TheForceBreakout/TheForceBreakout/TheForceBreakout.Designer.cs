@@ -354,7 +354,7 @@
             // victoire_label
             // 
             this.victoire_label.AutoSize = true;
-            this.victoire_label.BackColor = System.Drawing.Color.Transparent;
+            this.victoire_label.BackColor = System.Drawing.Color.Black;
             this.victoire_label.Font = new System.Drawing.Font("StarJedi Special Edition", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.victoire_label.Location = new System.Drawing.Point(165, 191);
             this.victoire_label.Name = "victoire_label";

@@ -28,15 +28,14 @@ public class Cellule extends Polygon implements Comparable {
 	private Color couleur;
 
 	/**
-	 * Sert à savoir si la cellule à déjà était modifiée pour ne pas pouvor
+	 * Sert à savoir si la cellule a déjà était modifiée pour ne pas pouvoir
 	 * cliquer deux fois dessus
 	 */
 	private boolean modifie;
-
-	private boolean zone_changee=false;
-
-
-
+	/**
+	 * Sert à savoir si la zone attribuée à la cellule a délà était changée
+	 */
+	private boolean zone_changee;
 	/**
 	 * Rayon de la cellule
 	 */
@@ -47,7 +46,7 @@ public class Cellule extends Polygon implements Comparable {
 	private static final double arc = (Math.PI * 2) / 6;
 
 	/**
-	 * zone d'appartenance pour gérer victoire
+	 * Zone d'appartenance de la cellule
 	 */
 	private int zone = 0;
 
@@ -58,13 +57,30 @@ public class Cellule extends Polygon implements Comparable {
 		this.c = c;
 		this.couleur = couleur;
 		this.modifie = false;
+		this.zone_changee = false;
 	}
 
+	/**
+	 * Permet de créer un polygon en créant 6 points
+	 */
 	public void creerPolygon() {
 		for (int i = 0; i <= 6; i++) {
 			this.addPoint((int) Math.round(this.x + rad * Math.cos(arc * i)),
 					(int) Math.round(this.y + Cellule.rad * Math.sin(arc * i)));
 		}
+	}	
+
+	@Override
+	public int compareTo(Object o) {
+		int resultat = 0;
+		Cellule autre_cellule=(Cellule)o;
+		if (this.zone > autre_cellule.zone)
+			resultat = 1;
+		if (this.zone < autre_cellule.zone)
+			resultat = -1;
+		if (this.zone == autre_cellule.zone)
+			resultat = 0;
+		return resultat;
 	}
 
 	public int getX() {
@@ -122,22 +138,6 @@ public class Cellule extends Polygon implements Comparable {
 	public void setZone(int zone) {
 		this.zone = zone;
 	}
-
-	
-
-	@Override
-	public int compareTo(Object o) {
-		int resultat = 0;
-		Cellule autre_cellule=(Cellule)o;
-		if (this.zone > autre_cellule.zone)
-			resultat = 1;
-		if (this.zone < autre_cellule.zone)
-			resultat = -1;
-		if (this.zone == autre_cellule.zone)
-			resultat = 0;
-		return resultat;
-	}
-
 	
 	public boolean isChangedZone() {
 		return zone_changee;
