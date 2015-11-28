@@ -1,0 +1,45 @@
+/**
+ * MONDOU - TAMAS_LELOUP - S3B
+ */
+
+package general;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+/**
+ * Fenêtre principale de l'application
+ */
+@SuppressWarnings("serial")
+public class Fenetre extends JFrame {
+
+	/**
+	 * Fenêtre
+	 */
+	private final JFrame fenetre;
+	private final JPanel panel;
+
+	public Fenetre(String titre, int largeur, int hauteur) {
+		fenetre = new JFrame();
+		fenetre.setTitle(titre);
+		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		fenetre.setSize(largeur, hauteur);
+		fenetre.setLocationRelativeTo(null);
+		fenetre.setResizable(false);
+		panel = new JPanel();
+		fenetre.setContentPane(panel);
+		fenetre.setBackground(Color.ORANGE);
+		fenetre.setVisible(true);
+	}
+
+	public JPanel getPanel() {
+		return panel;
+	}
+
+	public JFrame getFenetre() {
+		return fenetre;
+	}
+}

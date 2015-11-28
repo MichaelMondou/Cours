@@ -1,0 +1,25 @@
+package hex;
+
+import static org.junit.Assert.assertEquals;
+
+import java.awt.Color;
+
+import org.junit.Test;
+
+public class CelluleTest {
+	
+	@Test
+	public void testZoneCellules() {
+		Cellule c1 = new Cellule(50, 50, 50, 50, Color.BLACK);
+		c1.setZone(0);
+		Cellule c2 = new Cellule(50, 50, 50, 50, Color.BLACK);
+		c2.setZone(0);
+		
+		assertEquals(c1.compareTo(c2), 0);
+		
+		c2.setZone(1);
+		
+		assertEquals(c1.compareTo(c2), 0);
+	}
+
+}

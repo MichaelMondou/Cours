@@ -1,0 +1,16 @@
+package hex;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+public class GrilleTest {
+	
+	@Test
+	public void testTailleGrille() {
+		Grille grille = new Grille();
+		
+		assertEquals(grille.getCellule().get(Grille.nbColonnes), Grille.nbColonnes-1);
+	}
+
+}

@@ -1,0 +1,44 @@
+/**
+ * MONDOU - TAMAS_LELOUP - S3B
+ */
+
+package hex;
+
+import java.util.Observer;
+
+import javax.swing.JPanel;
+
+import général.Fenêtre;
+
+public abstract class Vue implements Observer {
+
+	private Modèle modele;
+	private Contrôleur controleur;
+
+	protected Fenêtre fenetre;
+	protected JPanel panel;
+
+	Vue(Fenêtre fenetre, Modèle modele, Contrôleur controleur) {
+		this.setModele(modele);
+		modele.addObserver(this);
+		this.setControleur(controleur);
+		this.fenetre = fenetre;
+		panel = fenetre.getPanel();
+	}
+
+	public Modèle getModele() {
+		return modele;
+	}
+
+	public void setModele(Modèle modele) {
+		this.modele = modele;
+	}
+
+	public Contrôleur getControleur() {
+		return controleur;
+	}
+
+	public void setControleur(Contrôleur controleur) {
+		this.controleur = controleur;
+	}
+}

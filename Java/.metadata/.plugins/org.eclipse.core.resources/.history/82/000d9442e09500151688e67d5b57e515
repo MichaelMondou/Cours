@@ -1,0 +1,10 @@
+package hex;
+
+public class TestJoueur {
+	
+	@Test
+	public void testMiseAjour(){
+		
+	}
+
+}

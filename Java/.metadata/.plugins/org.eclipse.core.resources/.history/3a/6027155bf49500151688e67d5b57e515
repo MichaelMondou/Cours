@@ -1,0 +1,22 @@
+/**
+ * MONDOU - TAMAS_LELOUP - S3B
+ */
+
+package hex;
+
+import general.Fenêtre;
+
+public class Principal {
+
+	public static void main(String[] args) {
+
+		Fenêtre fenetre = new Fenêtre("Hex - MONDOU - TAMAS_LELOUP - S3B", 640, 720);
+		
+		Modèle modele = new Modèle();
+		Controleur controleur = new Controleur(modele);
+		
+		VueHex vue = new VueHex(fenetre, modele, controleur);
+		
+		modele.addObserver(vue);
+	}
+}

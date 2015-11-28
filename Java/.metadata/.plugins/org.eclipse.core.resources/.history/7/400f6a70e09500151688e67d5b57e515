@@ -1,0 +1,12 @@
+package hex;
+
+import org.junit.Test;
+
+public class TestJoueur {
+	
+	@Test
+	public void testAjoutDeCellule(){
+		
+	}
+
+}

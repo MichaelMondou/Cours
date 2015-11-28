@@ -1,0 +1,18 @@
+package hex;
+
+import static org.junit.Assert.assertEquals;
+
+import java.awt.Color;
+
+import org.junit.Test;
+
+public class CelluleTest {
+	
+	@Test
+	public void testAjoutGroupe() {
+		Cellule c1 = new Cellule(50, 50, 50, 50, Color.BLACK);
+		c1.setZone(0);
+		assertEquals(g.size(), 2);
+	}
+
+}

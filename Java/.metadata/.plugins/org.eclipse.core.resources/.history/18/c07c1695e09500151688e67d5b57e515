@@ -1,0 +1,15 @@
+package hex;
+
+import java.awt.Color;
+
+import org.junit.Test;
+
+public class TestJoueur {
+	
+	@Test
+	public void testAjoutDeCellule(){
+		Joueur joueur = new Joueur("Test", Color.BLACK);
+		joueur.ajouterCellule(new Cellule(50,50,50,50,Color.BLACK));
+	}
+
+}
