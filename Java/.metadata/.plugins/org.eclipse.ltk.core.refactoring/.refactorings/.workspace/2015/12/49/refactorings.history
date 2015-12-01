@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;Hex MVCTest&apos;" deleteContents="true" description="Delete resource &apos;Hex MVCTest&apos;" element1="/Hex MVCTest" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1448996603985"/>
+</session>
