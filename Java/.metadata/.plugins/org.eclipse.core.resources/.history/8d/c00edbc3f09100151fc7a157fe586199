@@ -1,5 +1,0 @@
-package hex;
-
-public enum Evénement {
-PAS_DE_GAGNANT, BLACK_WINNER, WHITE_WINNER
-}

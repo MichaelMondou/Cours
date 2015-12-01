@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+import exception.NbLignesColonnesException;
 import hex.Cellule;
 import hex.Evenement;
 import hex.Grille;
@@ -20,14 +21,15 @@ import hex.Modele;
 
 public class TestModele {
 
-	Modele modele = new Modele();
-	Grille grille = new Grille();
+	Modele modele;
+	Grille grille;
 
 	/**
 	 * Teste si on a bien deux joueurs.
 	 */
 	@Test
 	public void testConstructeurModele() {
+		modele = new Modele();
 		assertEquals(modele.getJoueurs().size(), 2);
 	}
 
@@ -37,6 +39,7 @@ public class TestModele {
 	 */
 	@Test
 	public void testEstDansLaCellule() {
+		modele = new Modele();
 		Point point = new Point(50, 50);
 		Cellule cellule = new Cellule(50, 50, 50, 50, Color.BLACK);
 		cellule.creerPolygon();
@@ -46,27 +49,73 @@ public class TestModele {
 	}
 
 	/**
-	 * Teste si la fonction permettant de connaître les voisins d'une cellule
-	 * fonctionne.
+	 * Teste la fonction permettant de connaître les voisins d'une cellule.
 	 */
 	@Test
 	public void testVoisinsAutour() {
-		ArrayList<Cellule> cellules = grille.getCellule().get(0);
+		modele = new Modele();
+		try {
+			grille = new Grille();
+		} catch (NbLignesColonnesException ligne_colonne_exception) {
+			System.err.println(ligne_colonne_exception);
+		}
+		// On prend les trois premières lignes de cellules
+		ArrayList<Cellule> premiere_ligne_cellule = grille.getCellule().get(0);
+		ArrayList<Cellule> deuxieme_ligne_cellule = grille.getCellule().get(1);
+		ArrayList<Cellule> troisieme_ligne_cellule = grille.getCellule().get(2);
+		// On prend le premier joueur
 		Joueur joueur = modele.getJoueurs().get(0);
-		joueur.ajouterCellule(cellules.get(0));
+		// On ajoute la première cellule aux cellules du joueur
+		joueur.ajouterCellule(premiere_ligne_cellule.get(0));
+		// On teste si la fonction ne considère la seule cellule du joueur comme
+		// un voisin
+		assertEquals(modele.voisinsAutour(premiere_ligne_cellule.get(0), joueur).size(), 0);
 
-		assertEquals(modele.voisinsAutour(cellules.get(0), joueur).size(), 0);
-
+		// On créé une ArrayList de voisins tests
 		ArrayList<Cellule> voisins = new ArrayList<Cellule>();
-		voisins.add(cellules.get(1));
-		joueur.ajouterCellule(cellules.get(1));
+		// On ajoute la deuxième cellule de la première ligne qui sera voisin de
+		// la première
+		joueur.ajouterCellule(premiere_ligne_cellule.get(1));
+		// On ajoute la même cellule aux voisins tests
+		voisins.add(premiere_ligne_cellule.get(1));
 
-		assertEquals(modele.voisinsAutour(cellules.get(0), joueur), voisins);
+		// On teste si la fonction considère la deuxième cellule comme un voisin
+		assertEquals(modele.voisinsAutour(premiere_ligne_cellule.get(0), joueur), voisins);
 
-		voisins.add(cellules.get(5));
-		joueur.ajouterCellule(cellules.get(5));
+		// On ajoute la sixième cellule de la première ligne qui ne sera pas
+		// voisin de la première
+		joueur.ajouterCellule(premiere_ligne_cellule.get(5));
+		// On ajoute la même cellule aux voisins tests
+		voisins.add(premiere_ligne_cellule.get(5));
 
-		assertEquals(modele.voisinsAutour(cellules.get(0), joueur).size(), 1);
+		// On teste si la fonction ne considère pas la sixième cellule comme un
+		// voisin
+		assertEquals(modele.voisinsAutour(premiere_ligne_cellule.get(0), joueur).size(), 1);
+
+		// On ajoute la cinquième cellule de la deuxième ligne aux cellules du
+		// joueur afin de tester toutes les positions de voisins possibles
+		joueur.ajouterCellule(deuxieme_ligne_cellule.get(4));
+		// On ajoute tous les voisins possibles de cette cellule
+		joueur.ajouterCellule(premiere_ligne_cellule.get(3));
+		joueur.ajouterCellule(premiere_ligne_cellule.get(4));
+		joueur.ajouterCellule(deuxieme_ligne_cellule.get(3));
+		joueur.ajouterCellule(deuxieme_ligne_cellule.get(5));
+		joueur.ajouterCellule(troisieme_ligne_cellule.get(4));
+		joueur.ajouterCellule(troisieme_ligne_cellule.get(5));
+		// On réinitialise les voisins tests
+		voisins = new ArrayList<Cellule>();
+		// On ajoute tous les voisins situés autour de dernière cellule ajoutée
+		// aux cellules du joueur
+		voisins.add(premiere_ligne_cellule.get(3));
+		voisins.add(premiere_ligne_cellule.get(4));
+		voisins.add(deuxieme_ligne_cellule.get(3));
+		voisins.add(deuxieme_ligne_cellule.get(5));
+		voisins.add(troisieme_ligne_cellule.get(4));
+		voisins.add(troisieme_ligne_cellule.get(5));
+
+		// On teste si la fonction considère tous les voisins de la cinquième
+		// cellule de la deuxième ligne du joueur
+		assertEquals(modele.voisinsAutour(deuxieme_ligne_cellule.get(4), joueur), voisins);
 	}
 
 	/**
@@ -74,6 +123,12 @@ public class TestModele {
 	 */
 	@Test
 	public void testReinitialiserCellules() {
+		modele = new Modele();
+		try {
+			grille = new Grille();
+		} catch (NbLignesColonnesException ligne_colonne_exception) {
+			System.err.println(ligne_colonne_exception);
+		}
 		modele.getGrille().getCellule().get(0).get(0).setZoneChangee(true);
 		modele.getGrille().getCellule().get(1).get(0).setZoneChangee(true);
 
@@ -90,6 +145,7 @@ public class TestModele {
 	 */
 	@Test
 	public void testPartieTerminee() {
+		modele = new Modele();
 		Joueur joueur = modele.getJoueurs().get(0);
 		joueur.setIdentite(0);
 		ArrayList<ArrayList<Cellule>> cellules = modele.getGrille().getCellule();

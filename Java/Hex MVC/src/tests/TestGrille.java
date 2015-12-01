@@ -8,13 +8,20 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import exception.NbLignesColonnesException;
 import hex.Grille;
 
 public class TestGrille {
 	
+	Grille grille;
+	
 	@Test
 	public void testTailleGrille() {
-		Grille grille = new Grille();
+		try {
+			grille = new Grille();
+		} catch (NbLignesColonnesException ligne_colonne_exception) {
+			System.err.println(ligne_colonne_exception);
+		}
 		
 		assertEquals(grille.getCellule().size(), Grille.nbLignes);
 	}

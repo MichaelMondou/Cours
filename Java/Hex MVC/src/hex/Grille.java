@@ -7,27 +7,39 @@ package hex;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import exception.NbLignesColonnesException;
+
 public class Grille {
 
-	public static final int nbLignes = 7;
-	public static final int nbColonnes = 7;
+	public static final int nbLignes = 5;
+	public static final int nbColonnes = 2;
 
 	private ArrayList<ArrayList<Cellule>> cellules = new ArrayList<ArrayList<Cellule>>();
 
-	public Grille() {
-		int abscisse = 0;
-		int ordonnée = 0;
+	@SuppressWarnings("unused")
+	public Grille() throws NbLignesColonnesException {
 
-		for (int i = 0; i < nbLignes; i++) {
-			ArrayList<Cellule> cellules_temporaires = new ArrayList<Cellule>();
-			for (int j = 0; j < nbColonnes; j++) {
-				abscisse = 170 + i * 49;
-				ordonnée = 250 + j * 55;
-				cellules_temporaires.add(new Cellule(abscisse, ordonnée, j, i, Color.GRAY));
+		if (nbLignes <= 0)
+			throw new NbLignesColonnesException(nbLignes);
+		else if (nbColonnes <= 0)
+			throw new NbLignesColonnesException(nbColonnes);
+		else
+
+		{
+			int abscisse = 0;
+			int ordonnée = 0;
+			for (int i = 0; i < nbLignes; i++) {
+				ArrayList<Cellule> cellules_temporaires = new ArrayList<Cellule>();
+				for (int j = 0; j < nbColonnes; j++) {
+					abscisse = 170 + i * 49;
+					ordonnée = 250 + j * 55;
+					cellules_temporaires.add(new Cellule(abscisse, ordonnée, j, i, Color.GRAY));
+				}
+				getCellule().add(cellules_temporaires);
 			}
-			getCellule().add(cellules_temporaires);
+			parametrerLaGrille();
 		}
-		parametrerLaGrille();
+
 	}
 
 	/**

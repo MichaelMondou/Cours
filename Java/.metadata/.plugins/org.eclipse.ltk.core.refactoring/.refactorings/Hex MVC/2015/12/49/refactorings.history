@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;cellules&apos; in &apos;tests.TestModele.testVoisinsAutour()&apos; to &apos;premiere_ligne_cellule&apos;&#x0D;&#x0A;- Original project: &apos;Hex MVC&apos;&#x0D;&#x0A;- Original element: &apos;tests.TestModele.testVoisinsAutour().cellules&apos;&#x0D;&#x0A;- Renamed element: &apos;cellules&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;cellules&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;tests{TestModele.java[TestModele~testVoisinsAutour@cellules!1160!1216!1179!1186!QArrayList\&lt;QCellule;&gt;;!0!false" name="premiere_ligne_cellule" references="true" stamp="1448971643721" version="1.0"/>
+</session>

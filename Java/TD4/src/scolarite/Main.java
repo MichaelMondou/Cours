@@ -3,7 +3,7 @@ package scolarite;
 public class Main {
 
 	Main(){
-    	/*try{
+    	try{
         Promotion as2012 = new Promotion("DUT Informatique - Annee Speciale", 2012, -1);
     	}
     	catch(NbEtudiantsException nbe){
@@ -12,7 +12,7 @@ public class Main {
     	finally{
     		System.out.println("finally");
     	}
-    	System.out.println("yo");*/
+    	System.out.println("yo");
     }
 
 	/**

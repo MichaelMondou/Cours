@@ -1,0 +1,149 @@
+/**
+ * MONDOU - TAMAS_LELOUP - S3B
+ */
+
+package tests;
+
+import static org.junit.Assert.*;
+
+import java.awt.Color;
+import java.awt.Point;
+import java.util.ArrayList;
+
+import org.junit.Test;
+
+import hex.Cellule;
+import hex.Evenement;
+import hex.Grille;
+import hex.Joueur;
+import hex.Modele;
+
+public class TestModele {
+
+	Modele modele = new Modele();
+	Grille grille = new Grille();
+
+	/**
+	 * Teste si on a bien deux joueurs.
+	 */
+	@Test
+	public void testConstructeurModele() {
+		assertEquals(modele.getJoueurs().size(), 2);
+	}
+
+	/**
+	 * Teste si la fonction permettant de savoir si un point est contenu dans
+	 * une cellule fonctionne.
+	 */
+	@Test
+	public void testEstDansLaCellule() {
+		Point point = new Point(50, 50);
+		Cellule cellule = new Cellule(50, 50, 50, 50, Color.BLACK);
+		cellule.creerPolygon();
+		assertTrue(modele.estDansLaCellule(point, cellule));
+		point.setLocation(new Point(50, 101));
+		assertFalse(modele.estDansLaCellule(point, cellule));
+	}
+
+	/**
+	 * Teste si la fonction permettant de connaître les voisins d'une cellule
+	 * fonctionne.
+	 */
+	@Test
+	public void testVoisinsAutour() {
+		// On prend les trois premières lignes de cellules
+		ArrayList<Cellule> premiere_ligne_cellule = grille.getCellule().get(0);
+		ArrayList<Cellule> deuxieme_ligne_cellule = grille.getCellule().get(1);
+		ArrayList<Cellule> troisieme_ligne_cellule = grille.getCellule().get(2);
+		// On prend le premier joueur
+		Joueur joueur = modele.getJoueurs().get(0);
+		// On ajoute la première cellule aux cellules du joueur
+		joueur.ajouterCellule(premiere_ligne_cellule.get(0));
+		// On teste si la fonction ne considère la seule cellule du joueur comme
+		// un voisin
+		assertEquals(modele.voisinsAutour(premiere_ligne_cellule.get(0), joueur).size(), 0);
+
+		// On créé une ArrayList de voisins tests
+		ArrayList<Cellule> voisins = new ArrayList<Cellule>();
+		// On ajoute la deuxième cellule de la première ligne qui sera voisin de
+		// la première
+		joueur.ajouterCellule(premiere_ligne_cellule.get(1));
+		// On ajoute la même cellule aux voisins tests
+		voisins.add(premiere_ligne_cellule.get(1));
+
+		// On teste si la fonction considère la deuxième cellule comme un voisin
+		assertEquals(modele.voisinsAutour(premiere_ligne_cellule.get(0), joueur), voisins);
+
+		// On ajoute la sixième cellule de la première ligne qui ne sera pas
+		// voisin de la première
+		joueur.ajouterCellule(premiere_ligne_cellule.get(5));
+		// On ajoute la même cellule aux voisins tests
+		voisins.add(premiere_ligne_cellule.get(5));
+
+		// On teste si la fonction ne considère pas la sixième cellule comme un
+		// voisin
+		assertEquals(modele.voisinsAutour(premiere_ligne_cellule.get(0), joueur).size(), 1);
+
+		// On ajoute la cinquième cellule de la deuxième ligne aux cellules du
+		// joueur afin de tester toutes les positions de voisins possibles
+		joueur.ajouterCellule(deuxieme_ligne_cellule.get(4));
+		// On ajoute tous les voisins possibles de cette cellule
+		joueur.ajouterCellule(premiere_ligne_cellule.get(3));
+		joueur.ajouterCellule(premiere_ligne_cellule.get(4));
+		joueur.ajouterCellule(deuxieme_ligne_cellule.get(3));
+		joueur.ajouterCellule(deuxieme_ligne_cellule.get(5));
+		joueur.ajouterCellule(deuxieme_ligne_cellule.get(4));
+		// On réinitialise les voisins tests
+		voisins = new ArrayList<Cellule>();
+		// On ajoute tous les voisins situés autour de dernière cellule ajoutée
+		// aux cellules du joueur
+		voisins.add(premiere_ligne_cellule.get(3));
+		voisins.add(premiere_ligne_cellule.get(4));
+		voisins.add(deuxieme_ligne_cellule.get(3));
+		voisins.add(deuxieme_ligne_cellule.get(5));
+		voisins.add(troisieme_ligne_cellule.get(4));
+		voisins.add(troisieme_ligne_cellule.get(5));
+
+		// On teste
+		assertEquals(modele.voisinsAutour(deuxieme_ligne_cellule.get(4), joueur), voisins);
+
+	}
+
+	/**
+	 * Teste si l'action de réinitialisation des cellules fonctionne
+	 */
+	@Test
+	public void testReinitialiserCellules() {
+		modele.getGrille().getCellule().get(0).get(0).setZoneChangee(true);
+		modele.getGrille().getCellule().get(1).get(0).setZoneChangee(true);
+
+		assertTrue(modele.getGrille().getCellule().get(0).get(0).zoneEstChangee());
+
+		modele.reinitialiserCellules();
+
+		assertFalse(modele.getGrille().getCellule().get(0).get(0).zoneEstChangee());
+		assertFalse(grille.getCellule().get(1).get(0).zoneEstChangee());
+	}
+
+	/**
+	 * Teste si l'action permettant de savoir si la partie est finie fonctionne.
+	 */
+	@Test
+	public void testPartieTerminee() {
+		Joueur joueur = modele.getJoueurs().get(0);
+		joueur.setIdentite(0);
+		ArrayList<ArrayList<Cellule>> cellules = modele.getGrille().getCellule();
+		Evenement gagnant = Evenement.JOUEUR_UN_GAGNANT;
+
+		for (int i = 0; i < Grille.nbLignes; i++) {
+			for (int j = 0; j < Grille.nbColonnes; j++) {
+				joueur.ajouterCellule(cellules.get(i).get(j));
+				modele.affecterZone(cellules.get(i).get(j), joueur);
+			}
+		}
+		modele.partieTerminee(joueur);
+
+		assertEquals(modele.qui_est_le_gagnant, gagnant);
+	}
+
+}

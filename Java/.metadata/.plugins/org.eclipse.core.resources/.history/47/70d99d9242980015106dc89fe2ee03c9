@@ -1,0 +1,17 @@
+package exception;
+
+@SuppressWarnings("serial")
+public class NbLignesColonnesException extends Exception{
+	private int ligne_erreur;
+	private int colonne_erreur;
+	
+	public NbLignesColonnesException(int ligne_erreur, int colonne_erreur){
+		this.ligne_erreur = ligne_erreur;
+		this.colonne_erreur = colonne_erreur;
+	}
+	
+	public String toString(){
+		return "Ligne ou colonne invalide \n"+"Ligne : "+ligne_erreur+"\n"+"Colonne : "+colonne_erreur;
+	}
+
+}

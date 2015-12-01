@@ -1,0 +1,27 @@
+/**
+ * MONDOU - TAMAS_LELOUP - S3B
+ */
+
+package tests;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+import exception.NbLignesColonnesException;
+import hex.Grille;
+
+public class TestGrille {
+	
+	@Test
+	public void testTailleGrille() {
+		try {
+			grille = new Grille();
+		} catch (NbLignesColonnesException ligne_colonne_exception) {
+			System.err.println(ligne_colonne_exception);
+		}
+		
+		assertEquals(grille.getCellule().size(), Grille.nbLignes);
+	}
+
+}

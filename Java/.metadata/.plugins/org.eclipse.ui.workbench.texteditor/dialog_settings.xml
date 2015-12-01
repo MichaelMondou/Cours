@@ -8,6 +8,7 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="pre"/>
 			<item value="ajouterCellule"/>
 			<item value="estDansLaGrille"/>
 			<item value="miseAJourDeLaZone"/>
@@ -15,7 +16,6 @@
 			<item value="==0"/>
 			<item value="affect"/>
 			<item value="getIdentity"/>
-			<item value="changeTourJoueur"/>
 		</list>
 		<list key="replacehistory">
 		</list>
