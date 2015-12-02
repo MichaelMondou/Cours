@@ -11,8 +11,8 @@ import exception.NbLignesColonnesException;
 
 public class Grille {
 
-	public static final int nbLignes = 5;
-	public static final int nbColonnes = 2;
+	public static final int nbLignes = 7;
+	public static final int nbColonnes = 7;
 
 	private ArrayList<ArrayList<Cellule>> cellules = new ArrayList<ArrayList<Cellule>>();
 
@@ -28,9 +28,9 @@ public class Grille {
 		{
 			int abscisse = 0;
 			int ordonnée = 0;
-			for (int i = 0; i < nbLignes; i++) {
+			for (int i = 0; i < nbColonnes; i++) {
 				ArrayList<Cellule> cellules_temporaires = new ArrayList<Cellule>();
-				for (int j = 0; j < nbColonnes; j++) {
+				for (int j = 0; j < nbLignes; j++) {
 					abscisse = 170 + i * 49;
 					ordonnée = 250 + j * 55;
 					cellules_temporaires.add(new Cellule(abscisse, ordonnée, j, i, Color.GRAY));
@@ -46,8 +46,8 @@ public class Grille {
 	 * Permet de mettre le plateau en décalé
 	 */
 	public void parametrerLaGrille() {
-		for (int i = 0; i < Grille.nbLignes; i++) {
-			for (int j = 0; j < Grille.nbColonnes; j++) {
+		for (int i = 0; i < Grille.nbColonnes; i++) {
+			for (int j = 0; j < Grille.nbLignes; j++) {
 				int ordonnee = this.getCellule().get(i).get(j).getY();
 				ordonnee -= 27 * i;
 				this.getCellule().get(i).get(j).setY(ordonnee);

@@ -61,6 +61,7 @@ public class Modele extends Observable {
 				if (estDansLaCellule(p, grille.getCellule().get(i).get(j))) {
 					joueurs.get(tour_du_joueur).ajouterCellule(grille.getCellule().get(i).get(j));
 					affecterZone(grille.getCellule().get(i).get(j), joueurs.get(tour_du_joueur));
+					System.out.println(grille.getCellule().get(i).get(j).getZone());
 					modifierCouleur(grille.getCellule().get(i).get(j));
 					partieTerminee(joueurs.get(tour_du_joueur));
 					changerTourDuJoueur();
@@ -179,41 +180,34 @@ public class Modele extends Observable {
 
 	public void partieTerminee(Joueur joueur) {
 
-		boolean joueur1_zone1 = false;
-		boolean joueur1_zone2 = false;
-
-		boolean joueur2_zone1 = false;
-		boolean joueur2_zone2 = false;
+		ArrayList<Integer> zones_joueur1 = new ArrayList<Integer>();
+		ArrayList<Integer> zones_joueur2 = new ArrayList<Integer>();
 
 		if (joueur.getIdentite() == 0) {
 			for (int i = 0; i < joueur.getCellulesDuJoueur().size(); i++) {
-				if (joueur.getCellulesDuJoueur().get(i).getColonne() == Grille.nbColonnes - 1
-						&& joueur.getCellulesDuJoueur().get(i).getZone() == 1) {
-					joueur1_zone1 = true;
-				}
-				if (joueur.getCellulesDuJoueur().get(i).getColonne() == 0
-						&& joueur.getCellulesDuJoueur().get(i).getZone() == 1) {
-					joueur1_zone2 = true;
-				}
+				if (joueur.getCellulesDuJoueur().get(i).getColonne() == 0)
+					zones_joueur1.add(joueur.getCellulesDuJoueur().get(i).getZone());
 			}
-			if (joueur1_zone1 && joueur1_zone2) {
-				qui_est_le_gagnant = Evenement.JOUEUR_UN_GAGNANT;
+			for (int j = 0; j < joueur.getCellulesDuJoueur().size(); j++) {
+				if (joueur.getCellulesDuJoueur().get(j).getColonne() == Grille.nbColonnes - 1) {
+					for (Integer z : zones_joueur1) {
+						if (z == joueur.getCellulesDuJoueur().get(j).getZone())
+							qui_est_le_gagnant = Evenement.JOUEUR_UN_GAGNANT;
+					}
+				}
 			}
 		} else {
 			for (int i = 0; i < joueur.getCellulesDuJoueur().size(); i++) {
-				if (joueur.getCellulesDuJoueur().get(i).getLigne() == Grille.nbLignes - 1
-						&& joueur.getCellulesDuJoueur().get(i).getZone() == 1) {
-					joueur2_zone1 = true;
-				}
+				if (joueur.getCellulesDuJoueur().get(i).getLigne() == 0)
+					zones_joueur2.add(joueur.getCellulesDuJoueur().get(i).getZone());
 			}
-			for (int i = 0; i < joueur.getCellulesDuJoueur().size(); i++) {
-				if (joueur.getCellulesDuJoueur().get(i).getLigne() == 0
-						&& joueur.getCellulesDuJoueur().get(i).getZone() == 1) {
-					joueur2_zone2 = true;
+			for (int j = 0; j < joueur.getCellulesDuJoueur().size(); j++) {
+				if (joueur.getCellulesDuJoueur().get(j).getLigne() == Grille.nbLignes - 1) {
+					for (Integer z : zones_joueur2) {
+						if (z == joueur.getCellulesDuJoueur().get(j).getZone())
+							qui_est_le_gagnant = Evenement.JOUEUR_DEUX_GAGNANT;
+					}
 				}
-			}
-			if (joueur2_zone1 && joueur2_zone2) {
-				qui_est_le_gagnant = Evenement.JOUEUR_DEUX_GAGNANT;
 			}
 		}
 	}
