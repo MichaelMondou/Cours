@@ -9,11 +9,29 @@ import java.util.ArrayList;
 
 public class Joueur {
 
+	/**
+	 * Nom du joueur
+	 */
 	private String nom;
+	/**
+	 * Identité du joueur permettant de savoir si c'est le joueur 1 ou le joueur 2
+	 */
 	private int identite;
+	/**
+	 * Couleur des cellules du joueur
+	 */
 	private Color couleur;
+	/**
+	 * Les cellules du joueur
+	 */
 	private ArrayList<Cellule> cellules_du_joueur;
+	/**
+	 * Zone de la cellule
+	 */
 	private int zone = 1;
+	/**
+	 * Cet attribut permet d'attribuer une identité au joueur (0 ou 1)
+	 */
 	private static int id = 0;
 
 	public Joueur(String nom, Color couleur) {
@@ -24,6 +42,9 @@ public class Joueur {
 		id++;
 	}
 
+	/**
+	 * Permet d'ajouter la cellule sélectionnée par le joueur dans les cellules du joueur
+	 */
 	public void ajouterCellule(Cellule cellule) {
 		this.cellules_du_joueur.add(cellule);
 	}

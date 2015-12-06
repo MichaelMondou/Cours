@@ -12,10 +12,22 @@ import general.Fenetre;
 
 public abstract class Vue implements Observer {
 
+	/**
+	 * Modèle du jeu calculant les données nécessaires au fonctionnement du jeu
+	 */
 	private Modele modele;
+	/**
+	 * Contrôleur du jeu permettant de gérer les événements du jeu
+	 */
 	private Controleur controleur;
 
+	/**
+	 * Fenêtre du jeu
+	 */
 	protected Fenetre fenetre;
+	/**
+	 * Panel du jeu contenant les éléments graphiques du jeu
+	 */
 	protected JPanel panel;
 
 	Vue(Fenetre fenetre, Modele modele, Controleur controleur) {

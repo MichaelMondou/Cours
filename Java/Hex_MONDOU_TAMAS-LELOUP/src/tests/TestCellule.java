@@ -14,6 +14,9 @@ import hex.Cellule;
 
 public class TestCellule {
 
+	/**
+	 * Teste si la fonction permettant de comparer les zones de deux cellules fonctionne
+	 */
 	@Test
 	public void testZoneCellules() {
 		Cellule c1 = new Cellule(50, 50, 50, 50, Color.BLACK);

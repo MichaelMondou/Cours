@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.8" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true">  
-  <class id="1" language="java" name="hex.Joueur" project="Hex MVC" file="/Hex MVC/src/hex/Joueur.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="hex.Joueur" project="Hex_MONDOU_TAMAS-LELOUP" 
+    file="/Hex_MONDOU_TAMAS-LELOUP/src/hex/Joueur.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="474" y="392"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -10,8 +10,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="hex.Modele" project="Hex MVC" file="/Hex MVC/src/hex/Modele.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="2" language="java" name="hex.Modele" project="Hex_MONDOU_TAMAS-LELOUP" 
+    file="/Hex_MONDOU_TAMAS-LELOUP/src/hex/Modele.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="834" y="388"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -19,8 +19,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="hex.Controleur" project="Hex MVC" file="/Hex MVC/src/hex/Controleur.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
+  <class id="3" language="java" name="hex.Controleur" project="Hex_MONDOU_TAMAS-LELOUP" 
+    file="/Hex_MONDOU_TAMAS-LELOUP/src/hex/Controleur.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1177" y="390"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -28,8 +28,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="4" language="java" name="hex.Evenement" project="Hex MVC" file="/Hex MVC/src/hex/Evenement.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
+  <enumeration id="4" language="java" name="hex.Evenement" project="Hex_MONDOU_TAMAS-LELOUP" 
+    file="/Hex_MONDOU_TAMAS-LELOUP/src/hex/Evenement.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="834" y="70"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -37,8 +37,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="5" language="java" name="hex.Vue" project="Hex MVC" file="/Hex MVC/src/hex/Vue.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="5" language="java" name="hex.Vue" project="Hex_MONDOU_TAMAS-LELOUP" 
+    file="/Hex_MONDOU_TAMAS-LELOUP/src/hex/Vue.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1454" y="392"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -46,8 +46,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="hex.Cellule" project="Hex MVC" file="/Hex MVC/src/hex/Cellule.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="6" language="java" name="hex.Cellule" project="Hex_MONDOU_TAMAS-LELOUP" 
+    file="/Hex_MONDOU_TAMAS-LELOUP/src/hex/Cellule.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="111" y="418"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -55,8 +55,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="hex.Principal" project="Hex MVC" file="/Hex MVC/src/hex/Principal.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
+  <class id="7" language="java" name="hex.Principal" project="Hex_MONDOU_TAMAS-LELOUP" 
+    file="/Hex_MONDOU_TAMAS-LELOUP/src/hex/Principal.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="74" y="38"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -64,8 +64,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="general.Clic" project="Hex MVC" file="/Hex MVC/src/general/Clic.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
+  <class id="8" language="java" name="general.Clic" project="Hex_MONDOU_TAMAS-LELOUP" 
+    file="/Hex_MONDOU_TAMAS-LELOUP/src/general/Clic.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1755" y="394"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -73,8 +73,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="general.Fenetre" project="Hex MVC" file="/Hex MVC/src/general/Fenetre.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
+  <class id="9" language="java" name="general.Fenetre" project="Hex_MONDOU_TAMAS-LELOUP" 
+    file="/Hex_MONDOU_TAMAS-LELOUP/src/general/Fenetre.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1454" y="111"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -82,8 +82,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="hex.VueHex" project="Hex MVC" file="/Hex MVC/src/hex/VueHex.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="10" language="java" name="hex.VueHex" project="Hex_MONDOU_TAMAS-LELOUP" 
+    file="/Hex_MONDOU_TAMAS-LELOUP/src/hex/VueHex.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1452" y="662"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -91,8 +91,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="hex.Grille" project="Hex MVC" file="/Hex MVC/src/hex/Grille.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="11" language="java" name="hex.Grille" project="Hex_MONDOU_TAMAS-LELOUP" 
+    file="/Hex_MONDOU_TAMAS-LELOUP/src/hex/Grille.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="475" y="701"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -100,131 +100,145 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="12">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="5"/>  
-  </generalization>  
-  <association id="13">    
+  <association id="12">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="14" name="modele"/>      
-      <multiplicity id="15" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="16">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="17" name="controleur">        
-        <position height="20" width="65" x="1275" y="367"/>      
+      <attribute id="13" name="modele">        
+        <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="18" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="19">    
-    <bendpoint x="1292" y="469"/>    
-    <bendpoint x="1082" y="469"/>    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="20" name="modele">        
-        <position height="20" width="50" x="1003" y="429"/>      
-      </attribute>      
-      <multiplicity id="21" minimum="0" maximum="1">        
-        <position height="18" width="27" x="990" y="452"/>      
+      <multiplicity id="14" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="22">    
-    <bendpoint x="282" y="417"/>    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="23" name="cellules_du_joueur">        
-        <position height="20" width="115" x="213" y="390"/>      
-      </attribute>      
-      <multiplicity id="24" minimum="0" maximum="2147483647">        
-        <position height="18" width="25" x="236" y="420"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="25">    
+  <association id="15">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="26" name="qui_est_le_gagnant">        
-        <position height="20" width="124" x="697" y="146"/>      
-      </attribute>      
-      <multiplicity id="27" minimum="0" maximum="1">        
-        <position height="18" width="27" x="848" y="149"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="28">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="29" name="vue"/>      
-      <multiplicity id="30" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="31">    
-    <bendpoint x="1756" y="662"/>    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="32" name="clic">        
-        <position height="20" width="32" x="1716" y="458"/>      
-      </attribute>      
-      <multiplicity id="33" minimum="0" maximum="1">        
-        <position height="18" width="27" x="1763" y="460"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="34">    
-    <bendpoint x="834" y="701"/>    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="35" name="grille">        
-        <position height="20" width="35" x="640" y="680"/>      
-      </attribute>      
-      <multiplicity id="36" minimum="0" maximum="1">        
-        <position height="18" width="27" x="645" y="702"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="37">    
-    <bendpoint x="1589" y="272"/>    
-    <bendpoint x="1324" y="273"/>    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="38" name="controleur">        
-        <position height="20" width="69" x="1192" y="306"/>      
-      </attribute>      
-      <multiplicity id="39" minimum="0" maximum="1">        
-        <position height="18" width="27" x="1275" y="315"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="40">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="41" name="joueurs">        
+      <attribute id="16" name="joueurs">        
         <position height="20" width="50" x="629" y="370"/>      
       </attribute>      
-      <multiplicity id="42" minimum="0" maximum="2147483647">        
+      <multiplicity id="17" minimum="0" maximum="2147483647">        
         <position height="18" width="25" x="632" y="398"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <generalization id="18">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <association id="19">    
+    <bendpoint x="1589" y="272"/>    
+    <bendpoint x="1324" y="273"/>    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="20" name="controleur">        
+        <position height="20" width="69" x="1192" y="306"/>      
+      </attribute>      
+      <multiplicity id="21" minimum="0" maximum="1">        
+        <position height="18" width="27" x="1275" y="315"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="22">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="23" name="controleur">        
+        <position height="20" width="65" x="1275" y="367"/>      
+      </attribute>      
+      <multiplicity id="24" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="25">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="26" name="vue">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="27" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="28">    
+    <bendpoint x="834" y="701"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="29" name="grille">        
+        <position height="20" width="35" x="640" y="680"/>      
+      </attribute>      
+      <multiplicity id="30" minimum="0" maximum="1">        
+        <position height="18" width="27" x="645" y="702"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="31">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="32" name="qui_est_le_gagnant">        
+        <position height="20" width="124" x="697" y="146"/>      
+      </attribute>      
+      <multiplicity id="33" minimum="0" maximum="1">        
+        <position height="18" width="27" x="848" y="149"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="34">    
+    <bendpoint x="1756" y="662"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="35" name="clic">        
+        <position height="20" width="32" x="1716" y="458"/>      
+      </attribute>      
+      <multiplicity id="36" minimum="0" maximum="1">        
+        <position height="18" width="27" x="1763" y="460"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="37">    
+    <bendpoint x="282" y="417"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="38" name="cellules_du_joueur">        
+        <position height="20" width="115" x="213" y="390"/>      
+      </attribute>      
+      <multiplicity id="39" minimum="0" maximum="2147483647">        
+        <position height="18" width="25" x="236" y="420"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="40">    
+    <bendpoint x="1292" y="469"/>    
+    <bendpoint x="1082" y="469"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="41" name="modele">        
+        <position height="20" width="50" x="1003" y="429"/>      
+      </attribute>      
+      <multiplicity id="42" minimum="0" maximum="1">        
+        <position height="18" width="27" x="990" y="452"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <association id="43">    
     <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="44" name="fenetre"/>      
-      <multiplicity id="45" minimum="0" maximum="1"/>    
+      <attribute id="44" name="fenetre">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="45" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  

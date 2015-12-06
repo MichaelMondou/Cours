@@ -65,19 +65,24 @@ public class Cellule extends Polygon implements Comparable {
 	}
 
 	/**
-	 * Permet de créer un polygon en créant 6 points
+	 * Permet de créer un polygone en créant 6 points
 	 */
-	public void creerPolygon() {
+	public void creerPolygone() {
 		for (int i = 0; i <= 6; i++) {
 			this.addPoint((int) Math.round(this.x + rad * Math.cos(arc * i)),
 					(int) Math.round(this.y + Cellule.rad * Math.sin(arc * i)));
 		}
-	}	
+	}
 
+	/**
+	 * Permet de comparer la zone de la cellule passée en paramètre avec celle
+	 * de la cellule appelante. Cette fonction est nécessaire pour l'utilisation
+	 * du tri "sort" de Java.
+	 */
 	@Override
 	public int compareTo(Object o) {
 		int resultat = 0;
-		Cellule autre_cellule=(Cellule)o;
+		Cellule autre_cellule = (Cellule) o;
 		if (this.zone > autre_cellule.zone)
 			resultat = 1;
 		if (this.zone < autre_cellule.zone)
@@ -142,7 +147,7 @@ public class Cellule extends Polygon implements Comparable {
 	public void setZone(int zone) {
 		this.zone = zone;
 	}
-	
+
 	public boolean zoneEstChangee() {
 		return zone_changee;
 	}
@@ -150,5 +155,5 @@ public class Cellule extends Polygon implements Comparable {
 	public void setZoneChangee(boolean zone_changee) {
 		this.zone_changee = zone_changee;
 	}
-	
+
 }

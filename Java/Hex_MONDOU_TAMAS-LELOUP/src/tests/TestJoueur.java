@@ -15,6 +15,9 @@ import hex.Joueur;
 
 public class TestJoueur {
 	
+	/**
+	 * Permet de savoir si l'action d'ajouter une cellule fonctionne
+	 */
 	@Test
 	public void testAjoutDeCellule(){
 		Joueur joueur = new Joueur("Test", Color.BLACK);

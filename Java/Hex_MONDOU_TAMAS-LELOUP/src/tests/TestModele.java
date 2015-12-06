@@ -42,7 +42,7 @@ public class TestModele {
 		modele = new Modele();
 		Point point = new Point(50, 50);
 		Cellule cellule = new Cellule(50, 50, 50, 50, Color.BLACK);
-		cellule.creerPolygon();
+		cellule.creerPolygone();
 		assertTrue(modele.estDansLaCellule(point, cellule));
 		point.setLocation(new Point(50, 101));
 		assertFalse(modele.estDansLaCellule(point, cellule));
@@ -141,7 +141,7 @@ public class TestModele {
 	}
 
 	/**
-	 * Teste si l'action permettant de savoir si la partie est finie fonctionne.
+	 * Teste l'action permettant de savoir si la partie est finie.
 	 */
 	@Test
 	public void testPartieTerminee() {
